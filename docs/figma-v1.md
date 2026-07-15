@@ -4,7 +4,8 @@ The editable [Joyful Brutalist Minimalism Figma file](https://www.figma.com/desi
 translates the repository-owned constitution and portable tokens into visual
 representations. It does not create a second portable-value source.
 
-This build fulfills [issue #5](https://github.com/chekos/joyful-brutalist-minimalism/issues/5).
+This build fulfills [issue #5](https://github.com/chekos/joyful-brutalist-minimalism/issues/5)
+and is reviewed in [pull request #8](https://github.com/chekos/joyful-brutalist-minimalism/pull/8).
 Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 [`tokens/jbm.tokens.json`](../tokens/jbm.tokens.json), and the generated
 [`tokens/jbm.figma.json`](../tokens/jbm.figma.json). The machine-readable
