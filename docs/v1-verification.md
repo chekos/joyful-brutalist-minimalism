@@ -48,7 +48,10 @@ The durable machine inventory and full-page images live in
 [`docs/figma/v1`](figma/v1). The document root also holds the verified
 `jbm_dsb/checkpoint_foundations`, `checkpoint_components`, and
 `final_validation` records because the connector runtime cannot create named
-Figma version-history entries.
+Figma version-history entries. The final audit also records
+`jbm_dsb/v1_release_verification` on document node `0:0`; its status is
+`verified_pending_publication_approval` and it links issue #7 and pull request
+#10 without changing any visual node.
 
 ## Browser verification
 
