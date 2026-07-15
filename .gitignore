@@ -1,6 +1,6 @@
 .DS_Store
 .astro/
-.worktrees/
+.worktrees
 dist/
 node_modules/
 playwright-report/

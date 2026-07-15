@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "runId": "jbm-figma-v1-20260714",
+  "status": "passed",
+  "file": {
+    "key": "T4jEmsyQBURKMr6s3zYfFJ",
+    "url": "https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ"
+  },
+  "authority": {
+    "constitution": "DESIGN.md",
+    "portableTokens": "tokens/jbm.tokens.json",
+    "generatedMapping": "tokens/jbm.figma.json"
+  },
+  "pages": [
+    "00 Cover",
+    "01 Principles",
+    "02 Foundations",
+    "03 Components",
+    "04 Patterns",
+    "05 Studies"
+  ],
+  "variables": {
+    "total": 40,
+    "collections": {
+      "JBM Primitives": 28,
+      "JBM Semantics": 12
+    },
+    "semanticAliases": 12,
+    "canonicalWebSyntax": 40,
+    "deliberateScopes": 40
+  },
+  "styles": {
+    "text": [
+      "Editorial/Body",
+      "Editorial/Display",
+      "Instrument/Label",
+      "System/Utility"
+    ],
+    "effects": [
+      "Paper/Crisp",
+      "Paper/Inset"
+    ]
+  },
+  "components": {
+    "sets": 7,
+    "variants": 23,
+    "items": [
+      {
+        "name": "Ground",
+        "nodeId": "22:14",
+        "variants": 3,
+        "axes": [
+          "Surface"
+        ]
+      },
+      {
+        "name": "Kicker",
+        "nodeId": "24:11",
+        "variants": 3,
+        "axes": [
+          "Tone"
+        ]
+      },
+      {
+        "name": "Rule",
+        "nodeId": "26:14",
+        "variants": 4,
+        "axes": [
+          "Emphasis",
+          "Weight"
+        ]
+      },
+      {
+        "name": "Index Row",
+        "nodeId": "28:14",
+        "variants": 2,
+        "axes": [
+          "State"
+        ]
+      },
+      {
+        "name": "Plate",
+        "nodeId": "31:26",
+        "variants": 6,
+        "axes": [
+          "Surface",
+          "Pressure"
+        ]
+      },
+      {
+        "name": "Action Link",
+        "nodeId": "33:11",
+        "variants": 3,
+        "axes": [
+          "State"
+        ]
+      },
+      {
+        "name": "Figure Caption",
+        "nodeId": "35:16",
+        "variants": 2,
+        "axes": [
+          "Layout"
+        ]
+      }
+    ]
+  },
+  "studies": {
+    "technicalFigure": {
+      "nodeId": "39:7",
+      "authorities": 4,
+      "captionComponentInstance": true,
+      "source": "DESIGN.md#authority-and-conflict-resolution"
+    },
+    "readingInstrument": {
+      "nodeId": "41:7",
+      "status": "study",
+      "principles": 8,
+      "counts": {
+        "structure": 2,
+        "experience": 2,
+        "translation": 3,
+        "access": 1
+      },
+      "source": "DESIGN.md#principles"
+    }
+  },
+  "checkpoints": {
+    "foundations": "jbm_dsb/checkpoint_foundations",
+    "components": "jbm_dsb/checkpoint_components",
+    "finalValidation": "jbm_dsb/final_validation",
+    "namedVersionHistory": "unsupported-by-remote-runtime"
+  },
+  "screenshots": [
+    "00-cover.png",
+    "01-principles.png",
+    "02-foundations.png",
+    "03-components.png",
+    "04-patterns.png",
+    "05-studies.png",
+    "technical-figure.png",
+    "reading-instrument.png"
+  ]
+}
