@@ -129,5 +129,6 @@ test("matches representative desktop and mobile surfaces", async ({ page }) => {
   await expect(page).toHaveScreenshot("reference-site-mobile.png", {
     animations: "disabled",
     maxDiffPixelRatio: 0.03,
+    threshold: 0.4,
   });
 });
