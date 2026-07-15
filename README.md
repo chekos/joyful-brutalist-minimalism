@@ -22,11 +22,12 @@ ledger, accessibility evidence, and publication boundary.
 | Exact CSS and Figma mapping | [generated token reference](docs/token-reference.md) |
 | Browser custom properties | [generated CSS](src/styles/tokens.css) |
 | Visual exploration and committed visual decisions | [Joyful Brutalist Minimalism in Figma](https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ), with the [v1 inspection receipt](docs/figma-v1.md) |
-| Browser behavior | `src/pages/index.astro` and its specimens |
+| Browser behavior | The [published v1 reference site](https://jbm.bns.studio), `src/pages/index.astro`, and its specimens |
 | Scope and durable work history | [epic #1](https://github.com/chekos/joyful-brutalist-minimalism/issues/1) |
 
-The [Astro reference site](src/pages/index.astro) is the executable browser
-specimen established by the epic's browser phase. Its
+The [published Astro reference site](https://jbm.bns.studio) is the executable
+browser specimen established by the epic's browser phase. Its source lives in
+[`src/pages/index.astro`](src/pages/index.astro), and its
 [v1 inspection receipt](docs/reference-site-v1.md) records the content-derived
 instrument, cross-medium translation, accessibility evidence, and screenshots.
 Consumer sites remain independent interpretations.
