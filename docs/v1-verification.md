@@ -12,7 +12,7 @@ records the adoption and publication boundaries required by
 | Constitution and portable foundations | [Issue #3](https://github.com/chekos/joyful-brutalist-minimalism/issues/3), [pull request #4](https://github.com/chekos/joyful-brutalist-minimalism/pull/4), [`DESIGN.md`](../DESIGN.md), and the [token reference](token-reference.md) |
 | Figma foundations, components, and studies | [Issue #5](https://github.com/chekos/joyful-brutalist-minimalism/issues/5), [pull request #8](https://github.com/chekos/joyful-brutalist-minimalism/pull/8), the [editable Figma source](https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ), and its [inspection receipt](figma-v1.md) |
 | Executable browser specimen | [Issue #6](https://github.com/chekos/joyful-brutalist-minimalism/issues/6), [pull request #9](https://github.com/chekos/joyful-brutalist-minimalism/pull/9), and the [reference-site receipt](reference-site-v1.md) |
-| Adoption and final verification | [Issue #7](https://github.com/chekos/joyful-brutalist-minimalism/issues/7) and the [adoption guide](../ADOPTION.md) |
+| Adoption and final verification | [Issue #7](https://github.com/chekos/joyful-brutalist-minimalism/issues/7), [pull request #10](https://github.com/chekos/joyful-brutalist-minimalism/pull/10), and the [adoption guide](../ADOPTION.md) |
 
 ## Repository verification
 
