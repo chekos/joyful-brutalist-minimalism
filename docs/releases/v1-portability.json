@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "name": "JBM v1 portability checkpoint",
+  "sourceCommit": "c04e407a46f18366dfd301cb7849a1940c046426",
+  "sourceCommitRole": "Founding v1 design content before the portability layer",
+  "recordedOn": "2026-07-15",
+  "toolchain": {
+    "node": "22.23.1",
+    "npm": "10.9.8",
+    "uv": "0.9.4",
+    "checkJsonschema": "0.37.4",
+    "playwright": "1.61.1"
+  },
+  "externalResources": [
+    {
+      "role": "repository",
+      "url": "https://github.com/chekos/joyful-brutalist-minimalism"
+    },
+    {
+      "role": "editable visual source",
+      "url": "https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ"
+    },
+    {
+      "role": "published browser specimen",
+      "url": "https://jbm.bns.studio"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "tokens/jbm.tokens.json",
+      "role": "canonical portable values",
+      "sha256": "9f516e65a9d2c753e8c9837c625aceacc6bb6de93fa475607428d29af33e1d1a"
+    },
+    {
+      "path": "tokens/jbm.figma.json",
+      "role": "generated Figma mapping",
+      "sha256": "41c08fa4a784d85b91b936400b26c007ee245f996fae29de7a63d54e73a1265a"
+    },
+    {
+      "path": "docs/figma/v1/inspection.json",
+      "role": "machine-readable Figma inspection",
+      "sha256": "66e9307d35fcb6a6f9caed7f7a82534991d36fb28b88ae1a9d6d66843a3bc14e"
+    },
+    {
+      "path": "docs/v1-verification.md",
+      "role": "cross-medium verification receipt",
+      "sha256": "015034ae3bbed5ebebe5e9d071f3f983e378514454c76d62b066b057a6a1db53"
+    }
+  ],
+  "verification": {
+    "bootstrap": "npm run bootstrap",
+    "complete": "npm run verify",
+    "recoveryManifest": "docs/figma/v1/recovery-manifest.json"
+  },
+  "release": {
+    "tag": "v1.0.0",
+    "created": false,
+    "procedure": "PORTABILITY.md#optional-release-checkpoint",
+    "note": "Creating a tag, release, or Figma release asset requires separate owner approval."
+  }
+}

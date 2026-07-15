@@ -1,14 +1,17 @@
 {
   "name": "joyful-brutalist-minimalism",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Sergio's authored design language: constitution, portable tokens, Figma mappings, and coded specimens.",
   "type": "module",
+  "packageManager": "npm@10.9.8",
   "scripts": {
+    "bootstrap": "node scripts/bootstrap.mjs",
     "build": "npm run generate:check && astro check && astro build",
     "capture:browser-evidence": "npm run build && node scripts/capture-browser-evidence.mjs",
-    "check": "npm run format:check && npm run validate:tokens && npm run generate:check && npm run typecheck && npm test",
+    "check": "npm run format:check && npm run validate:tokens && npm run validate:portability && npm run generate:check && npm run typecheck && npm test",
     "dev": "astro dev",
+    "doctor": "node scripts/doctor.mjs",
     "format:check": "node scripts/check-format.mjs",
     "generate": "node scripts/generate-tokens.mjs",
     "generate:check": "node scripts/generate-tokens.mjs --check",
@@ -18,12 +21,13 @@
     "test:browser": "playwright test",
     "test:browser:update": "playwright test --update-snapshots",
     "typecheck": "astro check",
-    "validate:spec": "uvx check-jsonschema --schemafile https://www.designtokens.org/schemas/2025.10/format.json tokens/jbm.tokens.json",
+    "validate:portability": "node scripts/validate-portability.mjs",
+    "validate:spec": "uvx --from check-jsonschema==0.37.4 check-jsonschema --schemafile https://www.designtokens.org/schemas/2025.10/format.json tokens/jbm.tokens.json",
     "validate:tokens": "node scripts/validate-tokens.mjs",
-    "verify": "npm run check && npm run build && npm run test:browser"
+    "verify": "npm run doctor && npm run check && npm run build && npm run test:browser"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=22.23.1 <23"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.2.7",

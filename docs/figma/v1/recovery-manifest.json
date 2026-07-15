@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "figmaFile": {
+    "key": "T4jEmsyQBURKMr6s3zYfFJ",
+    "url": "https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ"
+  },
+  "authority": {
+    "constitution": "DESIGN.md",
+    "portableTokens": "tokens/jbm.tokens.json",
+    "generatedMapping": "tokens/jbm.figma.json"
+  },
+  "inspection": "docs/figma/v1/inspection.json",
+  "inventory": {
+    "pages": [
+      "00 Cover",
+      "01 Principles",
+      "02 Foundations",
+      "03 Components",
+      "04 Patterns",
+      "05 Studies"
+    ],
+    "variables": {
+      "total": 40,
+      "collections": {
+        "JBM Primitives": 28,
+        "JBM Semantics": 12
+      },
+      "semanticAliases": 12,
+      "canonicalWebSyntax": 40,
+      "deliberateScopes": 40
+    },
+    "styles": {
+      "text": [
+        "Editorial/Body",
+        "Editorial/Display",
+        "Instrument/Label",
+        "System/Utility"
+      ],
+      "effects": [
+        "Paper/Crisp",
+        "Paper/Inset"
+      ]
+    },
+    "componentSetTotals": {
+      "sets": 7,
+      "variants": 23
+    },
+    "componentSets": [
+      {
+        "name": "Ground",
+        "nodeId": "22:14",
+        "variants": 3,
+        "axes": [
+          "Surface"
+        ],
+        "properties": [
+          "Kicker",
+          "Content",
+          "Show Meta"
+        ]
+      },
+      {
+        "name": "Kicker",
+        "nodeId": "24:11",
+        "variants": 3,
+        "axes": [
+          "Tone"
+        ],
+        "properties": [
+          "Text",
+          "Show Marker"
+        ]
+      },
+      {
+        "name": "Rule",
+        "nodeId": "26:14",
+        "variants": 4,
+        "axes": [
+          "Emphasis",
+          "Weight"
+        ],
+        "properties": [
+          "Label",
+          "Show Label"
+        ]
+      },
+      {
+        "name": "Index Row",
+        "nodeId": "28:14",
+        "variants": 2,
+        "axes": [
+          "State"
+        ],
+        "properties": [
+          "Index",
+          "Label",
+          "Evidence",
+          "Show Evidence"
+        ]
+      },
+      {
+        "name": "Plate",
+        "nodeId": "31:26",
+        "variants": 6,
+        "axes": [
+          "Surface",
+          "Pressure"
+        ],
+        "properties": [
+          "Title",
+          "Body",
+          "Meta",
+          "Show Meta"
+        ]
+      },
+      {
+        "name": "Action Link",
+        "nodeId": "33:11",
+        "variants": 3,
+        "axes": [
+          "State"
+        ],
+        "properties": [
+          "Label",
+          "Show Arrow"
+        ]
+      },
+      {
+        "name": "Figure Caption",
+        "nodeId": "35:16",
+        "variants": 2,
+        "axes": [
+          "Layout"
+        ],
+        "properties": [
+          "Index",
+          "Caption",
+          "Provenance",
+          "Show Provenance"
+        ]
+      }
+    ],
+    "studies": {
+      "technicalFigure": {
+        "nodeId": "39:7",
+        "authorities": 4,
+        "captionComponentInstance": true,
+        "source": "DESIGN.md#authority-and-conflict-resolution"
+      },
+      "readingInstrument": {
+        "nodeId": "41:7",
+        "status": "study",
+        "principles": 8,
+        "counts": {
+          "structure": 2,
+          "experience": 2,
+          "translation": 3,
+          "access": 1
+        },
+        "source": "DESIGN.md#principles"
+      }
+    }
+  },
+  "snapshot": {
+    "format": ".fig",
+    "method": "Figma menu: File > Save local copy",
+    "localPath": "backups/figma/jbm-v1.fig",
+    "releaseAssetName": "joyful-brutalist-minimalism-v1.fig",
+    "checksumRecord": "docs/figma/v1/recovery-manifest.json#/snapshot/current",
+    "current": null,
+    "limitations": [
+      "A local copy excludes comments and version history.",
+      "An imported copy is independent from the original file.",
+      "Imported components are new components and do not retain links to the original library."
+    ]
+  },
+  "reconstruction": {
+    "minimum": "Use the committed inventory, source mappings, inspection receipt, and screenshots to audit a manual import or rebuild.",
+    "deferred": "A deterministic Figma builder is intentionally outside the v1 portability foundation."
+  }
+}

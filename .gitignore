@@ -1,6 +1,7 @@
 .DS_Store
 .astro/
 .worktrees
+backups/
 dist/
 node_modules/
 output/playwright/
