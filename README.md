@@ -16,7 +16,7 @@ tokens, Figma, and browser behavior.
 | Portable named values | [`tokens/jbm.tokens.json`](tokens/jbm.tokens.json) |
 | Exact CSS and Figma mapping | [generated token reference](docs/token-reference.md) |
 | Browser custom properties | [generated CSS](src/styles/tokens.css) |
-| Visual exploration and committed visual decisions | [Joyful Brutalist Minimalism in Figma](https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ) |
+| Visual exploration and committed visual decisions | [Joyful Brutalist Minimalism in Figma](https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ), with the [v1 inspection receipt](docs/figma-v1.md) |
 | Browser behavior | `src/pages/index.astro` and its specimens |
 | Scope and durable work history | [epic #1](https://github.com/chekos/joyful-brutalist-minimalism/issues/1) |
 
