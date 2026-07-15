@@ -19,6 +19,19 @@ the conflict concerns meaning, visual representation, browser behavior, or a
 portable value; resolve it in the corresponding source of truth and document
 the translation.
 
+## Durable context promotion
+
+- Treat chats, host memory, private skills, and connector sessions as ephemeral.
+  A clean clone must not need them to recover an accepted decision.
+- Promote accepted durable judgment into the authority that owns it. Add a
+  numbered record in `docs/decisions/` when the choice changes meaning,
+  ownership boundaries, portability, or the cross-medium workflow.
+- Keep proposals, alternatives, and active sequencing in GitHub issues. Do not
+  turn unfinished conversation into evergreen repository law.
+- Follow `PORTABILITY.md` when a task depends on a particular machine, account,
+  external file, or tool capability. State an honest fallback when access is
+  unavailable.
+
 ## Design boundaries
 
 - Treat Joyful Brutalist Minimalism as an authored language, not a generic UI
@@ -47,4 +60,3 @@ the translation.
   request.
 - Do not edit consumer repositories while researching them unless the user
   explicitly expands the task to those repositories.
-

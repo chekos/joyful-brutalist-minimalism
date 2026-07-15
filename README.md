@@ -11,7 +11,8 @@ tokens, Figma, and browser behavior.
 Use the [adoption guide](ADOPTION.md) to translate the smallest relevant part
 into an independent consumer, and consult the
 [v1 verification receipt](docs/v1-verification.md) for the cross-medium release
-ledger, accessibility evidence, and publication boundary.
+ledger, accessibility evidence, and publication boundary. For a new machine or
+account, start with the [portability runbook](PORTABILITY.md).
 
 ## Sources of truth
 
@@ -35,7 +36,7 @@ Consumer sites remain independent interpretations.
 Run the specimen locally:
 
 ```sh
-npm install
+npm run bootstrap
 npm run dev
 ```
 
@@ -57,7 +58,7 @@ contract alongside the tokens.
 Generate the derived views:
 
 ```sh
-npm install
+npm ci
 npm run generate
 ```
 

@@ -10,6 +10,9 @@ Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 [`tokens/jbm.tokens.json`](../tokens/jbm.tokens.json), and the generated
 [`tokens/jbm.figma.json`](../tokens/jbm.figma.json). The machine-readable
 inspection result is stored in [`docs/figma/v1/inspection.json`](figma/v1/inspection.json).
+The repository-owned
+[`recovery-manifest.json`](figma/v1/recovery-manifest.json) records the minimum
+inventory needed to audit an imported copy or a manual rebuild.
 
 ## Inspection result
 
@@ -57,6 +60,16 @@ namespace:
 This is an intentional connector limitation, not a hidden substitute for a
 Figma version. If a named manual checkpoint is needed, create it from the file
 history using the labels `JBM v1 — foundations` and `JBM v1 — components`.
+
+## Recovery boundary
+
+Use Figma's **File → Save local copy** command for a manual `.fig` snapshot and
+follow [`PORTABILITY.md`](../PORTABILITY.md#figma) for storage and checksums.
+A local copy does not include comments or version history, and importing it
+creates an independent file. The recovery manifest therefore records pages,
+variables, styles, components, variants, properties, studies, and their
+repository-owned mappings. Full deterministic reconstruction is intentionally
+deferred.
 
 ## Source-of-truth workflow
 
