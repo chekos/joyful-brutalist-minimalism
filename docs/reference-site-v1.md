@@ -5,8 +5,9 @@ repository-owned constitution, canonical tokens, and committed
 [Figma library](https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ) as one
 coherent page. It fulfills
 [issue #6](https://github.com/chekos/joyful-brutalist-minimalism/issues/6)
-without creating a client component framework or changing a consumer
-repository.
+and is reviewed in
+[pull request #9](https://github.com/chekos/joyful-brutalist-minimalism/pull/9)
+without creating a client component framework or changing a consumer repository.
 
 Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 [`tokens/jbm.tokens.json`](../tokens/jbm.tokens.json), the generated
