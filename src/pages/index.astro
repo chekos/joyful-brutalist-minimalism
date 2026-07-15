@@ -1,0 +1,537 @@
+---
+import "@fontsource/source-serif-4/400.css";
+import "@fontsource/source-serif-4/600.css";
+import "@fontsource/ibm-plex-mono/400.css";
+import "@fontsource/ibm-plex-mono/500.css";
+import "../styles/tokens.css";
+import "../styles/site.css";
+
+const principles = [
+  {
+    number: "01",
+    title: "Make structure honest",
+    lens: "Structure",
+    code: "S",
+    summary:
+      "Every line, edge, and interval must clarify hierarchy, expose an action, or make behavior easier to perceive.",
+  },
+  {
+    number: "02",
+    title: "Make the work inspectable",
+    lens: "Structure",
+    code: "S",
+    summary:
+      "Indexes, measures, diagrams, and status come from real content or state—not an atmosphere of precision.",
+  },
+  {
+    number: "03",
+    title: "Treat joy as function",
+    lens: "Experience",
+    code: "E",
+    summary:
+      "Warmth and surprise count when they improve clarity, attention, memory, or emotional ease.",
+  },
+  {
+    number: "04",
+    title: "Pair warmth with precision",
+    lens: "Translation",
+    code: "T",
+    summary:
+      "Editorial reading and technical notation should feel like two voices working on the same artifact.",
+  },
+  {
+    number: "05",
+    title: "Use one delight at a time",
+    lens: "Experience",
+    code: "E",
+    summary:
+      "Choose one coordinated playful system and give it a useful job instead of stacking unrelated effects.",
+  },
+  {
+    number: "06",
+    title: "Animate explanation",
+    lens: "Translation",
+    code: "T",
+    summary:
+      "Motion may reveal relationship, progress, hierarchy, or cause and effect. It never gates the only copy of meaning.",
+  },
+  {
+    number: "07",
+    title: "Design each medium intentionally",
+    lens: "Translation",
+    code: "T",
+    summary:
+      "Figma and the browser agree semantically while geometry, interaction, and responsiveness honor their own medium.",
+  },
+  {
+    number: "08",
+    title: "Preserve an escape hatch",
+    lens: "Access",
+    code: "A",
+    summary:
+      "Keyboard, mobile, zoom, no JavaScript, low power, and reduced motion are designed states—not degraded exceptions.",
+  },
+] as const;
+
+const lenses = ["Structure", "Experience", "Translation", "Access"] as const;
+const lensCounts = lenses.map((lens) => ({
+  lens,
+  count: principles.filter((principle) => principle.lens === lens).length,
+}));
+
+const colors = [
+  { name: "Page", token: "surface.page", className: "page" },
+  { name: "Paper", token: "surface.paper", className: "paper" },
+  { name: "Quiet", token: "surface.quiet", className: "quiet" },
+  { name: "Ink", token: "text.primary", className: "ink" },
+  { name: "Action", token: "action.default", className: "terra" },
+  { name: "Signal", token: "signal.sage", className: "sage" },
+  { name: "Figure", token: "signal.sky", className: "sky" },
+] as const;
+
+const spaces = [0, 4, 8, 12, 16, 24, 32, 48, 64] as const;
+
+const authorities = [
+  {
+    className: "meaning",
+    owner: "Meaning",
+    artifact: "DESIGN.md",
+    detail: "principles · vocabulary · reasons",
+  },
+  {
+    className: "values",
+    owner: "Portable values",
+    artifact: "jbm.tokens.json",
+    detail: "reusable values · provenance",
+  },
+  {
+    className: "behavior",
+    owner: "Browser behavior",
+    artifact: "Reference site",
+    detail: "responsive · interaction · motion",
+  },
+  {
+    className: "representation",
+    owner: "Visual representation",
+    artifact: "Figma",
+    detail: "geometry · styles · studies",
+  },
+] as const;
+
+const githubRoot = "https://github.com/chekos/joyful-brutalist-minimalism";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Joyful Brutalist Minimalism is Sergio's authored design language: editorial warmth, technical precision, and useful delight."
+    />
+    <meta name="theme-color" content="#fffef9" />
+    <title>Joyful Brutalist Minimalism</title>
+    <script is:inline>
+      document.documentElement.classList.add("has-js");
+    </script>
+  </head>
+  <body data-jbm-form="ground">
+    <a class="skip-link" href="#main-content">Skip to the language</a>
+
+    <header class="site-mast">
+      <a class="wordmark" href="#top" aria-label="Joyful Brutalist Minimalism, top">
+        <span>JBM</span>
+        <span>v1 / browser proof</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#principles">Principles</a>
+        <a href="#foundations">Foundations</a>
+        <a href="#figure">Figure</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <div class="page-shell" id="top">
+      <aside class="reading-instrument" aria-labelledby="instrument-heading">
+        <div class="instrument-head">
+          <p class="kicker" data-jbm-form="kicker">Reading instrument</p>
+          <h2 id="instrument-heading">Eight principles, measured honestly.</h2>
+          <p class="instrument-summary">
+            The marks below are the page's actual principles, classified once by
+            their primary decision lens.
+          </p>
+        </div>
+
+        <div class="instrument-state">
+          <label for="reading-progress">Reading position</label>
+          <progress id="reading-progress" max={principles.length} value="1">
+            1 of {principles.length}
+          </progress>
+          <p data-instrument-status aria-live="polite">Principle 1 of 8 · Structure</p>
+        </div>
+
+        <ol class="instrument-marks" aria-label="Jump to a principle">
+          {
+            principles.map((principle, index) => (
+              <li>
+                <a
+                  class:list={["instrument-mark", `lens-${principle.lens.toLowerCase()}`, { "is-current": index === 0 }]}
+                  href={`#principle-${principle.number}`}
+                  data-instrument-mark
+                  data-index={index}
+                  aria-current={index === 0 ? "location" : undefined}
+                >
+                  <span class="mark-number">{principle.number}</span>
+                  <span class="mark-code" aria-hidden="true">{principle.code}</span>
+                  <span class="mark-title">{principle.title}</span>
+                  <span class="sr-only">{principle.lens} lens</span>
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+
+        <dl class="lens-ledger">
+          {
+            lensCounts.map(({ lens, count }) => (
+              <div>
+                <dt>{lens}</dt>
+                <dd>{count} / {principles.length}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </aside>
+
+      <main id="main-content" tabindex="-1">
+        <section class="hero" aria-labelledby="hero-title">
+          <p class="kicker signal" data-jbm-form="kicker">An authored practice for the web</p>
+          <h1 id="hero-title">Joyful<br />Brutalist<br />Minimalism</h1>
+          <div class="hero-thesis">
+            <p class="hero-lede">
+              Show how the thing works, give the content room to speak, and attach
+              one restrained moment of joy to something useful.
+            </p>
+            <p>
+              This is Sergio's working language for pairing editorial warmth with
+              technical precision. It is a practice to interpret, not a framework
+              every project must install.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a class="action-link" data-jbm-form="action-link" href={`${githubRoot}/blob/main/DESIGN.md`}>
+              Read the constitution <span aria-hidden="true">↗</span>
+            </a>
+            <a class="action-link quiet" data-jbm-form="action-link" href="https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ">
+              Open the Figma source <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <p class="hero-note">PUBLIC SOURCE · INTENTIONALLY UNLICENSED · INTERPRETATION IS NOT AUTOMATIC INHERITANCE</p>
+        </section>
+
+        <hr class="rule strong" data-jbm-form="rule" />
+
+        <section class="section principles-section" id="principles" aria-labelledby="principles-title">
+          <header class="section-intro">
+            <p class="kicker" data-jbm-form="kicker">01 / Principles in use</p>
+            <h2 id="principles-title">Eight constraints make the work recognizable.</h2>
+            <p>
+              The instrument and the ledger share one source. Its counts cannot
+              drift from the content without changing this page's data.
+            </p>
+          </header>
+
+          <ol class="principle-ledger">
+            {
+              principles.map((principle) => (
+                <li
+                  class:list={["index-row", `lens-${principle.lens.toLowerCase()}`]}
+                  id={`principle-${principle.number}`}
+                  data-principle
+                  data-number={principle.number}
+                  data-lens={principle.lens}
+                  data-jbm-form="index-row"
+                  tabindex="-1"
+                >
+                  <span class="index-signal" aria-hidden="true" />
+                  <span class="index-number">{principle.number} / 08</span>
+                  <div>
+                    <h3>{principle.title}</h3>
+                    <p>{principle.summary}</p>
+                  </div>
+                  <span class="index-lens">{principle.lens}</span>
+                </li>
+              ))
+            }
+          </ol>
+        </section>
+
+        <hr class="rule" data-jbm-form="rule" />
+
+        <section class="section" id="foundations" aria-labelledby="foundations-title">
+          <header class="section-intro split-intro">
+            <div>
+              <p class="kicker" data-jbm-form="kicker">02 / Portable foundations</p>
+              <h2 id="foundations-title">Named matter, not a mood board.</h2>
+            </div>
+            <p>
+              Every swatch and interval below comes from the canonical DTCG token
+              file. The browser consumes generated custom properties rather than a
+              second hand-edited palette.
+            </p>
+          </header>
+
+          <div class="foundation-grid">
+            <article class="plate color-plate" data-jbm-form="plate">
+              <header>
+                <p class="kicker">Color / semantic roles</p>
+                <h3>Sparse signals on warm paper</h3>
+              </header>
+              <ul class="swatch-list" aria-label="Semantic color roles">
+                {
+                  colors.map((color) => (
+                    <li class={`swatch swatch-${color.className}`}>
+                      <span class="swatch-chip" aria-hidden="true" />
+                      <span>{color.name}</span>
+                      <code>{color.token}</code>
+                    </li>
+                  ))
+                }
+              </ul>
+            </article>
+
+            <article class="plate type-plate" data-jbm-form="plate">
+              <header>
+                <p class="kicker">Typography / role before family</p>
+                <h3>Two voices, one artifact</h3>
+              </header>
+              <blockquote>Reading should feel warm, calm, and unhurried.</blockquote>
+              <p class="type-instrument">MEASURE / PROVENANCE / STATUS</p>
+              <p class="type-note">
+                Source Serif 4 carries the editorial voice. IBM Plex Mono makes
+                compact evidence align and scan.
+              </p>
+            </article>
+
+            <article class="plate space-plate" data-jbm-form="plate">
+              <header>
+                <p class="kicker">Space / 4px basis</p>
+                <h3>Nine honest intervals</h3>
+              </header>
+              <ol class="space-ruler">
+                {
+                  spaces.map((space, index) => (
+                    <li>
+                      <span>{String(index).padStart(2, "0")}</span>
+                      <span>{space}px</span>
+                      <span class="space-measure" style={`--measure: ${space}px`} aria-hidden="true" />
+                    </li>
+                  ))
+                }
+              </ol>
+            </article>
+
+            <article class="plate pressure-plate" data-jbm-form="plate">
+              <header>
+                <p class="kicker">Shape / depth / movement</p>
+                <h3>Pressure, never gloss</h3>
+              </header>
+              <div class="pressure-samples" aria-label="Paper depth samples">
+                <div class="paper-sample crisp">Crisp offset</div>
+                <div class="paper-sample inset">Quiet inset</div>
+              </div>
+              <p>
+                Rules stay at one or two pixels, paper corners stay nearly square,
+                and explanatory motion resolves to zero when reduced motion is set.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <hr class="rule" data-jbm-form="rule" />
+
+        <section class="section figure-section" id="figure" aria-labelledby="figure-title">
+          <header class="section-intro split-intro">
+            <div>
+              <p class="kicker signal" data-jbm-form="kicker">03 / Technical figure</p>
+              <h2 id="figure-title">Change one owner. Translate intentionally.</h2>
+            </div>
+            <p>
+              Four sources can exchange a decision without becoming competing
+              truths because each owns a different concern.
+            </p>
+          </header>
+
+          <figure class="technical-figure">
+            <div
+              class="authority-map"
+              role="img"
+              aria-describedby="figure-equivalent figure-caption"
+              aria-label="Four authorities exchange an accepted decision through intentional translation."
+            >
+              {
+                authorities.map((authority) => (
+                  <div class={`authority-node authority-${authority.className}`}>
+                    <span>{authority.owner}</span>
+                    <strong>{authority.artifact}</strong>
+                    <small>{authority.detail}</small>
+                  </div>
+                ))
+              }
+              <div class="accepted-decision">
+                <span>Accepted decision</span>
+                <strong>
+                  <span class="decision-line">Change one owner.</span>
+                  <span class="decision-line">Translate</span>
+                  <span class="decision-line">intentionally.</span>
+                </strong>
+              </div>
+              <span class="exchange-label translate">Translate</span>
+              <span class="exchange-label verify">Verify / diverge honestly</span>
+            </div>
+            <p class="sr-only" id="figure-equivalent">
+              Meaning belongs to DESIGN.md, portable values belong to the token
+              file, visual representation belongs to Figma, and responsive and
+              interactive behavior belongs to the reference site. An accepted
+              decision changes its owner first, then translates only where useful.
+            </p>
+            <figcaption class="figure-caption" id="figure-caption" data-jbm-form="figure-caption">
+              <span>FIG. 01</span>
+              <strong>Four authorities exchange decisions without competing for ownership.</strong>
+              <small>SOURCE · DESIGN.md § Authority and conflict resolution · Original JBM figure</small>
+            </figcaption>
+          </figure>
+        </section>
+
+        <hr class="rule" data-jbm-form="rule" />
+
+        <section class="section translation-section" aria-labelledby="translation-title">
+          <header class="section-intro">
+            <p class="kicker" data-jbm-form="kicker">04 / Medium ledger</p>
+            <h2 id="translation-title">Semantic agreement beats pixel identity.</h2>
+            <p>
+              The Figma library establishes visual intent. This browser proof keeps
+              the same roles while accepting behaviors that only a page can own.
+            </p>
+          </header>
+          <div class="translation-ledger">
+            <article>
+              <span>Agrees</span>
+              <h3>Names and responsibilities</h3>
+              <p>
+                Ground, Kicker, Rule, Index Row, Plate, Action Link, and Figure
+                Caption keep the same content functions, token roles, and hard-edged grammar.
+              </p>
+            </article>
+            <article>
+              <span>Translates</span>
+              <h3>Responsive composition</h3>
+              <p>
+                The wide Figma studies become a sticky reading rail on large screens
+                and a horizontal source index on narrow screens without changing their measure.
+              </p>
+            </article>
+            <article>
+              <span>Belongs here</span>
+              <h3>Interaction and escape hatches</h3>
+              <p>
+                Focus order, pointer feedback, current reading position, no-JavaScript
+                anchors, and reduced motion are browser-owned decisions.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <hr class="rule strong" data-jbm-form="rule" />
+
+        <section class="section source-section" id="sources" aria-labelledby="sources-title">
+          <header class="section-intro split-intro">
+            <div>
+              <p class="kicker signal" data-jbm-form="kicker">05 / Inspect the source</p>
+              <h2 id="sources-title">The language stays legible from idea to implementation.</h2>
+            </div>
+            <p>
+              Start with meaning, take only the smallest relevant pattern, translate
+              it into local semantics, and record important divergence.
+            </p>
+          </header>
+
+          <nav class="source-links" aria-label="Design language sources">
+            <a class="action-link" data-jbm-form="action-link" href={`${githubRoot}/blob/main/DESIGN.md`}>
+              <span>01</span> Constitution <span aria-hidden="true">↗</span>
+            </a>
+            <a class="action-link" data-jbm-form="action-link" href={`${githubRoot}/blob/main/tokens/jbm.tokens.json`}>
+              <span>02</span> Canonical tokens <span aria-hidden="true">↗</span>
+            </a>
+            <a class="action-link" data-jbm-form="action-link" href="https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ">
+              <span>03</span> Figma library <span aria-hidden="true">↗</span>
+            </a>
+            <a class="action-link" data-jbm-form="action-link" href={`${githubRoot}/issues/1`}>
+              <span>04</span> Epic and receipts <span aria-hidden="true">↗</span>
+            </a>
+            <a class="action-link" data-jbm-form="action-link" href={githubRoot}>
+              <span>05</span> Repository source <span aria-hidden="true">↗</span>
+            </a>
+          </nav>
+
+          <aside class="license-note">
+            <p class="kicker">Licensing status</p>
+            <p>
+              This public repository is intentionally unlicensed. Visibility is not
+              permission to reuse its documentation, code, or visual assets.
+            </p>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <span>Joyful Brutalist Minimalism / v1</span>
+      <span>Authored by Sergio Sánchez Zavala</span>
+      <a href="#top">Return to the measure ↑</a>
+    </footer>
+
+    <script>
+      const principleRows = Array.from(document.querySelectorAll<HTMLElement>("[data-principle]"));
+      const instrumentMarks = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-instrument-mark]"));
+      const progress = document.querySelector<HTMLProgressElement>("#reading-progress");
+      const status = document.querySelector<HTMLElement>("[data-instrument-status]");
+
+      function setCurrentPrinciple(index: number) {
+        const row = principleRows[index];
+        if (!row || !progress || !status) return;
+
+        instrumentMarks.forEach((mark, markIndex) => {
+          const current = markIndex === index;
+          mark.classList.toggle("is-current", current);
+          if (current) mark.setAttribute("aria-current", "location");
+          else mark.removeAttribute("aria-current");
+        });
+
+        progress.value = index + 1;
+        status.textContent = `Principle ${index + 1} of ${principleRows.length} · ${row.dataset.lens}`;
+        document.documentElement.style.setProperty("--reading-progress", `${((index + 1) / principleRows.length) * 100}%`);
+      }
+
+      instrumentMarks.forEach((mark, index) => {
+        mark.addEventListener("click", () => setCurrentPrinciple(index));
+      });
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const visible = entries
+              .filter((entry) => entry.isIntersecting)
+              .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+            if (!visible) return;
+            const index = principleRows.indexOf(visible.target as HTMLElement);
+            if (index >= 0) setCurrentPrinciple(index);
+          },
+          { rootMargin: "-18% 0px -58% 0px", threshold: [0.15, 0.4, 0.7] },
+        );
+        principleRows.forEach((row) => observer.observe(row));
+      }
+    </script>
+  </body>
+</html>
