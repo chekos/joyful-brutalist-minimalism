@@ -101,10 +101,20 @@ The repository remains intentionally unlicensed. Public visibility, the Figma
 link, and this adoption workflow do not grant permission to reuse
 documentation, code, or visual assets.
 
-## Publication decision
+## Approved publication path
 
-The static artifact is verified but not deployed. The one remaining approval
-is whether to publish v1 through GitHub Pages at
-`https://chekos.github.io/joyful-brutalist-minimalism/` without a custom domain.
-No hosting configuration, domain, or live surface will be changed until Sergio
-approves that concrete path.
+Sergio approved `https://jbm.bns.studio` as the permanent v1 URL on
+2026-07-14. The repository publishes its static `dist` artifact through the
+`github-pages` environment using [the dedicated deployment workflow](../.github/workflows/deploy-pages.yml).
+
+The domain contract is intentionally narrow:
+
+- GitHub Pages uses the workflow build type and owns deployment and TLS;
+- the repository Pages setting names `jbm.bns.studio` as its custom domain;
+- Cloudflare DNS holds one DNS-only CNAME from `jbm.bns.studio` to
+  `chekos.github.io`; and
+- HTTPS is enforced after GitHub provisions and validates the certificate.
+
+Publication is complete only after the workflow succeeds and the custom URL is
+verified over HTTPS for content, assets, accessibility, and representative
+browser behavior.
