@@ -1,0 +1,947 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Canonical portable foundations for Joyful Brutalist Minimalism.",
+  "$extensions": {
+    "io.soyserg.jbm": {
+      "specification": "DTCG 2025.10",
+      "mapping": {
+        "css": {
+          "customPropertyPrefix": "--jbm-",
+          "nameTransform": "canonical path in kebab-case"
+        },
+        "figma": {
+          "nameTransform": "canonical path in slash-separated Title Case",
+          "unboundTargets": "Text styles, effect styles, and prototype documentation are explicit mappings, not pretend variables."
+        }
+      },
+      "contrastPairs": [
+        {
+          "name": "Primary text on page",
+          "foreground": "color.semantic.text.primary",
+          "background": "color.semantic.surface.page",
+          "minimum": 4.5
+        },
+        {
+          "name": "Secondary text on page",
+          "foreground": "color.semantic.text.secondary",
+          "background": "color.semantic.surface.page",
+          "minimum": 4.5
+        },
+        {
+          "name": "Action on page",
+          "foreground": "color.semantic.action.default",
+          "background": "color.semantic.surface.page",
+          "minimum": 4.5
+        },
+        {
+          "name": "Action hover on page",
+          "foreground": "color.semantic.action.hover",
+          "background": "color.semantic.surface.page",
+          "minimum": 4.5
+        },
+        {
+          "name": "Sage signal on page",
+          "foreground": "color.semantic.signal.sage",
+          "background": "color.semantic.surface.page",
+          "minimum": 4.5
+        },
+        {
+          "name": "Sky signal on page",
+          "foreground": "color.semantic.signal.sky",
+          "background": "color.semantic.surface.page",
+          "minimum": 4.5
+        },
+        {
+          "name": "Focus ring against page",
+          "foreground": "color.semantic.focus.ring",
+          "background": "color.semantic.surface.page",
+          "minimum": 3
+        }
+      ],
+      "reducedMotion": {
+        "duration": "motion.reduced.duration",
+        "transformDistance": "motion.reduced.transform-distance",
+        "contract": "Reveal all content immediately; remove transforms, clipping, and smooth scrolling; preserve focus, state, and reading position."
+      }
+    }
+  },
+  "color": {
+    "$description": "Primitive evidence and semantic decisions in the sRGB color space.",
+    "primitive": {
+      "$extensions": {
+        "io.soyserg.jbm": {
+          "figma": {
+            "target": "variable",
+            "collection": "JBM Primitives",
+            "type": "COLOR",
+            "scopes": [
+              "ALL_FILLS",
+              "STROKE_COLOR"
+            ]
+          }
+        }
+      },
+      "bone": {
+        "50": {
+          "$description": "Near-white page ground.",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.996078,
+              0.976471
+            ],
+            "hex": "#fffef9"
+          }
+        },
+        "100": {
+          "$description": "Primary paper surface.",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.960784,
+              0.945098,
+              0.909804
+            ],
+            "hex": "#f5f1e8"
+          }
+        },
+        "200": {
+          "$description": "Quiet or inset paper surface.",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.921569,
+              0.894118,
+              0.835294
+            ],
+            "hex": "#ebe4d5"
+          }
+        },
+        "$type": "color",
+        "$description": "Warm working surfaces synthesized from the recurring bone and paper grounds.",
+        "$extensions": {
+          "io.soyserg.jbm": {
+            "provenance": {
+              "sources": [
+                "soyserg.io",
+                "Biblioteca",
+                "Mira Mira"
+              ],
+              "decision": "Preserve a warm near-white, a primary paper, and a visibly deeper quiet paper."
+            }
+          }
+        }
+      },
+      "ink": {
+        "700": {
+          "$description": "Secondary readable ink.",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.164706,
+              0.164706,
+              0.164706
+            ],
+            "hex": "#2a2a2a"
+          }
+        },
+        "800": {
+          "$description": "Warm deep ink.",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.086275,
+              0.082353,
+              0.078431
+            ],
+            "hex": "#161514"
+          }
+        },
+        "900": {
+          "$description": "Primary ink.",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.039216,
+              0.039216,
+              0.039216
+            ],
+            "hex": "#0a0a0a"
+          }
+        },
+        "$type": "color",
+        "$description": "Near-black marks with enough variation for hierarchy without gray dashboard chrome.",
+        "$extensions": {
+          "io.soyserg.jbm": {
+            "provenance": {
+              "sources": [
+                "soyserg.io",
+                "Biblioteca",
+                "Mira Mira"
+              ],
+              "decision": "Unify noir, ink, and graphite precedents as one readable family."
+            }
+          }
+        },
+        "alpha-18": {
+          "$description": "Transparent ink for restrained paper effects.",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.039216,
+              0.039216,
+              0.039216
+            ],
+            "alpha": 0.18,
+            "hex": "#0a0a0a"
+          }
+        }
+      },
+      "terra": {
+        "400": {
+          "$description": "Large-format or non-text accent only.",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.843137,
+              0.396078,
+              0.239216
+            ],
+            "hex": "#d7653d"
+          }
+        },
+        "600": {
+          "$description": "Accessible hover and active signal.",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.709804,
+              0.278431,
+              0.141176
+            ],
+            "hex": "#b54724"
+          }
+        },
+        "700": {
+          "$description": "Accessible default action signal.",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.662745,
+              0.258824,
+              0.160784
+            ],
+            "hex": "#a94229"
+          }
+        },
+        "$type": "color",
+        "$description": "Sparse warm action and attention signals.",
+        "$extensions": {
+          "io.soyserg.jbm": {
+            "provenance": {
+              "sources": [
+                "soyserg.io",
+                "Biblioteca",
+                "Mira Mira"
+              ],
+              "decision": "Keep the shared terracotta and ember family; reserve lighter values for large marks."
+            }
+          }
+        }
+      },
+      "sage": {
+        "200": {
+          "$description": "Notebook grid and quiet field.",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.87451,
+              0.898039,
+              0.858824
+            ],
+            "hex": "#dfe5db"
+          }
+        },
+        "700": {
+          "$description": "Readable quiet signal.",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.372549,
+              0.439216,
+              0.341176
+            ],
+            "hex": "#5f7057"
+          }
+        },
+        "$type": "color",
+        "$description": "Quiet metadata and secondary structure.",
+        "$extensions": {
+          "io.soyserg.jbm": {
+            "provenance": {
+              "sources": [
+                "soyserg.io",
+                "Mira Mira"
+              ],
+              "decision": "Retain the shared muted green; synthesize a pale grid companion."
+            }
+          }
+        }
+      },
+      "sky": {
+        "200": {
+          "$description": "Large informational field.",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.654902,
+              0.847059,
+              0.870588
+            ],
+            "hex": "#a7d8de"
+          }
+        },
+        "700": {
+          "$description": "Readable informational signal.",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.180392,
+              0.4,
+              0.439216
+            ],
+            "hex": "#2e6670"
+          }
+        },
+        "$type": "color",
+        "$description": "Informational diagrams and alternate annotations.",
+        "$extensions": {
+          "io.soyserg.jbm": {
+            "provenance": {
+              "sources": [
+                "approved issue #1 synthesis"
+              ],
+              "decision": "Pair the approved pale sky with a deliberately darker AA-capable annotation color."
+            }
+          }
+        }
+      }
+    },
+    "semantic": {
+      "$description": "Aliases that state intended use without forcing consumer-specific names.",
+      "$extensions": {
+        "io.soyserg.jbm": {
+          "provenance": {
+            "sources": [
+              "approved issue #1 synthesis"
+            ],
+            "decision": "Name cross-project roles without preserving product-specific aliases."
+          }
+        }
+      },
+      "surface": {
+        "$type": "color",
+        "$extensions": {
+          "io.soyserg.jbm": {
+            "figma": {
+              "target": "variable",
+              "collection": "JBM Semantics",
+              "type": "COLOR",
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          }
+        },
+        "page": {
+          "$description": "Default page ground.",
+          "$value": "{color.primitive.bone.50}"
+        },
+        "paper": {
+          "$description": "Primary bounded paper.",
+          "$value": "{color.primitive.bone.100}"
+        },
+        "quiet": {
+          "$description": "Inset or secondary paper.",
+          "$value": "{color.primitive.bone.200}"
+        }
+      },
+      "text": {
+        "$type": "color",
+        "$extensions": {
+          "io.soyserg.jbm": {
+            "figma": {
+              "target": "variable",
+              "collection": "JBM Semantics",
+              "type": "COLOR",
+              "scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          }
+        },
+        "primary": {
+          "$description": "Default readable ink.",
+          "$value": "{color.primitive.ink.900}"
+        },
+        "secondary": {
+          "$description": "Secondary readable ink.",
+          "$value": "{color.primitive.ink.700}"
+        }
+      },
+      "action": {
+        "$type": "color",
+        "$extensions": {
+          "io.soyserg.jbm": {
+            "figma": {
+              "target": "variable",
+              "collection": "JBM Semantics",
+              "type": "COLOR",
+              "scopes": [
+                "ALL_FILLS",
+                "STROKE_COLOR"
+              ]
+            }
+          }
+        },
+        "default": {
+          "$description": "Default text and control action.",
+          "$value": "{color.primitive.terra.700}"
+        },
+        "hover": {
+          "$description": "Hover and active action.",
+          "$value": "{color.primitive.terra.600}"
+        }
+      },
+      "focus": {
+        "$type": "color",
+        "$extensions": {
+          "io.soyserg.jbm": {
+            "figma": {
+              "target": "variable",
+              "collection": "JBM Semantics",
+              "type": "COLOR",
+              "scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          }
+        },
+        "ring": {
+          "$description": "Visible keyboard focus ring.",
+          "$value": "{color.primitive.sky.700}"
+        }
+      },
+      "signal": {
+        "$type": "color",
+        "$extensions": {
+          "io.soyserg.jbm": {
+            "figma": {
+              "target": "variable",
+              "collection": "JBM Semantics",
+              "type": "COLOR",
+              "scopes": [
+                "ALL_FILLS",
+                "STROKE_COLOR"
+              ]
+            }
+          }
+        },
+        "sage": {
+          "$description": "Quiet readable status or metadata.",
+          "$value": "{color.primitive.sage.700}"
+        },
+        "sky": {
+          "$description": "Informational annotation.",
+          "$value": "{color.primitive.sky.700}"
+        }
+      },
+      "rule": {
+        "$type": "color",
+        "$extensions": {
+          "io.soyserg.jbm": {
+            "figma": {
+              "target": "variable",
+              "collection": "JBM Semantics",
+              "type": "COLOR",
+              "scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          }
+        },
+        "default": {
+          "$description": "Structural rule with decisive contrast.",
+          "$value": "{color.primitive.ink.800}"
+        },
+        "quiet": {
+          "$description": "Quiet notebook or measure rule.",
+          "$value": "{color.primitive.sage.700}"
+        }
+      }
+    }
+  },
+  "typography": {
+    "$description": "Role contracts. Families are v1 specimens, not compulsory consumer dependencies.",
+    "role": {
+      "editorial": {
+        "$extensions": {
+          "io.soyserg.jbm": {
+            "provenance": {
+              "sources": [
+                "soyserg.io",
+                "Biblioteca",
+                "approved issue #1 synthesis"
+              ],
+              "decision": "Name the warm reading role independently from any one product font."
+            }
+          }
+        },
+        "body": {
+          "$extensions": {
+            "io.soyserg.jbm": {
+              "figma": {
+                "target": "text-style",
+                "style": "Editorial/Body"
+              }
+            }
+          },
+          "font-family": {
+            "$type": "fontFamily",
+            "$description": "V1 editorial body specimen and fallbacks.",
+            "$value": [
+              "Source Serif 4",
+              "Georgia",
+              "serif"
+            ]
+          },
+          "font-weight": {
+            "$type": "fontWeight",
+            "$value": 400
+          },
+          "line-height": {
+            "$type": "number",
+            "$value": 1.55
+          },
+          "letter-spacing": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0,
+              "unit": "px"
+            }
+          }
+        },
+        "display": {
+          "$extensions": {
+            "io.soyserg.jbm": {
+              "figma": {
+                "target": "text-style",
+                "style": "Editorial/Display"
+              }
+            }
+          },
+          "font-family": {
+            "$type": "fontFamily",
+            "$value": "{typography.role.editorial.body.font-family}"
+          },
+          "font-weight": {
+            "$type": "fontWeight",
+            "$value": 600
+          },
+          "line-height": {
+            "$type": "number",
+            "$value": 1
+          },
+          "letter-spacing": {
+            "$type": "dimension",
+            "$value": {
+              "value": -0.02,
+              "unit": "rem"
+            }
+          }
+        }
+      },
+      "instrument": {
+        "label": {
+          "$extensions": {
+            "io.soyserg.jbm": {
+              "figma": {
+                "target": "text-style",
+                "style": "Instrument/Label"
+              },
+              "provenance": {
+                "sources": [
+                  "soyserg.io",
+                  "Biblioteca",
+                  "Mira Mira"
+                ],
+                "decision": "Use a compact tabular role for measure, provenance, indexes, and controls."
+              }
+            }
+          },
+          "font-family": {
+            "$type": "fontFamily",
+            "$description": "V1 instrument specimen and fallback.",
+            "$value": [
+              "IBM Plex Mono",
+              "ui-monospace",
+              "monospace"
+            ]
+          },
+          "font-weight": {
+            "$type": "fontWeight",
+            "$value": 500
+          },
+          "line-height": {
+            "$type": "number",
+            "$value": 1.2
+          },
+          "letter-spacing": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0.04,
+              "unit": "rem"
+            }
+          }
+        }
+      },
+      "system": {
+        "utility": {
+          "$extensions": {
+            "io.soyserg.jbm": {
+              "figma": {
+                "target": "text-style",
+                "style": "System/Utility"
+              },
+              "provenance": {
+                "sources": [
+                  "approved issue #1 synthesis"
+                ],
+                "decision": "Permit a native utility role when mono harms dense-interface readability."
+              }
+            }
+          },
+          "font-family": {
+            "$type": "fontFamily",
+            "$value": [
+              "ui-sans-serif",
+              "system-ui",
+              "sans-serif"
+            ]
+          },
+          "font-weight": {
+            "$type": "fontWeight",
+            "$value": 500
+          },
+          "line-height": {
+            "$type": "number",
+            "$value": 1.35
+          },
+          "letter-spacing": {
+            "$type": "dimension",
+            "$value": {
+              "value": 0,
+              "unit": "px"
+            }
+          }
+        }
+      }
+    }
+  },
+  "space": {
+    "0": {
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      }
+    },
+    "1": {
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      }
+    },
+    "2": {
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      }
+    },
+    "3": {
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      }
+    },
+    "4": {
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "6": {
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      }
+    },
+    "8": {
+      "$value": {
+        "value": 32,
+        "unit": "px"
+      }
+    },
+    "12": {
+      "$value": {
+        "value": 48,
+        "unit": "px"
+      }
+    },
+    "16": {
+      "$value": {
+        "value": 64,
+        "unit": "px"
+      }
+    },
+    "$type": "dimension",
+    "$description": "A compact 4px scale for composition and component rhythm.",
+    "$extensions": {
+      "io.soyserg.jbm": {
+        "figma": {
+          "target": "variable",
+          "collection": "JBM Primitives",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP",
+            "WIDTH_HEIGHT"
+          ]
+        },
+        "provenance": {
+          "sources": [
+            "approved issue #1 synthesis"
+          ],
+          "decision": "Use a 4px base without implying that every composition must be mechanically uniform."
+        }
+      }
+    }
+  },
+  "rule": {
+    "width": {
+      "$type": "dimension",
+      "$description": "Visible structure uses ordinary and emphatic hard rules.",
+      "$extensions": {
+        "io.soyserg.jbm": {
+          "figma": {
+            "target": "variable",
+            "collection": "JBM Primitives",
+            "type": "FLOAT",
+            "scopes": [
+              "STROKE_FLOAT"
+            ]
+          },
+          "provenance": {
+            "sources": [
+              "soyserg.io",
+              "Biblioteca",
+              "Mira Mira"
+            ],
+            "decision": "Retain one- and two-pixel structural rules."
+          }
+        }
+      },
+      "default": {
+        "$value": {
+          "value": 1,
+          "unit": "px"
+        }
+      },
+      "strong": {
+        "$value": {
+          "value": 2,
+          "unit": "px"
+        }
+      }
+    }
+  },
+  "radius": {
+    "$type": "dimension",
+    "$description": "Zero-first geometry with restrained artifact and functional-circle exceptions.",
+    "$extensions": {
+      "io.soyserg.jbm": {
+        "figma": {
+          "target": "variable",
+          "collection": "JBM Primitives",
+          "type": "FLOAT",
+          "scopes": [
+            "CORNER_RADIUS"
+          ]
+        },
+        "provenance": {
+          "sources": [
+            "Mira Mira",
+            "approved issue #1 synthesis"
+          ],
+          "decision": "Default to zero; permit a paper edge and a functional circle without softening the system."
+        }
+      }
+    },
+    "none": {
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      }
+    },
+    "paper": {
+      "$value": {
+        "value": 2,
+        "unit": "px"
+      }
+    },
+    "circle": {
+      "$description": "Only for a real ring, point, seal, or control.",
+      "$value": {
+        "value": 999,
+        "unit": "px"
+      }
+    }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "$description": "Crisp or inset paper effects; no soft dashboard elevation.",
+    "$extensions": {
+      "io.soyserg.jbm": {
+        "figma": {
+          "target": "effect-style",
+          "stylePrefix": "Paper"
+        },
+        "provenance": {
+          "sources": [
+            "soyserg.io",
+            "Biblioteca",
+            "Mira Mira"
+          ],
+          "decision": "Use physical paper cues only when they clarify a bounded artifact."
+        }
+      }
+    },
+    "paper-crisp": {
+      "$value": {
+        "color": "{color.primitive.ink.alpha-18}",
+        "offsetX": {
+          "value": 4,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 4,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 0,
+          "unit": "px"
+        },
+        "spread": {
+          "value": 0,
+          "unit": "px"
+        }
+      }
+    },
+    "paper-inset": {
+      "$value": {
+        "color": "{color.primitive.ink.alpha-18}",
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 1,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 0,
+          "unit": "px"
+        },
+        "spread": {
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": true
+      }
+    }
+  },
+  "motion": {
+    "$description": "State changes are quick; explanatory spatial reveals may breathe.",
+    "$extensions": {
+      "io.soyserg.jbm": {
+        "figma": {
+          "target": "documentation",
+          "page": "02 Foundations",
+          "section": "Motion"
+        },
+        "provenance": {
+          "sources": [
+            "soyserg.io",
+            "Biblioteca",
+            "approved Making Software study"
+          ],
+          "decision": "Synthesize the shared 140–500ms range and reserve the expressive curve for explanation."
+        }
+      }
+    },
+    "duration": {
+      "$type": "duration",
+      "instant": {
+        "$value": {
+          "value": 0,
+          "unit": "ms"
+        }
+      },
+      "fast": {
+        "$value": {
+          "value": 160,
+          "unit": "ms"
+        }
+      },
+      "reveal": {
+        "$value": {
+          "value": 400,
+          "unit": "ms"
+        }
+      }
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "standard": {
+        "$value": [
+          0.25,
+          0.1,
+          0.25,
+          1
+        ]
+      },
+      "reveal": {
+        "$value": [
+          0.2,
+          0.75,
+          0.25,
+          1
+        ]
+      }
+    },
+    "reduced": {
+      "$description": "Values used when the user requests reduced motion.",
+      "duration": {
+        "$type": "duration",
+        "$value": "{motion.duration.instant}"
+      },
+      "transform-distance": {
+        "$type": "dimension",
+        "$value": {
+          "value": 0,
+          "unit": "px"
+        }
+      }
+    }
+  }
+}
