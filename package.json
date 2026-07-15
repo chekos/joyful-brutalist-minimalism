@@ -1,0 +1,20 @@
+{
+  "name": "joyful-brutalist-minimalism",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sergio's authored design language: constitution, portable tokens, Figma mappings, and coded specimens.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/generate-tokens.mjs --check",
+    "check": "npm run format:check && npm run validate:tokens && npm run generate:check && npm test",
+    "format:check": "node scripts/check-format.mjs",
+    "generate": "node scripts/generate-tokens.mjs",
+    "generate:check": "node scripts/generate-tokens.mjs --check",
+    "test": "node --test",
+    "validate:spec": "uvx check-jsonschema --schemafile https://www.designtokens.org/schemas/2025.10/format.json tokens/jbm.tokens.json",
+    "validate:tokens": "node scripts/validate-tokens.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -247,17 +247,17 @@ documents prove a stable reusable contract.
 
 ### Documentation
 
-- [ ] `DESIGN.md` expresses all approved brainstorm principles and vocabulary.
-- [ ] Authority boundaries and conflict-resolution rules are explicit.
-- [ ] Anti-patterns include decorative pseudo-data, gratuitous brutalism,
+- [x] `DESIGN.md` expresses all approved brainstorm principles and vocabulary.
+- [x] Authority boundaries and conflict-resolution rules are explicit.
+- [x] Anti-patterns include decorative pseudo-data, gratuitous brutalism,
   effect stacking, and mechanical cross-repo synchronization.
 
 ### Tokens
 
-- [ ] One canonical platform-neutral token file exists.
-- [ ] Every Figma variable and CSS custom property maps back to a canonical name.
-- [ ] Color contrast for text and interactive states meets WCAG AA.
-- [ ] Motion tokens include a reduced-motion contract.
+- [x] One canonical platform-neutral token file exists.
+- [x] Every Figma variable and CSS custom property maps back to a canonical name.
+- [x] Color contrast for text and interactive states meets WCAG AA.
+- [x] Motion tokens include a reduced-motion contract.
 
 ### Figma
 

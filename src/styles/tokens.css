@@ -1,0 +1,102 @@
+/**
+ * GENERATED FILE — DO NOT EDIT DIRECTLY.
+ * Source: tokens/jbm.tokens.json
+ * Run: npm run generate
+ */
+
+:root {
+  /* Near-white page ground. */
+  --jbm-color-primitive-bone-50: #fffef9;
+  /* Primary paper surface. */
+  --jbm-color-primitive-bone-100: #f5f1e8;
+  /* Quiet or inset paper surface. */
+  --jbm-color-primitive-bone-200: #ebe4d5;
+  /* Secondary readable ink. */
+  --jbm-color-primitive-ink-700: #2a2a2a;
+  /* Warm deep ink. */
+  --jbm-color-primitive-ink-800: #161514;
+  /* Primary ink. */
+  --jbm-color-primitive-ink-900: #0a0a0a;
+  /* Transparent ink for restrained paper effects. */
+  --jbm-color-primitive-ink-alpha-18: rgb(10 10 10 / 0.18);
+  /* Large-format or non-text accent only. */
+  --jbm-color-primitive-terra-400: #d7653d;
+  /* Accessible hover and active signal. */
+  --jbm-color-primitive-terra-600: #b54724;
+  /* Accessible default action signal. */
+  --jbm-color-primitive-terra-700: #a94229;
+  /* Notebook grid and quiet field. */
+  --jbm-color-primitive-sage-200: #dfe5db;
+  /* Readable quiet signal. */
+  --jbm-color-primitive-sage-700: #5f7057;
+  /* Large informational field. */
+  --jbm-color-primitive-sky-200: #a7d8de;
+  /* Readable informational signal. */
+  --jbm-color-primitive-sky-700: #2e6670;
+  /* Default page ground. */
+  --jbm-color-semantic-surface-page: var(--jbm-color-primitive-bone-50);
+  /* Primary bounded paper. */
+  --jbm-color-semantic-surface-paper: var(--jbm-color-primitive-bone-100);
+  /* Inset or secondary paper. */
+  --jbm-color-semantic-surface-quiet: var(--jbm-color-primitive-bone-200);
+  /* Default readable ink. */
+  --jbm-color-semantic-text-primary: var(--jbm-color-primitive-ink-900);
+  /* Secondary readable ink. */
+  --jbm-color-semantic-text-secondary: var(--jbm-color-primitive-ink-700);
+  /* Default text and control action. */
+  --jbm-color-semantic-action-default: var(--jbm-color-primitive-terra-700);
+  /* Hover and active action. */
+  --jbm-color-semantic-action-hover: var(--jbm-color-primitive-terra-600);
+  /* Visible keyboard focus ring. */
+  --jbm-color-semantic-focus-ring: var(--jbm-color-primitive-sky-700);
+  /* Quiet readable status or metadata. */
+  --jbm-color-semantic-signal-sage: var(--jbm-color-primitive-sage-700);
+  /* Informational annotation. */
+  --jbm-color-semantic-signal-sky: var(--jbm-color-primitive-sky-700);
+  /* Structural rule with decisive contrast. */
+  --jbm-color-semantic-rule-default: var(--jbm-color-primitive-ink-800);
+  /* Quiet notebook or measure rule. */
+  --jbm-color-semantic-rule-quiet: var(--jbm-color-primitive-sage-700);
+  /* V1 editorial body specimen and fallbacks. */
+  --jbm-typography-role-editorial-body-font-family: "Source Serif 4", Georgia, serif;
+  --jbm-typography-role-editorial-body-font-weight: 400;
+  --jbm-typography-role-editorial-body-line-height: 1.55;
+  --jbm-typography-role-editorial-body-letter-spacing: 0px;
+  --jbm-typography-role-editorial-display-font-family: var(--jbm-typography-role-editorial-body-font-family);
+  --jbm-typography-role-editorial-display-font-weight: 600;
+  --jbm-typography-role-editorial-display-line-height: 1;
+  --jbm-typography-role-editorial-display-letter-spacing: -0.02rem;
+  /* V1 instrument specimen and fallback. */
+  --jbm-typography-role-instrument-label-font-family: "IBM Plex Mono", ui-monospace, monospace;
+  --jbm-typography-role-instrument-label-font-weight: 500;
+  --jbm-typography-role-instrument-label-line-height: 1.2;
+  --jbm-typography-role-instrument-label-letter-spacing: 0.04rem;
+  --jbm-typography-role-system-utility-font-family: ui-sans-serif, system-ui, sans-serif;
+  --jbm-typography-role-system-utility-font-weight: 500;
+  --jbm-typography-role-system-utility-line-height: 1.35;
+  --jbm-typography-role-system-utility-letter-spacing: 0px;
+  --jbm-space-0: 0px;
+  --jbm-space-1: 4px;
+  --jbm-space-2: 8px;
+  --jbm-space-3: 12px;
+  --jbm-space-4: 16px;
+  --jbm-space-6: 24px;
+  --jbm-space-8: 32px;
+  --jbm-space-12: 48px;
+  --jbm-space-16: 64px;
+  --jbm-rule-width-default: 1px;
+  --jbm-rule-width-strong: 2px;
+  --jbm-radius-none: 0px;
+  --jbm-radius-paper: 2px;
+  /* Only for a real ring, point, seal, or control. */
+  --jbm-radius-circle: 999px;
+  --jbm-shadow-paper-crisp: 4px 4px 0px 0px var(--jbm-color-primitive-ink-alpha-18);
+  --jbm-shadow-paper-inset: inset 0px 1px 0px 0px var(--jbm-color-primitive-ink-alpha-18);
+  --jbm-motion-duration-instant: 0ms;
+  --jbm-motion-duration-fast: 160ms;
+  --jbm-motion-duration-reveal: 400ms;
+  --jbm-motion-easing-standard: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --jbm-motion-easing-reveal: cubic-bezier(0.2, 0.75, 0.25, 1);
+  --jbm-motion-reduced-duration: var(--jbm-motion-duration-instant);
+  --jbm-motion-reduced-transform-distance: 0px;
+}
