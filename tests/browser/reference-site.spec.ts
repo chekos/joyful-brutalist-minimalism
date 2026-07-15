@@ -62,6 +62,23 @@ test("keyboard entry exposes a strong focus indicator", async ({ page }) => {
   await expect(page.locator("#main-content")).toBeFocused();
 });
 
+test("pointer entry exposes the authored action state", async ({ page }) => {
+  const action = page.getByRole("link", { name: /Read the constitution/ });
+  const before = await action.evaluate((element) => {
+    const style = getComputedStyle(element);
+    return { color: style.color, paddingInline: style.paddingInline };
+  });
+
+  await action.hover();
+
+  const after = await action.evaluate((element) => {
+    const style = getComputedStyle(element);
+    return { color: style.color, paddingInline: style.paddingInline };
+  });
+  expect(after.color).not.toBe(before.color);
+  expect(after.paddingInline).not.toBe(before.paddingInline);
+});
+
 test("the complete page remains useful without JavaScript", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();

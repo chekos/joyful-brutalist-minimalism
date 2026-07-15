@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "npm run generate:check && astro check && astro build",
+    "capture:browser-evidence": "npm run build && node scripts/capture-browser-evidence.mjs",
     "check": "npm run format:check && npm run validate:tokens && npm run generate:check && npm run typecheck && npm test",
     "dev": "astro dev",
     "format:check": "node scripts/check-format.mjs",

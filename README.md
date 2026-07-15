@@ -8,6 +8,11 @@ Start with [DESIGN.md](DESIGN.md). It explains the principles, vocabulary,
 judgment calls, accessibility contract, and the boundaries between prose,
 tokens, Figma, and browser behavior.
 
+Use the [adoption guide](ADOPTION.md) to translate the smallest relevant part
+into an independent consumer, and consult the
+[v1 verification receipt](docs/v1-verification.md) for the cross-medium release
+ledger, accessibility evidence, and publication boundary.
+
 ## Sources of truth
 
 | Concern | Authority |
