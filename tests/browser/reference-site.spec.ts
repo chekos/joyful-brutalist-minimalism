@@ -71,12 +71,16 @@ test("pointer entry exposes the authored action state", async ({ page }) => {
 
   await action.hover();
 
-  const after = await action.evaluate((element) => {
-    const style = getComputedStyle(element);
-    return { color: style.color, paddingInline: style.paddingInline };
-  });
-  expect(after.color).not.toBe(before.color);
-  expect(after.paddingInline).not.toBe(before.paddingInline);
+  await expect
+    .poll(() =>
+      action.evaluate((element) => getComputedStyle(element).color),
+    )
+    .not.toBe(before.color);
+  await expect
+    .poll(() =>
+      action.evaluate((element) => getComputedStyle(element).paddingInline),
+    )
+    .not.toBe(before.paddingInline);
 });
 
 test("the complete page remains useful without JavaScript", async ({ browser }) => {

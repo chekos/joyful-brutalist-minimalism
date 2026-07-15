@@ -12,7 +12,7 @@ records the adoption and publication boundaries required by
 | Constitution and portable foundations | [Issue #3](https://github.com/chekos/joyful-brutalist-minimalism/issues/3), [pull request #4](https://github.com/chekos/joyful-brutalist-minimalism/pull/4), [`DESIGN.md`](../DESIGN.md), and the [token reference](token-reference.md) |
 | Figma foundations, components, and studies | [Issue #5](https://github.com/chekos/joyful-brutalist-minimalism/issues/5), [pull request #8](https://github.com/chekos/joyful-brutalist-minimalism/pull/8), the [editable Figma source](https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ), and its [inspection receipt](figma-v1.md) |
 | Executable browser specimen | [Issue #6](https://github.com/chekos/joyful-brutalist-minimalism/issues/6), [pull request #9](https://github.com/chekos/joyful-brutalist-minimalism/pull/9), and the [reference-site receipt](reference-site-v1.md) |
-| Adoption and final verification | [Issue #7](https://github.com/chekos/joyful-brutalist-minimalism/issues/7), [pull request #10](https://github.com/chekos/joyful-brutalist-minimalism/pull/10), and the [adoption guide](../ADOPTION.md) |
+| Adoption, final verification, and publication | [Issue #7](https://github.com/chekos/joyful-brutalist-minimalism/issues/7), [pull request #10](https://github.com/chekos/joyful-brutalist-minimalism/pull/10), [publication pull request #11](https://github.com/chekos/joyful-brutalist-minimalism/pull/11), the [successful Pages deployment](https://github.com/chekos/joyful-brutalist-minimalism/actions/runs/29388865075), and the [adoption guide](../ADOPTION.md) |
 
 ## Repository verification
 
@@ -50,8 +50,8 @@ The durable machine inventory and full-page images live in
 `final_validation` records because the connector runtime cannot create named
 Figma version-history entries. The final audit also records
 `jbm_dsb/v1_release_verification` on document node `0:0`; its status is
-`verified_pending_publication_approval` and it links issue #7 and pull request
-#10 without changing any visual node.
+`published` and it links issue #7, the publication pull request and deployment,
+and the live reference site without changing any visual node.
 
 ## Browser verification
 
@@ -118,3 +118,22 @@ The domain contract is intentionally narrow:
 Publication is complete only after the workflow succeeds and the custom URL is
 verified over HTTPS for content, assets, accessibility, and representative
 browser behavior.
+
+## Publication verification
+
+Publication completed on 2026-07-14:
+
+- [pull request #11](https://github.com/chekos/joyful-brutalist-minimalism/pull/11)
+  merged the dedicated Pages workflow and canonical production URL;
+- [deployment run 29388865075](https://github.com/chekos/joyful-brutalist-minimalism/actions/runs/29388865075)
+  built and deployed commit `7c4899f829adfad343f43ac999c733d4419e0c9e`;
+- the Pages API reports `build_type: workflow`, custom domain
+  `jbm.bns.studio`, and HTTPS enforcement enabled;
+- authoritative DNS resolves the DNS-only CNAME to `chekos.github.io`; and
+- [https://jbm.bns.studio](https://jbm.bns.studio) returns the v1 specimen with
+  the matching canonical URL and deployed stylesheet over a valid certificate.
+
+A live Chromium smoke repeated the title, eight-principle ledger, four-node
+authority figure, keyboard entry, reduced-motion, no-JavaScript, and axe
+checks against the public URL. HTTP redirects to HTTPS, and the live response
+contains no mixed-content asset references.
