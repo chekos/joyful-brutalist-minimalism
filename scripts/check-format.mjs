@@ -8,7 +8,7 @@ const files = execFileSync(
 )
   .split("\0")
   .filter(Boolean)
-  .filter((path) => /\.(css|json|md|mjs|yml|yaml)$/.test(path));
+  .filter((path) => /\.(astro|css|json|md|mjs|ts|yml|yaml)$/.test(path));
 
 const errors = [];
 
