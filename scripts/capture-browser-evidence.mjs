@@ -50,6 +50,14 @@ try {
       animations: "disabled",
       path: `${outputDirectory}/keyboard-focus.png`,
     });
+    await keyboardPage.reload();
+    await keyboardPage.evaluate(() => document.fonts.ready);
+    const marginaliaStudy = keyboardPage.locator(".marginalia-study");
+    await marginaliaStudy.locator('[data-note-trigger="02"]').hover();
+    await marginaliaStudy.screenshot({
+      animations: "disabled",
+      path: `${outputDirectory}/contextual-marginalia.png`,
+    });
     await keyboardContext.close();
 
     const reducedContext = await browser.newContext({
@@ -72,4 +80,6 @@ try {
   server?.kill("SIGTERM");
 }
 
-console.log(`captured keyboard and reduced-motion evidence in ${outputDirectory}`);
+console.log(
+  `captured keyboard, contextual-marginalia, and reduced-motion evidence in ${outputDirectory}`,
+);

@@ -11,3 +11,4 @@ the decision; the record explains the choice but does not replace that source.
 ## Records
 
 - [`0001` — Portability is a repository invariant](0001-portability-is-a-repository-invariant.md)
+- [`0002` — Contextual Marginalia starts as a study](0002-contextual-marginalia-starts-as-a-study.md)

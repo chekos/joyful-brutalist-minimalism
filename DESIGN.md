@@ -219,6 +219,26 @@ and remain understandable when its motion is removed. Treat early instruments
 as studies until two genuinely different contexts demonstrate a stable reusable
 contract.
 
+### Contextual marginalia
+
+Contextual Marginalia is a named study for term-level supplementary text. The
+primary sentence remains complete without the note. An annotated term uses
+strong editorial emphasis, a dotted underline, and a visible index so the
+relationship is legible before interaction.
+
+On wide reading surfaces, a real annotation register may yield to the matching
+marginal note when the term receives hover, keyboard focus, or activation. The
+register must index actual annotations rather than imitate a decorative ruler.
+When marginal space is unavailable, including narrow and print layouts, place
+all notes in reading order directly after the passage. Reduced motion makes the
+exchange immediate; it does not remove the note or its focus state.
+
+The browser specimen proves this interaction as a study. Do not promote it to a
+reusable component until a second genuinely different content context
+demonstrates a stable contract. Making Software is provenance for the
+relationship, not a source for copied wording, geometry, assets, code, rulers,
+or exact animation.
+
 ## Imagery, figures, and diagrams
 
 A Figure includes:
