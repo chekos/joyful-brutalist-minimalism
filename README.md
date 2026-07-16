@@ -85,6 +85,34 @@ alias, reduced-motion, and generated-parity contracts.
 Do not hand-edit generated files. Change the canonical token JSON, regenerate,
 review the diff, and then apply its named targets deliberately in Figma.
 
+## Taste evaluation
+
+The dated [JBM taste evaluation v0](docs/experiments/2026-07-15-jbm-taste-evaluation-v0.md)
+tests whether implementations adapt to ten different content relationships
+without collapsing into the reference site's composition. Its repository-owned
+briefs, generation contract, rubric, and run template live in
+[`evals/taste-v0`](evals/taste-v0).
+
+Validate the definition and initialize an offline working run:
+
+```sh
+npm run validate:taste-eval
+npm run taste:init -- \
+  --label "generator-a" \
+  --generator "vendor/model/version" \
+  --output output/taste-eval/generator-a/run.json
+```
+
+After artifacts, screenshots, motif fingerprints, and evidenced human reviews
+are complete, compare one or more runs:
+
+```sh
+npm run taste:report -- <run.json> [more-runs.json]
+```
+
+The report exposes score, smell, and motif distributions; it does not convert
+frequency into an automatic definition of taste.
+
 ## Founding definition
 
 > Joyful Brutalist Minimalism is Sergio's public, authored design language for

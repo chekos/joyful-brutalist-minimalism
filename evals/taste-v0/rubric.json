@@ -1,0 +1,148 @@
+{
+  "version": "taste-v0",
+  "scoreScale": {
+    "minimum": 1,
+    "maximum": 5,
+    "anchors": {
+      "1": "The criterion is contradicted or materially absent.",
+      "3": "The criterion is present but uneven, conventional, or weakly evidenced.",
+      "5": "The criterion is clear, purposeful, and supported by the rendered artifact."
+    }
+  },
+  "dimensions": [
+    {
+      "id": "content-fit",
+      "name": "Content fit",
+      "question": "Does the composition arise from this brief's audience, task, and content relationships?"
+    },
+    {
+      "id": "structure-honesty",
+      "name": "Structure honesty",
+      "question": "Does visible geometry clarify hierarchy, sequence, comparison, status, or action?"
+    },
+    {
+      "id": "inspectability",
+      "name": "Inspectability",
+      "question": "Can a reader explain where every measure, label, state, and technical mark comes from?"
+    },
+    {
+      "id": "useful-delight",
+      "name": "Useful delight",
+      "question": "Is there at most one restrained expressive system, and does it improve clarity, attention, memory, or ease?"
+    },
+    {
+      "id": "access-resilience",
+      "name": "Access and resilience",
+      "question": "Do semantic order, keyboard use, focus, narrow reflow, reduced motion, and the no-JavaScript form preserve meaning?"
+    },
+    {
+      "id": "authored-identity",
+      "name": "Authored identity",
+      "question": "Does the result express editorial warmth, technical precision, and direct construction without becoming a generic brutalist theme?"
+    },
+    {
+      "id": "adaptive-composition",
+      "name": "Adaptive composition",
+      "question": "Does the result avoid copying the reference-site shell or applying JBM forms without a brief-specific reason?"
+    }
+  ],
+  "smells": [
+    {
+      "id": "motif-without-job",
+      "name": "Motif without a job",
+      "description": "A visible JBM-associated form appears without clarifying content, structure, state, or action."
+    },
+    {
+      "id": "decorative-pseudo-data",
+      "name": "Decorative pseudo-data",
+      "description": "The artifact invents measurements, coordinates, status, progress, charts, diagnostics, or scientific-looking labels."
+    },
+    {
+      "id": "gratuitous-brutalism",
+      "name": "Gratuitous brutalism",
+      "description": "Borders, type, contrast, density, or friction become aggressive without helping the task."
+    },
+    {
+      "id": "effect-stacking",
+      "name": "Effect stacking",
+      "description": "Multiple unrelated delights or atmospheric effects compete for attention."
+    },
+    {
+      "id": "generic-kit",
+      "name": "Generic kit expansion",
+      "description": "The artifact becomes a catalog of familiar controls or cards that the supplied content does not require."
+    },
+    {
+      "id": "reference-template-copy",
+      "name": "Reference-template copy",
+      "description": "The reference site's hero, reading rail, Plate grid, or figure composition is reproduced without a brief-specific reason."
+    },
+    {
+      "id": "technical-voice-overreach",
+      "name": "Technical voice overreach",
+      "description": "Instrument typography or notation overtakes long reading, human context, or ordinary utility text."
+    },
+    {
+      "id": "inaccessible-delight",
+      "name": "Inaccessible delight",
+      "description": "Meaning or operation depends on hover, pointer precision, animation, color alone, or JavaScript."
+    }
+  ],
+  "motifs": [
+    {
+      "id": "dominant-display-hero",
+      "name": "Dominant display hero",
+      "description": "The opening viewport is led by unusually large display type."
+    },
+    {
+      "id": "sticky-side-rail",
+      "name": "Sticky side rail",
+      "description": "A persistent lateral region carries navigation, status, or measure."
+    },
+    {
+      "id": "bordered-module-grid",
+      "name": "Bordered module grid",
+      "description": "Several bounded modules form a repeated grid."
+    },
+    {
+      "id": "numbered-ledger",
+      "name": "Numbered ledger",
+      "description": "Repeated records use visible indexes or folios."
+    },
+    {
+      "id": "technical-diagram",
+      "name": "Technical diagram",
+      "description": "Rules, nodes, axes, or labels explain a real relationship or dataset."
+    },
+    {
+      "id": "measured-progress",
+      "name": "Measured progress",
+      "description": "The artifact exposes real progress, capacity, position, or completion."
+    },
+    {
+      "id": "paper-offset-shadow",
+      "name": "Paper offset shadow",
+      "description": "A crisp offset or inset mark expresses paper depth."
+    },
+    {
+      "id": "notebook-grid",
+      "name": "Notebook grid",
+      "description": "A ruled or gridded Ground structures the composition."
+    },
+    {
+      "id": "stamp-or-seal",
+      "name": "Stamp or seal",
+      "description": "A compact stamped, sealed, or ringed mark carries a real state or action."
+    },
+    {
+      "id": "mono-kicker-system",
+      "name": "Mono kicker system",
+      "description": "Compact monospaced orientation labels recur across sections."
+    },
+    {
+      "id": "split-editorial-layout",
+      "name": "Split editorial layout",
+      "description": "Two or more visibly unequal columns create editorial tension."
+    }
+  ]
+}

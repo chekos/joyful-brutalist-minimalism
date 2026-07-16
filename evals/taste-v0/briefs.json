@@ -1,0 +1,299 @@
+{
+  "version": "taste-v0",
+  "provenance": "Synthetic fixtures authored for the JBM taste evaluation on 2026-07-15.",
+  "briefs": [
+    {
+      "id": "essay-reading",
+      "title": "An essay with inspectable sources",
+      "audience": "Curious readers arriving from a newsletter",
+      "relationship": "sequential-reading",
+      "goal": "Help a reader understand the essay's argument, read in a comfortable sequence, and inspect its two cited sources.",
+      "requiredContent": [
+        "Title: The Sidewalk Is a Small Archive",
+        "Dek: What curb cuts, chalk marks, and repaired cracks remember about a block",
+        "Author: Lena Ortiz",
+        "Published: 2026-06-18",
+        "Three sections titled Marks, Repairs, and Return",
+        "A source note for the city curb-ramp inventory and a 2025 neighborhood walking interview"
+      ],
+      "facts": [
+        "Marks argues that temporary marks reveal how a block is used before official records catch up.",
+        "Repairs compares three visible patch types: asphalt seam, concrete square, and painted utility cut.",
+        "Return concludes that maintenance is a form of public memory when its provenance stays visible.",
+        "City curb-ramp inventory source URL: https://example.org/fixtures/curb-ramps",
+        "Walking interview source URL: https://example.org/fixtures/walking-interview",
+        "Provenance: all people, text, and URLs in this brief are synthetic evaluation fixtures."
+      ],
+      "requiredActions": [
+        "Read the essay in order",
+        "Open either cited source"
+      ],
+      "constraints": [
+        "Do not invent reading progress, quotations, footnotes, or source metadata.",
+        "Keep long-form reading comfortable at narrow and wide widths."
+      ]
+    },
+    {
+      "id": "cli-recovery",
+      "title": "A command-line recovery guide",
+      "audience": "A developer whose local validation stopped before making changes",
+      "relationship": "procedural-recovery",
+      "goal": "Explain what failed, show the shortest safe recovery sequence, and distinguish checks from mutations.",
+      "requiredContent": [
+        "Error: Node 22.22.0 does not match required 22.23.1",
+        "Affected command: npm run verify",
+        "Three recovery steps",
+        "A clearly labeled non-destructive diagnosis command",
+        "A final healthy signal"
+      ],
+      "facts": [
+        "Step 1: install Node 22.23.1 with the reader's existing version manager.",
+        "Step 2: run npm ci from the repository root.",
+        "Step 3: run npm run doctor, then npm run verify.",
+        "Diagnosis command: node --version",
+        "Healthy signal: bootstrap complete; run npm run verify",
+        "No files were changed before the version check stopped the original command."
+      ],
+      "requiredActions": [
+        "Copy the diagnosis command",
+        "Follow the recovery steps in order"
+      ],
+      "constraints": [
+        "Do not add fake terminal output, timing, progress, or success state.",
+        "Commands must remain readable without JavaScript."
+      ]
+    },
+    {
+      "id": "garden-shifts",
+      "title": "A volunteer shift signup",
+      "audience": "Neighbors choosing one Saturday garden shift",
+      "relationship": "capacity-and-signup",
+      "goal": "Make remaining capacity comparable and help a volunteer choose and request one suitable shift.",
+      "requiredContent": [
+        "Event: Arroyo Community Garden Workday",
+        "Date: Saturday, 2026-08-08",
+        "Four shifts with time, task, accessibility note, capacity, and remaining spaces",
+        "Contact: garden@example.org"
+      ],
+      "facts": [
+        "08:00–09:30, Tool setup, paved route, capacity 4, 1 space remaining.",
+        "09:30–11:00, Seedling beds, uneven soil, capacity 8, 5 spaces remaining.",
+        "11:00–12:30, Lunch service, seated task available, capacity 6, 2 spaces remaining.",
+        "12:30–14:00, Tool cleanup, paved route, capacity 4, 4 spaces remaining.",
+        "Volunteers request a shift by emailing garden@example.org; the fixture has no live booking backend.",
+        "Provenance: the event and availability are synthetic evaluation data."
+      ],
+      "requiredActions": [
+        "Compare shift availability",
+        "Start an email requesting one shift"
+      ],
+      "constraints": [
+        "Do not present the email action as a confirmed reservation.",
+        "Capacity and accessibility cannot rely on color alone."
+      ]
+    },
+    {
+      "id": "tidepool-notes",
+      "title": "A tidepool observation record",
+      "audience": "Students comparing two observation sites",
+      "relationship": "observation-comparison",
+      "goal": "Make a small field dataset understandable without turning it into scientific-looking decoration.",
+      "requiredContent": [
+        "Observation date: 2026-05-22",
+        "Observer: Field Lab 03",
+        "Two named sites and four species counts",
+        "Weather and tide context",
+        "A textual conclusion supported by the supplied counts"
+      ],
+      "facts": [
+        "North Shelf counts: ochre sea star 3, aggregating anemone 18, hermit crab 11, lined shore crab 2.",
+        "South Pocket counts: ochre sea star 1, aggregating anemone 26, hermit crab 7, lined shore crab 5.",
+        "Observation window: 07:10–07:40 local time.",
+        "Tide: 0.4 feet at 07:22; weather: overcast, 14°C, light wind.",
+        "Supported conclusion: South Pocket had more anemones and shore crabs; North Shelf had more sea stars and hermit crabs.",
+        "Provenance: synthetic field observations for interface evaluation, not scientific evidence."
+      ],
+      "requiredActions": [
+        "Compare species counts between sites",
+        "Read the provenance and conclusion"
+      ],
+      "constraints": [
+        "Every plotted mark, tick, legend, and label must derive from supplied data.",
+        "Provide a complete textual equivalent for any chart or diagram."
+      ]
+    },
+    {
+      "id": "library-catalog",
+      "title": "A small public-domain catalog",
+      "audience": "A reader browsing downloadable books without an account",
+      "relationship": "searchable-collection",
+      "goal": "Help a reader scan six records, distinguish formats and languages, and open a download source.",
+      "requiredContent": [
+        "Collection title: Six Portable Classics",
+        "Six book records with author, year, language, formats, and source URL",
+        "A visible statement that all records are public-domain fixtures"
+      ],
+      "facts": [
+        "Pride and Prejudice — Jane Austen — 1813 — English — EPUB and HTML — https://www.gutenberg.org/ebooks/1342",
+        "Narrative of the Life of Frederick Douglass — Frederick Douglass — 1845 — English — EPUB and HTML — https://www.gutenberg.org/ebooks/23",
+        "The Yellow Wallpaper — Charlotte Perkins Gilman — 1892 — English — EPUB and HTML — https://www.gutenberg.org/ebooks/1952",
+        "Siddhartha — Hermann Hesse — 1922 — German — EPUB and HTML — https://www.gutenberg.org/ebooks/2499",
+        "Cuentos de Amor de Locura y de Muerte — Horacio Quiroga — 1917 — Spanish — EPUB and HTML — https://www.gutenberg.org/ebooks/13507",
+        "The Souls of Black Folk — W. E. B. Du Bois — 1903 — English — EPUB and HTML — https://www.gutenberg.org/ebooks/408"
+      ],
+      "requiredActions": [
+        "Scan or filter the collection",
+        "Open a record's source"
+      ],
+      "constraints": [
+        "Filtering may enhance the page but all records must remain available without JavaScript.",
+        "Do not fabricate ratings, covers, availability, or download counts."
+      ]
+    },
+    {
+      "id": "transit-alert",
+      "title": "An urgent transit detour",
+      "audience": "Riders deciding whether their evening trip is affected",
+      "relationship": "urgent-status-and-detour",
+      "goal": "Communicate current impact, affected stops, replacement stops, and the next update without requiring a map.",
+      "requiredContent": [
+        "Route: 18 Crosstown",
+        "Status: Detour active",
+        "Effective: 2026-07-15 from 18:00 to end of service",
+        "Two closed stops and two replacement stops",
+        "Next update time and rider contact"
+      ],
+      "facts": [
+        "Closed inbound stops: Pine at 4th; Pine at 7th.",
+        "Replacement inbound stops: Oak at 4th; Oak at 8th.",
+        "Cause: permitted night market street closure.",
+        "Trips before 18:00 use the normal route.",
+        "Next update: 2026-07-15 at 21:00.",
+        "Rider contact: 555-0108; all route and contact data are synthetic fixtures."
+      ],
+      "requiredActions": [
+        "Determine whether a trip is affected",
+        "Find the nearest replacement stop",
+        "Call rider support"
+      ],
+      "constraints": [
+        "Current status and stop changes cannot rely on motion or color alone.",
+        "Do not invent a live vehicle map, countdown, or service restoration estimate."
+      ]
+    },
+    {
+      "id": "release-ledger",
+      "title": "A software release ledger",
+      "audience": "Operators checking what changed before upgrading",
+      "relationship": "chronological-change",
+      "goal": "Make three releases comparable and distinguish changes, fixes, and required operator action.",
+      "requiredContent": [
+        "Product: Lantern Sync",
+        "Versions 2.4.0, 2.3.1, and 2.3.0 with dates",
+        "Change type and operator action for every entry",
+        "A source commit for every version"
+      ],
+      "facts": [
+        "2.4.0 — 2026-07-10 — change: adds resumable exports — operator action: review new 24-hour export retention — commit a13f6de.",
+        "2.3.1 — 2026-06-28 — fix: prevents duplicate retry notices — operator action: none — commit 09bc221.",
+        "2.3.0 — 2026-06-14 — change: adds per-folder sync pause — operator action: verify paused-folder policy — commit e77d90a.",
+        "Version numbers, dates, commits, and product are synthetic evaluation fixtures.",
+        "Newest supported version in this fixture: 2.4.0."
+      ],
+      "requiredActions": [
+        "Compare releases",
+        "Identify required operator action"
+      ],
+      "constraints": [
+        "Do not fabricate severity, adoption, support, or deployment status.",
+        "Chronology and change type must be understandable without color."
+      ]
+    },
+    {
+      "id": "oral-history",
+      "title": "An oral-history listening archive",
+      "audience": "Families and researchers choosing an interview to hear or read",
+      "relationship": "media-and-provenance",
+      "goal": "Present three interviews with respectful context, duration, topics, transcript status, and rights notes.",
+      "requiredContent": [
+        "Archive: River Street Voices",
+        "Three interview records",
+        "Duration, recording date, topics, transcript status, and rights note for each",
+        "A collection provenance statement"
+      ],
+      "facts": [
+        "Marta Ruiz — recorded 1988-04-12 — 42 minutes — topics: bakery, migration, night shift — transcript complete — family-approved educational use.",
+        "Theo Green — recorded 1991-09-03 — 28 minutes — topics: bus depot, jazz club, block association — transcript complete — family-approved educational use.",
+        "Aiko Tan — recorded 1994-02-19 — 51 minutes — topics: garment work, school garden, tenant organizing — transcript excerpt only — reading-room use.",
+        "Audio is not included in the fixture; listening controls must not imply playable media.",
+        "Provenance: all interviews and rights statements are synthetic evaluation fixtures."
+      ],
+      "requiredActions": [
+        "Choose an interview",
+        "Read available transcript information and rights context"
+      ],
+      "constraints": [
+        "Do not invent portraits, quotations, audio waveforms, or playable controls.",
+        "Rights and transcript availability must remain adjacent to each record."
+      ]
+    },
+    {
+      "id": "workshop-agenda",
+      "title": "A timed community workshop agenda",
+      "audience": "Participants preparing for and following a ninety-minute workshop",
+      "relationship": "timed-agenda",
+      "goal": "Orient participants before arrival and make the live sequence, materials, and accessibility support easy to follow.",
+      "requiredContent": [
+        "Workshop: Map a Safer Walk",
+        "Date and place",
+        "Five timed agenda items totaling ninety minutes",
+        "Materials, accessibility support, and facilitator contact"
+      ],
+      "facts": [
+        "2026-08-20, 18:00–19:30, Cedar Room at North Library.",
+        "18:00 welcome and access check — 10 minutes.",
+        "18:10 mark difficult crossings — 20 minutes.",
+        "18:30 compare routes in small groups — 25 minutes.",
+        "18:55 choose two follow-up walks — 20 minutes; 19:15 commitments and close — 15 minutes.",
+        "Materials provided: printed map, thick markers, tactile dots. Step-free entrance and live captions available. Contact access@example.org."
+      ],
+      "requiredActions": [
+        "Prepare for the workshop",
+        "Follow the agenda",
+        "Request accessibility support"
+      ],
+      "constraints": [
+        "Do not add registration, attendance, or live progress state.",
+        "The sequence must remain usable in print and without JavaScript."
+      ]
+    },
+    {
+      "id": "radio-comparison",
+      "title": "A repairable radio comparison",
+      "audience": "A buyer comparing three fictional radios for emergency use",
+      "relationship": "feature-comparison",
+      "goal": "Support an honest comparison of price, power, repairability, warranty, and supplied trade-offs without manufacturing a winner.",
+      "requiredContent": [
+        "Three radio models",
+        "Price, power sources, replaceable parts, warranty, and weight for each",
+        "A supplied trade-off note for each model",
+        "Fixture date: 2026-07-01"
+      ],
+      "facts": [
+        "Field 1 — $42 — AA batteries and USB-C — replaceable antenna and battery contacts — 1-year warranty — 410 g — lightest, no hand crank.",
+        "Harbor 2 — $68 — internal battery, USB-C, and hand crank — replaceable battery pack and crank — 2-year warranty — 690 g — most power options, heaviest.",
+        "Mesa AM/FM — $55 — AA batteries and solar trickle charge — replaceable speaker and tuning dial — 1-year warranty — 530 g — replaceable speaker, slow solar charge.",
+        "All products, prices, specifications, and warranties are synthetic evaluation fixtures dated 2026-07-01.",
+        "No durability test, reception test, or editorial ranking was supplied."
+      ],
+      "requiredActions": [
+        "Compare all supplied attributes",
+        "Choose based on a reader's own priorities"
+      ],
+      "constraints": [
+        "Do not add ratings, badges, test results, inventory, discounts, or a recommended winner.",
+        "The comparison must reflow without hiding attributes at narrow widths."
+      ]
+    }
+  ]
+}
