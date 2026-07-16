@@ -61,7 +61,10 @@ for (const path of [
   ...Object.values(recovery.authority),
   recovery.inspection,
   ...inspection.screenshots.map((name) => `docs/figma/v1/${name}`),
+  recovery.sync.contract,
+  recovery.sync.manifest,
   "docs/decisions/0001-portability-is-a-repository-invariant.md",
+  "docs/decisions/0003-round-trip-parity-is-a-system-invariant.md",
   "docs/decisions/template.md"
 ]) {
   try {

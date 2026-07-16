@@ -23,6 +23,10 @@ test("renders one coherent, source-grounded specimen", async ({ page }) => {
   );
   await expect(page.locator("[data-principle]")).toHaveCount(8);
   await expect(page.locator(".authority-node")).toHaveCount(4);
+  await expect(
+    page.getByRole("heading", { name: "One system. Four owning forms." }),
+  ).toBeVisible();
+  await expect(page.getByRole("link", { name: /Round-trip sync/ })).toBeVisible();
   const lensRows = page.locator(".lens-ledger > div");
   await expect(lensRows.nth(0)).toContainText(/Structure\s*2 \/ 8/);
   await expect(lensRows.nth(1)).toContainText(/Experience\s*2 \/ 8/);

@@ -1,11 +1,14 @@
 # Figma v1 inspection receipt
 
 The editable [Joyful Brutalist Minimalism Figma file](https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ)
-translates the repository-owned constitution and portable tokens into visual
-representations. It does not create a second portable-value source.
+and the repository are peer access points to one authored system. Figma owns
+visual representation; portable values remain canonical in the repository and
+are reconciled in both directions through [`SYNC.md`](../SYNC.md).
 
-This build fulfills [issue #5](https://github.com/chekos/joyful-brutalist-minimalism/issues/5)
+The founding build fulfills [issue #5](https://github.com/chekos/joyful-brutalist-minimalism/issues/5)
 and is reviewed in [pull request #8](https://github.com/chekos/joyful-brutalist-minimalism/pull/8).
+The round-trip reconciliation and Contextual Marginalia study fulfill
+[issue #24](https://github.com/chekos/joyful-brutalist-minimalism/issues/24).
 Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 [`tokens/jbm.tokens.json`](../tokens/jbm.tokens.json), and the generated
 [`tokens/jbm.figma.json`](../tokens/jbm.figma.json). The machine-readable
@@ -28,10 +31,16 @@ inventory needed to audit an imported copy or a manual rebuild.
   text or boolean properties, usage documentation, mapped text styles, and
   variable-bound committed values.
 - The Technical Figure encodes the four repository-defined authorities and
-  uses a live Figure Caption instance with provenance.
+  their one-system, round-trip parity rule. It uses a live Figure Caption
+  instance with provenance.
 - The Reading Instrument remains a study. It classifies all eight principles
   once by primary decision lens: Structure 2, Experience 2, Translation 3,
   and Access 1.
+- Contextual Marginalia remains a study. It represents the default two-term
+  register, note 02 active through hover or focus, and the narrow/print reading
+  order. The existing JBM roles cover it; no new portable token was required.
+- Live reconciliation passed for all 40 variable names, values, aliases,
+  scopes, and WEB syntax, plus all four text styles and both effect styles.
 - Programmatic inspection and native-resolution screenshot review passed.
 
 | Component | Variant axes | Variants | Exposed properties |
@@ -54,6 +63,8 @@ namespace:
 
 - `checkpoint_foundations`: 40 variables and 6 styles;
 - `checkpoint_components`: 7 component sets and 23 variants; and
+- `checkpoint_contextual_marginalia`: exact token parity and the three required
+  study states; and
 - `final_validation`: the complete pages, tokens, styles, components, and
   studies audit.
 
@@ -71,16 +82,19 @@ variables, styles, components, variants, properties, studies, and their
 repository-owned mappings. Full deterministic reconstruction is intentionally
 deferred.
 
-## Source-of-truth workflow
+## Round-trip workflow
 
-1. Change portable values only in `tokens/jbm.tokens.json`.
-2. Run `npm run generate`, inspect the generated CSS, Figma mapping, and token
-   reference together, then run `npm run check` and `npm run validate:spec`.
-3. Apply the generated Figma mapping deliberately. Semantic variables must
-   remain aliases to primitives.
-4. Keep Figma-only geometry, component properties, and studies in Figma.
-5. Record meaningful divergence rather than forcing unlike media into pixel
-   identity.
+1. Let work begin in the repository or Figma, then classify its owning
+   concern.
+2. Keep portable values canonical in `tokens/jbm.tokens.json`. If an accepted
+   value begins in Figma, promote it there and regenerate.
+3. Reconcile the generated CSS, Figma mapping, live variables and styles, and
+   token reference. Semantic variables remain aliases to primitives.
+4. Keep Figma-only geometry, component properties, and studies in Figma while
+   refreshing the repository receipt and screenshots.
+5. Give every core form an explicit parity state in the
+   [sync manifest](sync/manifest.json); record meaningful divergence rather
+   than forcing unlike media into pixel identity.
 
 ## Visual evidence
 
@@ -108,5 +122,6 @@ deferred.
 
 ![Studies page](figma/v1/05-studies.png)
 
-Detailed crops: [Technical Figure](figma/v1/technical-figure.png) and
-[Reading Instrument](figma/v1/reading-instrument.png).
+Detailed crops: [Technical Figure](figma/v1/technical-figure.png),
+[Reading Instrument](figma/v1/reading-instrument.png), and
+[Contextual Marginalia](figma/v1/contextual-marginalia.png).

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "system": "Joyful Brutalist Minimalism",
+  "contract": "SYNC.md",
+  "decision": "docs/decisions/0003-round-trip-parity-is-a-system-invariant.md",
+  "updatedOn": "2026-07-16",
+  "figmaFile": {
+    "key": "T4jEmsyQBURKMr6s3zYfFJ",
+    "url": "https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ"
+  },
+  "requiredCoreForms": [
+    "meaning",
+    "tokens",
+    "figma",
+    "browser"
+  ],
+  "completionStates": [
+    "represented",
+    "verified-existing",
+    "not-applicable",
+    "intentional-divergence"
+  ],
+  "tokenParity": {
+    "status": "passed",
+    "verifiedOn": "2026-07-16",
+    "canonical": "tokens/jbm.tokens.json",
+    "generatedMapping": "tokens/jbm.figma.json",
+    "figmaInspection": "docs/figma/v1/inspection.json",
+    "liveCheckpoint": "jbm_dsb/checkpoint_contextual_marginalia",
+    "expected": {
+      "variables": 40,
+      "textStyles": 4,
+      "effectStyles": 2
+    }
+  },
+  "features": [
+    {
+      "id": "authority-exchange",
+      "status": "study",
+      "forms": {
+        "meaning": {
+          "status": "represented",
+          "path": "DESIGN.md",
+          "anchorHeading": "## Authority, parity, and conflict resolution"
+        },
+        "tokens": {
+          "status": "not-applicable",
+          "reason": "The access and ownership model changes no portable value."
+        },
+        "figma": {
+          "status": "represented",
+          "nodeId": "39:7",
+          "screenshot": "docs/figma/v1/technical-figure.png"
+        },
+        "browser": {
+          "status": "represented",
+          "source": "src/pages/index.astro",
+          "sourceMarker": "class=\"technical-figure\"",
+          "selector": ".technical-figure"
+        }
+      }
+    },
+    {
+      "id": "contextual-marginalia",
+      "status": "study",
+      "forms": {
+        "meaning": {
+          "status": "represented",
+          "path": "DESIGN.md",
+          "anchorHeading": "### Contextual marginalia"
+        },
+        "tokens": {
+          "status": "verified-existing",
+          "reason": "Existing surface, text, action, rule, space, type, and motion roles cover the study; exact live Figma parity passed with no new portable value."
+        },
+        "figma": {
+          "status": "represented",
+          "nodeId": "61:8",
+          "states": {
+            "register": "62:2",
+            "activeNote": "63:2",
+            "narrowAndPrint": "64:2"
+          },
+          "captionInstance": "64:20",
+          "screenshot": "docs/figma/v1/contextual-marginalia.png"
+        },
+        "browser": {
+          "status": "represented",
+          "source": "src/pages/index.astro",
+          "sourceMarker": "data-jbm-study=\"contextual-marginalia\"",
+          "selector": "[data-jbm-study=\"contextual-marginalia\"]",
+          "url": "https://jbm.bns.studio/#marginalia"
+        }
+      }
+    }
+  ],
+  "consumers": {
+    "biblioteca": {
+      "status": "not-adopted",
+      "reason": "Consumer repositories do not inherit JBM changes automatically; adoption requires a separate product decision."
+    }
+  }
+}

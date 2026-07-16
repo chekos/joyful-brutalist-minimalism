@@ -7,7 +7,8 @@
   "authority": {
     "constitution": "DESIGN.md",
     "portableTokens": "tokens/jbm.tokens.json",
-    "generatedMapping": "tokens/jbm.figma.json"
+    "generatedMapping": "tokens/jbm.figma.json",
+    "syncContract": "SYNC.md"
   },
   "inspection": "docs/figma/v1/inspection.json",
   "inventory": {
@@ -145,7 +146,8 @@
         "nodeId": "39:7",
         "authorities": 4,
         "captionComponentInstance": true,
-        "source": "DESIGN.md#authority-and-conflict-resolution"
+        "source": "DESIGN.md#authority-parity-and-conflict-resolution",
+        "syncModel": "one-system-four-owners-round-trip-parity"
       },
       "readingInstrument": {
         "nodeId": "41:7",
@@ -158,8 +160,25 @@
           "access": 1
         },
         "source": "DESIGN.md#principles"
+      },
+      "contextualMarginalia": {
+        "nodeId": "61:8",
+        "status": "study",
+        "states": {
+          "register": "62:2",
+          "activeNote": "63:2",
+          "narrowAndPrint": "64:2"
+        },
+        "captionInstance": "64:20",
+        "source": "DESIGN.md#contextual-marginalia",
+        "browser": "https://jbm.bns.studio/#marginalia"
       }
     }
+  },
+  "sync": {
+    "contract": "SYNC.md",
+    "manifest": "docs/sync/manifest.json",
+    "liveCheckpoint": "jbm_dsb/checkpoint_contextual_marginalia"
   },
   "snapshot": {
     "format": ".fig",
@@ -176,6 +195,6 @@
   },
   "reconstruction": {
     "minimum": "Use the committed inventory, source mappings, inspection receipt, and screenshots to audit a manual import or rebuild.",
-    "deferred": "A deterministic Figma builder is intentionally outside the v1 portability foundation."
+    "deferred": "A deterministic Figma builder is intentionally outside the v1 portability foundation. Use the round-trip sync contract and live inspection before claiming current parity."
   }
 }

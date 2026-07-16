@@ -17,27 +17,38 @@ The short version is:
 > Show how the thing works, give the content room to speak, and attach one
 > restrained moment of joy to something useful.
 
-## Authority and conflict resolution
+## Authority, parity, and conflict resolution
 
-The language has four complementary forms. They are bridged deliberately, not
-kept mechanically identical.
+The language is one authored system with four owning forms. The repository and
+Figma are peer entry points: an accepted change may begin in either place, but
+it is complete only after the other forms have been reconciled. Round-trip
+semantic parity does not require unlike media to become mechanically or
+pixel-identical.
 
 | Form | It owns | It does not own |
 | --- | --- | --- |
 | `DESIGN.md` | Principles, vocabulary, selection criteria, accessibility rules, and reasons | Exact rendered geometry or browser behavior |
 | Canonical tokens | Portable named values and platform mappings | Composition, product semantics, or every possible visual value |
-| Figma | Visual exploration and committed visual representation: variables, styles, components, patterns, and studies | Browser responsiveness, focus behavior, or automatic repository changes |
+| Figma | Visual exploration and committed visual representation: variables, styles, components, patterns, and studies | Browser responsiveness, focus behavior, or portable values that have not been promoted to canonical tokens |
 | Reference site | Browser truth: responsive layout, interaction, motion, progressive enhancement, and reduced-motion behavior | The meaning of the language or consumer-product architecture |
 
-When two forms disagree:
+When a change begins in any form:
 
 1. Name the concern before editing: meaning, portable value, visual
    representation, or browser behavior.
-2. Resolve it in the form that owns that concern.
-3. Translate the accepted decision into the other forms only where the
-   translation is meaningful.
-4. Record an intentional divergence instead of silently overwriting a local
-   interpretation.
+2. Resolve or accept it in the form that owns that concern.
+3. Give every other core form an explicit parity state: represented, verified
+   as already covered, not applicable, or intentionally divergent.
+4. Reconcile meaningful translations in both directions. A Figma variable
+   change that should be portable is promoted to the canonical token file and
+   regenerated; a repository change that affects visual intent is represented
+   in Figma.
+5. Record an intentional divergence instead of silently overwriting a
+   medium-specific interpretation.
+
+The [sync contract](SYNC.md) and its machine-readable manifest make this
+completion rule inspectable. Consumer products such as Biblioteca remain
+separate adopters; core JBM parity does not silently edit them.
 
 For example, an unavailable font is not a reason to rename the Editorial role.
 Preserve the role and its reading behavior, choose a local substitute, and
@@ -83,11 +94,12 @@ stack unrelated effects to prove that the design is expressive.
 Motion may reveal relationship, progress, hierarchy, or cause and effect.
 Animation that merely announces its own presence is noise.
 
-### 7. Design each medium intentionally
+### 7. Design each medium intentionally and reconcile it
 
 Figma, browser, print, and a consumer product translate the language according
-to their constraints. Semantic agreement matters more than pixel identity
-across unlike media.
+to their constraints. The repository and Figma remain peer access points to
+the same system, so accepted changes receive an explicit parity state in both.
+Semantic agreement matters more than pixel identity across unlike media.
 
 ### 8. Preserve an escape hatch
 
@@ -237,7 +249,9 @@ The browser specimen proves this interaction as a study. Do not promote it to a
 reusable component until a second genuinely different content context
 demonstrates a stable contract. Making Software is provenance for the
 relationship, not a source for copied wording, geometry, assets, code, rulers,
-or exact animation.
+or exact animation. The Figma study records the default register, active-note,
+and narrow/print states. Existing portable tokens cover the treatment; that is
+a verified parity result, not an omitted token decision.
 
 ## Imagery, figures, and diagrams
 

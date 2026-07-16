@@ -13,6 +13,8 @@ into an independent consumer, and consult the
 [v1 verification receipt](docs/v1-verification.md) for the cross-medium release
 ledger, accessibility evidence, and publication boundary. For a new machine or
 account, start with the [portability runbook](PORTABILITY.md).
+Use the [round-trip sync contract](SYNC.md) when work begins in either the
+repository or Figma.
 
 ## Sources of truth
 
@@ -24,6 +26,7 @@ account, start with the [portability runbook](PORTABILITY.md).
 | Browser custom properties | [generated CSS](src/styles/tokens.css) |
 | Visual exploration and committed visual decisions | [Joyful Brutalist Minimalism in Figma](https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ), with the [v1 inspection receipt](docs/figma-v1.md) |
 | Browser behavior | The [published v1 reference site](https://jbm.bns.studio), `src/pages/index.astro`, and its specimens |
+| Cross-medium completion | [`SYNC.md`](SYNC.md) and the [sync manifest](docs/sync/manifest.json) |
 | Scope and durable work history | [epic #1](https://github.com/chekos/joyful-brutalist-minimalism/issues/1) |
 
 The [published Astro reference site](https://jbm.bns.studio) is the executable
@@ -83,7 +86,9 @@ offline-capable; it additionally validates JBM's mapping, provenance, contrast,
 alias, reduced-motion, and generated-parity contracts.
 
 Do not hand-edit generated files. Change the canonical token JSON, regenerate,
-review the diff, and then apply its named targets deliberately in Figma.
+review the diff, and reconcile its named targets in Figma. When an accepted
+portable-value change begins in Figma, promote it to the canonical token JSON,
+regenerate, and reconcile the live file to that result.
 
 ## Taste evaluation
 

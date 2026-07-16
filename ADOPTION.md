@@ -82,6 +82,11 @@ Meaning and judgment change in `DESIGN.md`.
 No consumer inherits an upstream change automatically. Re-adoption is an
 explicit product decision with its own verification.
 
+This consumer boundary is separate from JBM's core round-trip sync invariant.
+`DESIGN.md`, canonical tokens, Figma, and the reference site must reconcile an
+accepted JBM change; Biblioteca or another product changes only after an
+explicit adoption decision.
+
 ## Licensing boundary
 
 This public repository is intentionally unlicensed until documentation, code,

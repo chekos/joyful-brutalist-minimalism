@@ -4,7 +4,7 @@
   "name": "JBM v1 portability checkpoint",
   "sourceCommit": "c04e407a46f18366dfd301cb7849a1940c046426",
   "sourceCommitRole": "Founding v1 design content before the portability layer",
-  "recordedOn": "2026-07-15",
+  "recordedOn": "2026-07-16",
   "toolchain": {
     "node": "22.23.1",
     "npm": "10.9.8",
@@ -35,17 +35,27 @@
     {
       "path": "tokens/jbm.figma.json",
       "role": "generated Figma mapping",
-      "sha256": "41c08fa4a784d85b91b936400b26c007ee245f996fae29de7a63d54e73a1265a"
+      "sha256": "b00c36106ddb332fd532eb6605f12a85c4d043df330c0dc82035c745a3b14946"
     },
     {
       "path": "docs/figma/v1/inspection.json",
       "role": "machine-readable Figma inspection",
-      "sha256": "66e9307d35fcb6a6f9caed7f7a82534991d36fb28b88ae1a9d6d66843a3bc14e"
+      "sha256": "7f516e3aa2d9562acac05f55d4d2f3a8c0d04c04e7637340c1a44386e8a97844"
     },
     {
       "path": "docs/v1-verification.md",
       "role": "cross-medium verification receipt",
-      "sha256": "015034ae3bbed5ebebe5e9d071f3f983e378514454c76d62b066b057a6a1db53"
+      "sha256": "97736b5685147b44c4bd1c94affff26155929af372dc7ce9893cb18082513e3d"
+    },
+    {
+      "path": "SYNC.md",
+      "role": "round-trip sync contract",
+      "sha256": "b48dd93c052b00d9969c8d4e637205a248b9d1cd9fe3a68cbeb76720e016a6a3"
+    },
+    {
+      "path": "docs/sync/manifest.json",
+      "role": "machine-readable sync receipt",
+      "sha256": "38e97941927826fd233cb5747ff31d473259fccc6128fd2914e45438de403c5a"
     }
   ],
   "verification": {

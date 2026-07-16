@@ -13,7 +13,9 @@ origin: docs/brainstorms/2026-07-16-contextual-marginalia-brainstorm.md
 Translate the approved
 [brainstorm](../brainstorms/2026-07-16-contextual-marginalia-brainstorm.md)
 into repository-owned meaning, an original executable browser study, and
-behavioral evidence. Keep tokens, Figma, and consumer repositories unchanged.
+behavioral evidence. The original issue kept tokens, Figma, and consumer
+repositories unchanged; issue #24 and Decision 0003 supersede the Figma part of
+that boundary through the round-trip parity follow-up.
 
 ## Implementation
 
@@ -39,6 +41,8 @@ behavioral evidence. Keep tokens, Figma, and consumer repositories unchanged.
 - [x] The register contains only real annotations.
 - [x] Narrow, print, no-JavaScript, and reduced-motion states preserve meaning.
 - [x] Automated accessibility and browser regression tests pass.
-- [x] No token, Figma, Biblioteca, or other consumer-repository change occurs.
+- [x] Original browser delivery adds no token value or consumer-repository
+      change. The follow-up verifies existing-token parity and adds the required
+      Figma study while Biblioteca remains unchanged.
 - [x] Work lands through issue #21, a `codex/` branch, a reviewed PR, clean
       merge, and synced local `main`.

@@ -98,9 +98,11 @@ text style, effect style, or named documentation section instead.
 - Change values, aliases, mapping policies, contrast pairs, or provenance in
   `tokens/jbm.tokens.json`.
 - Run `npm run generate`, then `npm run check`.
-- In Figma, apply the generated mapping deliberately. Variables may bind
-  directly; text styles, effect styles, and prototype behavior require
-  their named target.
+- Reconcile Figma to the generated mapping. Variables may bind directly;
+  text styles, effect styles, and prototype behavior require their named
+  target.
+- If an accepted portable-value change begins in Figma, promote it to the
+  canonical token file, regenerate, and reconcile the live file.
 - If Figma and code disagree, classify the disagreement before changing
   anything: meaning belongs in `DESIGN.md`, visual representation in
   Figma, browser behavior in the reference site, and portable values here.

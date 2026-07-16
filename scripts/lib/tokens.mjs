@@ -680,9 +680,11 @@ export function renderTokenReference(document) {
     "- Change values, aliases, mapping policies, contrast pairs, or provenance in",
     "  `tokens/jbm.tokens.json`.",
     "- Run `npm run generate`, then `npm run check`.",
-    "- In Figma, apply the generated mapping deliberately. Variables may bind",
-    "  directly; text styles, effect styles, and prototype behavior require",
-    "  their named target.",
+    "- Reconcile Figma to the generated mapping. Variables may bind directly;",
+    "  text styles, effect styles, and prototype behavior require their named",
+    "  target.",
+    "- If an accepted portable-value change begins in Figma, promote it to the",
+    "  canonical token file, regenerate, and reconcile the live file.",
     "- If Figma and code disagree, classify the disagreement before changing",
     "  anything: meaning belongs in `DESIGN.md`, visual representation in",
     "  Figma, browser behavior in the reference site, and portable values here.",
@@ -706,7 +708,7 @@ export function renderFigmaMappings(document) {
         generatedFrom: "tokens/jbm.tokens.json",
         specification: "DTCG 2025.10",
         instructions:
-          "Do not edit. Apply these explicit targets in Figma and record any semantic divergence.",
+          "Do not edit. Reconcile live Figma variables and styles to these targets. Promote accepted Figma-originated portable-value changes to the canonical token file, regenerate, and record any intentional divergence.",
         mappings: tokens.map((token) => ({
           token: token.path,
           type: token.type,

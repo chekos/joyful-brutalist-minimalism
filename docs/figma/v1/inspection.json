@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 1,
-  "runId": "jbm-figma-v1-20260714",
+  "schemaVersion": 2,
+  "runId": "jbm-figma-sync-20260716",
   "status": "passed",
   "file": {
     "key": "T4jEmsyQBURKMr6s3zYfFJ",
@@ -9,7 +9,8 @@
   "authority": {
     "constitution": "DESIGN.md",
     "portableTokens": "tokens/jbm.tokens.json",
-    "generatedMapping": "tokens/jbm.figma.json"
+    "generatedMapping": "tokens/jbm.figma.json",
+    "syncContract": "SYNC.md"
   },
   "pages": [
     "00 Cover",
@@ -110,7 +111,8 @@
       "nodeId": "39:7",
       "authorities": 4,
       "captionComponentInstance": true,
-      "source": "DESIGN.md#authority-and-conflict-resolution"
+      "source": "DESIGN.md#authority-parity-and-conflict-resolution",
+      "syncModel": "one-system-four-owners-round-trip-parity"
     },
     "readingInstrument": {
       "nodeId": "41:7",
@@ -123,13 +125,38 @@
         "access": 1
       },
       "source": "DESIGN.md#principles"
+    },
+    "contextualMarginalia": {
+      "nodeId": "61:8",
+      "status": "study",
+      "states": {
+        "register": "62:2",
+        "activeNote": "63:2",
+        "narrowAndPrint": "64:2"
+      },
+      "captionInstance": "64:20",
+      "source": "DESIGN.md#contextual-marginalia",
+      "browser": "https://jbm.bns.studio/#marginalia"
     }
   },
   "checkpoints": {
     "foundations": "jbm_dsb/checkpoint_foundations",
     "components": "jbm_dsb/checkpoint_components",
+    "contextualMarginalia": "jbm_dsb/checkpoint_contextual_marginalia",
     "finalValidation": "jbm_dsb/final_validation",
     "namedVersionHistory": "unsupported-by-remote-runtime"
+  },
+  "sync": {
+    "contract": "SYNC.md",
+    "manifest": "docs/sync/manifest.json",
+    "tokenParity": {
+      "status": "passed",
+      "verifiedOn": "2026-07-16",
+      "variables": 40,
+      "textStyles": 4,
+      "effectStyles": 2,
+      "namesValuesAliasesScopesAndSyntax": "exact"
+    }
   },
   "screenshots": [
     "00-cover.png",
@@ -139,6 +166,7 @@
     "04-patterns.png",
     "05-studies.png",
     "technical-figure.png",
-    "reading-instrument.png"
+    "reading-instrument.png",
+    "contextual-marginalia.png"
   ]
 }

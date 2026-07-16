@@ -9,7 +9,7 @@
     "bootstrap": "node scripts/bootstrap.mjs",
     "build": "npm run generate:check && astro check && astro build",
     "capture:browser-evidence": "npm run build && node scripts/capture-browser-evidence.mjs",
-    "check": "npm run format:check && npm run validate:tokens && npm run validate:taste-eval && npm run validate:portability && npm run generate:check && npm run typecheck && npm test",
+    "check": "npm run format:check && npm run validate:tokens && npm run validate:sync && npm run validate:taste-eval && npm run validate:portability && npm run generate:check && npm run typecheck && npm test",
     "dev": "astro dev",
     "doctor": "node scripts/doctor.mjs",
     "format:check": "node scripts/check-format.mjs",
@@ -25,6 +25,7 @@
     "typecheck": "astro check",
     "validate:portability": "node scripts/validate-portability.mjs",
     "validate:spec": "uvx --from check-jsonschema==0.37.4 check-jsonschema --schemafile https://www.designtokens.org/schemas/2025.10/format.json tokens/jbm.tokens.json",
+    "validate:sync": "node scripts/validate-sync.mjs",
     "validate:taste-eval": "node scripts/taste-eval.mjs validate",
     "validate:tokens": "node scripts/validate-tokens.mjs",
     "verify": "npm run doctor && npm run check && npm run build && npm run test:browser"

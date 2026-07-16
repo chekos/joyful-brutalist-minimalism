@@ -14,10 +14,18 @@ influence the language.
   progressive enhancement, and reduced-motion behavior.
 - Token files own portable named values and their mappings to platform code.
 
-When these forms disagree, do not silently synchronize them. Identify whether
-the conflict concerns meaning, visual representation, browser behavior, or a
-portable value; resolve it in the corresponding source of truth and document
-the translation.
+These forms are different access points to one authored system. Keep them in
+round-trip semantic parity: every accepted change must be represented,
+verified as already covered, marked not applicable, or recorded as an
+intentional divergence in every core form. Do not confuse parity with pixel
+identity or silently overwrite the form that owns a concern.
+
+Follow `SYNC.md` for both directions. Repository-originated work must reconcile
+Figma before completion. Figma-originated work must be inspected and promoted
+to the owning repository authority: portable values to canonical tokens,
+meaning to `DESIGN.md`, browser behavior to the reference site, and visual
+composition to the Figma receipt and sync manifest. Consumer repositories are
+outside this invariant and adopt changes explicitly.
 
 ## Durable context promotion
 

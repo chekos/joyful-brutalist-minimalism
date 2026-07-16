@@ -21,6 +21,10 @@ owns executable hover, focus, responsive, print, and reduced-motion behavior.
 Existing tokens are sufficient; Figma translation and Biblioteca adoption are
 separate future decisions.
 
+Decision 0003 subsequently made Figma representation part of core round-trip
+parity. The Figma study is now complete while Contextual Marginalia remains
+unpromoted. Biblioteca adoption is still a separate consumer decision.
+
 ## Consequences
 
 The language can preserve and test the useful idea without copying the source

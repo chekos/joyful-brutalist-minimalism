@@ -46,8 +46,10 @@ expectVersion(
 for (const path of [
   "DESIGN.md",
   "PORTABILITY.md",
+  "SYNC.md",
   "tokens/jbm.tokens.json",
   "tokens/jbm.figma.json",
+  "docs/sync/manifest.json",
   "docs/figma/v1/recovery-manifest.json",
   "docs/releases/v1-portability.json"
 ]) {
