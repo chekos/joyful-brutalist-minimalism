@@ -16,11 +16,12 @@ Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 
 ## Browser result
 
-- Astro produces one static route with vanilla CSS and a small TypeScript
-  enhancement. There is no React, Vue, Svelte, or other client UI runtime.
+- Astro produces one static route with vanilla CSS and a one-line capability
+  class for progressive enhancement. There is no React, Vue, Svelte, or other
+  client UI runtime.
 - The page communicates the founding thesis, all eight principles, portable
-  foundations, the seven authored forms, the Technical Figure, the Reading
-  Instrument, and one explicitly unpromoted Contextual Marginalia study in one
+  foundations, the seven authored forms, the Technical Figure, the Principle
+  Index, and one explicitly unpromoted Contextual Marginalia study in one
   editorial composition.
 - Source Serif 4 and IBM Plex Mono are bundled locally so the approved
   Editorial and Instrument roles do not depend on a third-party font request.
@@ -28,12 +29,12 @@ Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
   consumes its semantic properties rather than defining a parallel palette or
   motion scale.
 
-## Content-derived Reading Instrument
+## Content-derived Principle Index
 
 The page defines one eight-item principle dataset. That same dataset renders
-the principle ledger, instrument marks, current-reading status, and lens counts.
-The measure therefore cannot drift from the prose without changing the source
-data.
+the principle ledger, index marks, and lens counts. The index therefore cannot
+drift from the prose without changing the source data, and it never pretends to
+measure reading progress that the page does not meaningfully expose.
 
 The primary-lens result matches the Figma study:
 
@@ -44,9 +45,21 @@ The primary-lens result matches the Figma study:
 | Translation | 04, 06, 07 | 3 / 8 |
 | Access | 08 | 1 / 8 |
 
-With JavaScript, an `IntersectionObserver` updates the active source mark and
-native progress element. Without JavaScript, all eight source links, counts,
-principles, and destinations remain readable and operable.
+All eight adjacent marks are ordinary fragment links. They remain readable and
+operable without JavaScript, and every mark jumps directly to its principle in
+the real ledger. Lens bars in Figma summarize classification counts; the browser
+does not reinterpret them as viewport-derived progress.
+
+## Earned scale
+
+The browser applies the reduction test from `DESIGN.md`: when smaller type
+preserves hierarchy and comprehension, the larger treatment has no job. The
+hero title remains the one true display moment; the thesis, support copy,
+section headings, and typography specimen use restrained contextual sizes.
+Whitespace now groups the hero's title, thesis, actions, and provenance instead
+of staging a full viewport around monumental type. The committed Figma
+`Earned scale` study records the comparison without introducing a portable size
+token or changing the Plate grid.
 
 ## Contextual Marginalia study
 
@@ -96,16 +109,20 @@ Adjacent text provides the complete non-visual equivalent.
 
 Figma and browser agree on vocabulary, semantic token roles, hard-edged paper
 grammar, the four-owner round-trip relationship, Contextual Marginalia's three
-representative states, and the instrument's classification.
+representative states, the static principle classification, and the earned-scale
+reduction test.
 The following differences belong to the browser medium:
 
-- the wide Reading Instrument becomes a sticky left rail on large screens and
-  a horizontal source index on narrow screens;
-- current reading position derives from viewport state and remains directly
-  addressable through fragment links;
-- visible focus, logical keyboard order, touch behavior, native progress,
-  responsive reflow, no-JavaScript navigation, and reduced-motion resolution
-  are executable rather than visually simulated; and
+- the wide Principle Index becomes a sticky left rail on large screens and a
+  horizontal source index on narrow screens;
+- the rail remains static because all eight destinations are adjacent; direct
+  fragment links expose useful navigation without fake progress;
+- visible focus, logical keyboard order, touch behavior, responsive reflow,
+  no-JavaScript navigation, and reduced-motion resolution are executable rather
+  than visually simulated;
+- the document, rail, and narrow mast use square, token-colored authored
+  scrollbars instead of dropping an unconsidered system scrollbar into the
+  composition; and
 - the Technical Figure reflows into a linear two-column or single-column
   explanation on narrow screens while preserving its four owners and center
   rule.
@@ -121,11 +138,13 @@ Astro type checking, unit tests, the static build, and the Chromium suite. The
 browser suite verifies:
 
 - all eight source principles and all seven authored forms;
-- content-derived instrument state;
+- content-derived static index links and lens counts;
 - keyboard entry and visible focus;
 - complete no-JavaScript content and fragment navigation;
 - Contextual Marginalia pointer, keyboard, activation, and narrow-layout states;
-- reduced-motion duration, transform, state, and reading content;
+- reduced-motion duration, state, and reading content;
+- exact annotated type roles, authored scrollbar styling, and no horizontal
+  overflow at desktop, tablet, 200% zoom-equivalent, and mobile widths;
 - automated accessibility analysis with axe; and
 - desktop, mobile, and Technical Figure screenshot regression.
 
@@ -136,11 +155,11 @@ tree, clean desktop and mobile composition, and no console or page errors.
 
 ### Desktop composition
 
-![Desktop hero and Reading Instrument](reference-site/v1/desktop-hero.png)
+![Desktop hero and Principle Index](reference-site/v1/desktop-hero.png)
 
 ### Mobile composition
 
-![Mobile Reading Instrument and hero](reference-site/v1/mobile-hero.png)
+![Mobile Principle Index and hero](reference-site/v1/mobile-hero.png)
 
 ### Technical Figure in context
 
@@ -156,7 +175,6 @@ scoped to representative surfaces so failures remain reviewable.
 
 ## Publication boundary
 
-This phase proves a local static artifact only. It does not select a permanent
-host, attach a domain, or imply a license. Publication remains governed by the
-explicit approval gate in
-[issue #7](https://github.com/chekos/joyful-brutalist-minimalism/issues/7).
+The artifact is published at [jbm.bns.studio](https://jbm.bns.studio) through
+the repository's GitHub Pages workflow. Public visibility and the Figma link do
+not imply a license or automatic inheritance by consumer repositories.

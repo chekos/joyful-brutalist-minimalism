@@ -40,12 +40,12 @@
     {
       "path": "docs/figma/v1/inspection.json",
       "role": "machine-readable Figma inspection",
-      "sha256": "7f516e3aa2d9562acac05f55d4d2f3a8c0d04c04e7637340c1a44386e8a97844"
+      "sha256": "0169a007d9ee7913ecf1c5eee30920e921562ca2e106bdf83a355192f5580fc0"
     },
     {
       "path": "docs/v1-verification.md",
       "role": "cross-medium verification receipt",
-      "sha256": "97736b5685147b44c4bd1c94affff26155929af372dc7ce9893cb18082513e3d"
+      "sha256": "0468adc0c6b8595219242fec549a01576a63d3a15e5e1f07c3e8b8470d8b8a1b"
     },
     {
       "path": "SYNC.md",
@@ -55,7 +55,7 @@
     {
       "path": "docs/sync/manifest.json",
       "role": "machine-readable sync receipt",
-      "sha256": "38e97941927826fd233cb5747ff31d473259fccc6128fd2914e45438de403c5a"
+      "sha256": "f4cd66776ff00d45bf6b3b7d81bbb1d1e6a6ce1f664b9fd4caa45bac45aa887d"
     }
   ],
   "verification": {

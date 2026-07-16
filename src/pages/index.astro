@@ -158,32 +158,22 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
     <div class="page-shell" id="top">
       <aside class="reading-instrument" aria-labelledby="instrument-heading">
         <div class="instrument-head">
-          <p class="kicker" data-jbm-form="kicker">Reading instrument</p>
-          <h2 id="instrument-heading">Eight principles, measured honestly.</h2>
+          <p class="kicker" data-jbm-form="kicker">Principle index</p>
+          <h2 id="instrument-heading">Eight principles. Four lenses.</h2>
           <p class="instrument-summary">
-            The marks below are the page's actual principles, classified once by
-            their primary decision lens.
+            Jump to the ledger. Each principle is classified once by its primary
+            decision lens.
           </p>
-        </div>
-
-        <div class="instrument-state">
-          <label for="reading-progress">Reading position</label>
-          <progress id="reading-progress" max={principles.length} value="1">
-            1 of {principles.length}
-          </progress>
-          <p data-instrument-status aria-live="polite">Principle 1 of 8 · Structure</p>
         </div>
 
         <ol class="instrument-marks" aria-label="Jump to a principle">
           {
-            principles.map((principle, index) => (
+            principles.map((principle) => (
               <li>
                 <a
-                  class:list={["instrument-mark", `lens-${principle.lens.toLowerCase()}`, { "is-current": index === 0 }]}
+                  class:list={["instrument-mark", `lens-${principle.lens.toLowerCase()}`]}
                   href={`#principle-${principle.number}`}
                   data-instrument-mark
-                  data-index={index}
-                  aria-current={index === 0 ? "location" : undefined}
                 >
                   <span class="mark-number">{principle.number}</span>
                   <span class="mark-code" aria-hidden="true">{principle.code}</span>
@@ -240,7 +230,7 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
             <p class="kicker" data-jbm-form="kicker">01 / Principles in use</p>
             <h2 id="principles-title">Eight constraints make the work recognizable.</h2>
             <p>
-              The instrument and the ledger share one source. Its counts cannot
+              The index and the ledger share one source. Their counts cannot
               drift from the content without changing this page's data.
             </p>
           </header>
@@ -543,16 +533,16 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
               <span>Translates</span>
               <h3>Responsive composition</h3>
               <p>
-                The wide Figma studies become a sticky reading rail on large screens
-                and a horizontal source index on narrow screens without changing their measure.
+                The wide Figma study becomes a sticky principle index on large screens
+                and a horizontal source index on narrow screens without pretending to measure progress.
               </p>
             </article>
             <article>
               <span>Belongs here</span>
               <h3>Interaction and escape hatches</h3>
               <p>
-                Focus order, pointer feedback, current reading position, no-JavaScript
-                anchors, and reduced motion are browser-owned decisions.
+                Focus order, pointer feedback, direct fragment navigation,
+                no-JavaScript anchors, and reduced motion are browser-owned decisions.
               </p>
             </article>
           </div>
@@ -610,46 +600,5 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
       <a href="#top">Return to the measure ↑</a>
     </footer>
 
-    <script>
-      const principleRows = Array.from(document.querySelectorAll<HTMLElement>("[data-principle]"));
-      const instrumentMarks = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-instrument-mark]"));
-      const progress = document.querySelector<HTMLProgressElement>("#reading-progress");
-      const status = document.querySelector<HTMLElement>("[data-instrument-status]");
-
-      function setCurrentPrinciple(index: number) {
-        const row = principleRows[index];
-        if (!row || !progress || !status) return;
-
-        instrumentMarks.forEach((mark, markIndex) => {
-          const current = markIndex === index;
-          mark.classList.toggle("is-current", current);
-          if (current) mark.setAttribute("aria-current", "location");
-          else mark.removeAttribute("aria-current");
-        });
-
-        progress.value = index + 1;
-        status.textContent = `Principle ${index + 1} of ${principleRows.length} · ${row.dataset.lens}`;
-        document.documentElement.style.setProperty("--reading-progress", `${((index + 1) / principleRows.length) * 100}%`);
-      }
-
-      instrumentMarks.forEach((mark, index) => {
-        mark.addEventListener("click", () => setCurrentPrinciple(index));
-      });
-
-      if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            const visible = entries
-              .filter((entry) => entry.isIntersecting)
-              .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-            if (!visible) return;
-            const index = principleRows.indexOf(visible.target as HTMLElement);
-            if (index >= 0) setCurrentPrinciple(index);
-          },
-          { rootMargin: "-18% 0px -58% 0px", threshold: [0.15, 0.4, 0.7] },
-        );
-        principleRows.forEach((row) => observer.observe(row));
-      }
-    </script>
   </body>
 </html>

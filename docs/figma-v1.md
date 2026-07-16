@@ -9,6 +9,8 @@ The founding build fulfills [issue #5](https://github.com/chekos/joyful-brutalis
 and is reviewed in [pull request #8](https://github.com/chekos/joyful-brutalist-minimalism/pull/8).
 The round-trip reconciliation and Contextual Marginalia study fulfill
 [issue #24](https://github.com/chekos/joyful-brutalist-minimalism/issues/24).
+The earned-scale and static-index recalibration fulfills
+[issues #25–#27](https://github.com/chekos/joyful-brutalist-minimalism/issues/25).
 Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 [`tokens/jbm.tokens.json`](../tokens/jbm.tokens.json), and the generated
 [`tokens/jbm.figma.json`](../tokens/jbm.figma.json). The machine-readable
@@ -33,9 +35,13 @@ inventory needed to audit an imported copy or a manual rebuild.
 - The Technical Figure encodes the four repository-defined authorities and
   their one-system, round-trip parity rule. It uses a live Figure Caption
   instance with provenance.
-- The Reading Instrument remains a study. It classifies all eight principles
-  once by primary decision lens: Structure 2, Experience 2, Translation 3,
-  and Access 1.
+- The Principle Index remains a study. It keeps all eight adjacent anchors
+  visible, classifies each once by primary decision lens, and labels its bars as
+  real lens counts rather than reading progress: Structure 2, Experience 2,
+  Translation 3, and Access 1.
+- The Earned Scale study records the accepted reduction test. The 48px treatment
+  is rejected because 32px preserves hierarchy and comprehension; the Plate
+  component grid and all portable values remain unchanged.
 - Contextual Marginalia remains a study. It represents the default two-term
   register, note 02 active through hover or focus, and the narrow/print reading
   order. The existing JBM roles cover it; no new portable token was required.
@@ -62,15 +68,18 @@ records are stored on the document root under the stable `jbm_dsb` shared-data
 namespace:
 
 - `checkpoint_foundations`: 40 variables and 6 styles;
-- `checkpoint_components`: 7 component sets and 23 variants; and
+- `checkpoint_components`: 7 component sets and 23 variants;
 - `checkpoint_contextual_marginalia`: exact token parity and the three required
   study states; and
+- `checkpoint_earned_scale`: the static Principle Index, accepted reduction
+  study, unchanged component inventory, and no portable-value change; and
 - `final_validation`: the complete pages, tokens, styles, components, and
   studies audit.
 
 This is an intentional connector limitation, not a hidden substitute for a
 Figma version. If a named manual checkpoint is needed, create it from the file
-history using the labels `JBM v1 — foundations` and `JBM v1 — components`.
+history using the labels `JBM v1 — foundations`, `JBM v1 — components`, and
+`JBM sync — static principle index and earned scale`.
 
 ## Recovery boundary
 
@@ -123,5 +132,6 @@ deferred.
 ![Studies page](figma/v1/05-studies.png)
 
 Detailed crops: [Technical Figure](figma/v1/technical-figure.png),
-[Reading Instrument](figma/v1/reading-instrument.png), and
+[Principle Index](figma/v1/reading-instrument.png),
+[Earned Scale](figma/v1/earned-scale.png), and
 [Contextual Marginalia](figma/v1/contextual-marginalia.png).

@@ -42,15 +42,18 @@ again on 2026-07-16:
 - seven described component sets contain 23 auto-layout variants with exposed
   properties, bound values, and styled text; and
 - the Technical Figure expresses one system through four owning forms;
-- the Reading Instrument remains source-tagged to the governing principles;
-  and
+- the Principle Index keeps all eight adjacent anchors visible, classifies each
+  once, and explicitly avoids claiming reading progress;
+- the Earned Scale study records the accepted 48px-to-32px reduction test while
+  leaving the Plate component grid unchanged; and
 - Contextual Marginalia records the default register, active-note, and
   narrow/print states without being promoted to a component.
 
 The durable machine inventory and full-page images live in
 [`docs/figma/v1`](figma/v1). The document root also holds the verified
 `jbm_dsb/checkpoint_foundations`, `checkpoint_components`,
-`checkpoint_contextual_marginalia`, and `final_validation` records because the connector runtime cannot create named
+`checkpoint_contextual_marginalia`, `checkpoint_earned_scale`, and
+`final_validation` records because the connector runtime cannot create named
 Figma version-history entries. The final audit also records
 `jbm_dsb/v1_release_verification` on document node `0:0`; its status is
 `published` and it links issue #7, the publication pull request and deployment,
@@ -71,10 +74,10 @@ Representative evidence:
 - [reduced-motion state](reference-site/v1/reduced-motion.png); and
 - [Technical Figure](reference-site/v1/technical-figure.png).
 
-The reduced-motion image records the fifth principle as current while the
-media preference is active. The executable assertion additionally confirms
-zero transition duration, no current-mark transform, automatic scroll
-behavior, and all eight principles remaining present.
+The reduced-motion evidence confirms that optional movement resolves
+immediately while content and focus remain intact. The executable assertions
+also confirm that the static principle index requires no current-mark transform
+or animated reading status and that all eight destinations remain present.
 
 ## Cross-medium agreement
 
@@ -83,14 +86,15 @@ behavior, and all eight principles remaining present.
 | Vocabulary and roles | Canonical names and aliases | Matching variable and style names | Matching semantic custom properties and labels |
 | Paper and pressure | Surface, rule, radius, and shadow values | Ground, Rule, and Plate forms | Responsive paper surfaces with hard edges and restrained pressure |
 | Authority exchange | Four owned concerns in `DESIGN.md` | Original Technical Figure | Semantic figure plus complete text equivalent |
-| Principle reading | Eight principles and four lenses | Original Reading Instrument study | One content dataset drives marks, counts, status, and ledger |
+| Principle index | Eight principles and four lenses | Static Principle Index study with honest count bars | One content dataset drives adjacent fragment links, counts, and ledger without fake progress |
+| Earned scale | Reduction test in `DESIGN.md`; no new portable value | Accepted 48px-to-32px comparison study | Restrained thesis, support, section, and specimen type; hero remains the sole display moment |
 | Contextual Marginalia | Existing named values verified as sufficient | Register, active-note, and narrow/print study states | Executable pointer, focus, activation, responsive, print, and reduced-motion behavior |
 | Access | Contrast and reduced-motion contracts | Visible focus and state specimens | Keyboard, pointer, touch-sized targets, reflow, reduced motion, and no-JavaScript behavior |
 
 Intentional medium differences remain explicit. Figma owns editable geometry,
 styles, component properties, and studies. The browser owns focus order,
-viewport-derived reading state, native progress, fragment navigation,
-responsive reflow, motion resolution, and the no-JavaScript baseline. The
+fragment navigation, responsive reflow, authored scrollbar behavior, motion
+resolution, and the no-JavaScript baseline. The
 canonical token file owns portable values. [`SYNC.md`](../SYNC.md) makes the
 repository and Figma peer entry points and requires an explicit parity state in
 every core form. These are translations, not hidden disagreements.

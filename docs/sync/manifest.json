@@ -26,7 +26,7 @@
     "canonical": "tokens/jbm.tokens.json",
     "generatedMapping": "tokens/jbm.figma.json",
     "figmaInspection": "docs/figma/v1/inspection.json",
-    "liveCheckpoint": "jbm_dsb/checkpoint_contextual_marginalia",
+    "liveCheckpoint": "jbm_dsb/checkpoint_earned_scale",
     "expected": {
       "variables": 40,
       "textStyles": 4,
@@ -90,6 +90,69 @@
           "sourceMarker": "data-jbm-study=\"contextual-marginalia\"",
           "selector": "[data-jbm-study=\"contextual-marginalia\"]",
           "url": "https://jbm.bns.studio/#marginalia"
+        }
+      }
+    },
+    {
+      "id": "static-principle-index",
+      "status": "study",
+      "forms": {
+        "meaning": {
+          "status": "represented",
+          "path": "DESIGN.md",
+          "anchorHeading": "## Principles"
+        },
+        "tokens": {
+          "status": "verified-existing",
+          "reason": "Existing surface, text, rule, lens-signal, and spacing roles cover the index; no portable value changed."
+        },
+        "figma": {
+          "status": "represented",
+          "nodeId": "41:7",
+          "interaction": "static-adjacent-anchors",
+          "checkpoint": "jbm_dsb/checkpoint_earned_scale",
+          "screenshot": "docs/figma/v1/reading-instrument.png"
+        },
+        "browser": {
+          "status": "represented",
+          "source": "src/pages/index.astro",
+          "sourceMarker": "class=\"reading-instrument\"",
+          "selector": ".reading-instrument",
+          "behavior": "Direct fragment navigation with no viewport-derived progress."
+        }
+      }
+    },
+    {
+      "id": "earned-scale",
+      "status": "accepted-study",
+      "forms": {
+        "meaning": {
+          "status": "represented",
+          "path": "DESIGN.md",
+          "anchorHeading": "### Typography"
+        },
+        "tokens": {
+          "status": "not-applicable",
+          "reason": "The accepted values are contextual composition decisions, not a reusable cross-medium type-size token."
+        },
+        "figma": {
+          "status": "represented",
+          "nodeId": "76:14",
+          "comparisonNodeId": "76:20",
+          "checkpoint": "jbm_dsb/checkpoint_earned_scale",
+          "screenshot": "docs/figma/v1/earned-scale.png"
+        },
+        "browser": {
+          "status": "represented",
+          "source": "src/styles/site.css",
+          "sourceMarker": ".hero-thesis .hero-lede {",
+          "selectors": [
+            ".hero-title h1",
+            ".hero-lede",
+            ".hero-thesis p:not(.hero-lede)",
+            ".section-intro h2",
+            ".type-plate blockquote"
+          ]
         }
       }
     }
