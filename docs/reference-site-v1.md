@@ -65,8 +65,10 @@ notes flow directly after the passage. Reduced motion makes the exchange
 immediate while preserving the state.
 
 Decision 0002 keeps Contextual Marginalia as a named study until a second
-genuinely different content context proves a stable contract. No token, Figma,
-or consumer-repository change is implied by the browser evidence.
+genuinely different content context proves a stable contract. The live Figma
+file now records the register, active-note, and narrow/print states. Existing
+tokens were verified as exact coverage, so no new portable value was added.
+No consumer-repository change is implied by the core JBM evidence.
 
 ## Authored forms in context
 
@@ -84,16 +86,17 @@ The page uses the seven Figma forms for their documented functions:
 
 ## Technical Figure
 
-The original diagram encodes the four authorities defined in `DESIGN.md`:
-meaning, portable values, visual representation, and browser behavior. Its
-accepted-decision plate states the real conflict-resolution rule: change one
-owner, translate intentionally, then verify or document divergence. Adjacent
-text provides the complete non-visual equivalent.
+The original diagram encodes one system through the four owning forms defined
+in `DESIGN.md`: meaning, portable values, visual representation, and browser
+behavior. Its accepted-change plate states the round-trip rule: change one
+owner, reconcile all forms, then verify or document divergence explicitly.
+Adjacent text provides the complete non-visual equivalent.
 
 ## Semantic agreement and intentional differences
 
 Figma and browser agree on vocabulary, semantic token roles, hard-edged paper
-grammar, the four authority relationships, and the instrument's classification.
+grammar, the four-owner round-trip relationship, Contextual Marginalia's three
+representative states, and the instrument's classification.
 The following differences belong to the browser medium:
 
 - the wide Reading Instrument becomes a sticky left rail on large screens and
@@ -107,7 +110,9 @@ The following differences belong to the browser medium:
   explanation on narrow screens while preserving its four owners and center
   rule.
 
-These are intentional translations, not token or meaning disagreements.
+These are intentional translations, not token or meaning disagreements. The
+current parity states and node evidence live in
+[`docs/sync/manifest.json`](sync/manifest.json).
 
 ## Verification
 

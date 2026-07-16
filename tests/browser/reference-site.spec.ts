@@ -23,6 +23,10 @@ test("renders one coherent, source-grounded specimen", async ({ page }) => {
   );
   await expect(page.locator("[data-principle]")).toHaveCount(8);
   await expect(page.locator(".authority-node")).toHaveCount(4);
+  await expect(
+    page.getByRole("heading", { name: "One system. Four owning forms." }),
+  ).toBeVisible();
+  await expect(page.getByRole("link", { name: /Round-trip sync/ })).toBeVisible();
   const lensRows = page.locator(".lens-ledger > div");
   await expect(lensRows.nth(0)).toContainText(/Structure\s*2 \/ 8/);
   await expect(lensRows.nth(1)).toContainText(/Experience\s*2 \/ 8/);
@@ -203,13 +207,27 @@ test("matches representative desktop and mobile surfaces", async ({ page }) => {
     maxDiffPixelRatio: 0.03,
   });
 
-  await expect(page.locator(".technical-figure")).toHaveScreenshot(
-    "reference-site-figure.png",
-    {
-      animations: "disabled",
-      maxDiffPixelRatio: 0.03,
+  const figure = page.locator(".technical-figure");
+  await figure.scrollIntoViewIfNeeded();
+  const figureBox = await figure.boundingBox();
+  if (!figureBox) {
+    throw new Error("Technical Figure has no renderable bounds");
+  }
+
+  // Normalize fractional page coordinates so macOS and Linux capture the
+  // same integer-sized surface around the fixed-height figure composition.
+  const figureScreenshot = await page.screenshot({
+    animations: "disabled",
+    clip: {
+      x: Math.round(figureBox.x),
+      y: Math.round(figureBox.y),
+      width: Math.round(figureBox.width),
+      height: Math.round(figureBox.height),
     },
-  );
+  });
+  expect(figureScreenshot).toMatchSnapshot("reference-site-figure.png", {
+    maxDiffPixelRatio: 0.03,
+  });
 
   const marginaliaStudy = page.locator(".marginalia-study");
   await marginaliaStudy.scrollIntoViewIfNeeded();

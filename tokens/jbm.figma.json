@@ -2,7 +2,7 @@
   "generated": true,
   "generatedFrom": "tokens/jbm.tokens.json",
   "specification": "DTCG 2025.10",
-  "instructions": "Do not edit. Apply these explicit targets in Figma and record any semantic divergence.",
+  "instructions": "Do not edit. Reconcile live Figma variables and styles to these targets. Promote accepted Figma-originated portable-value changes to the canonical token file, regenerate, and record any intentional divergence.",
   "mappings": [
     {
       "token": "color.primitive.bone.50",

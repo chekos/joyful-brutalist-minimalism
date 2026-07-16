@@ -58,6 +58,10 @@ try {
       animations: "disabled",
       path: `${outputDirectory}/contextual-marginalia.png`,
     });
+    await keyboardPage.locator(".technical-figure").screenshot({
+      animations: "disabled",
+      path: `${outputDirectory}/technical-figure.png`,
+    });
     await keyboardContext.close();
 
     const reducedContext = await browser.newContext({
@@ -81,5 +85,5 @@ try {
 }
 
 console.log(
-  `captured keyboard, contextual-marginalia, and reduced-motion evidence in ${outputDirectory}`,
+  `captured keyboard, contextual-marginalia, technical-figure, and reduced-motion evidence in ${outputDirectory}`,
 );

@@ -6,7 +6,9 @@ Prior chats, host memory, private skills, and current account state are useful
 accelerators; they are never sources of truth.
 
 This is a deliberately small contract. It does not require a container or try
-to rebuild Figma automatically.
+to rebuild Figma automatically. It preserves the round-trip sync contract and
+the latest honest Figma inspection so a clean clone can tell whether every
+core form was represented, verified, or intentionally different.
 
 ## Fresh-machine bootstrap
 
@@ -51,6 +53,8 @@ credential store and must never be copied into files, examples, or snapshots.
 - Published browser specimen: <https://jbm.bns.studio>
 - Figma recovery contract:
   [`docs/figma/v1/recovery-manifest.json`](docs/figma/v1/recovery-manifest.json)
+- Round-trip sync contract: [`SYNC.md`](SYNC.md), with the current
+  [machine-readable manifest](docs/sync/manifest.json)
 - Known-good artifact checksums:
   [`docs/releases/v1-portability.json`](docs/releases/v1-portability.json)
 
@@ -88,6 +92,11 @@ Record the path or approved release-asset URL and checksum in
 comments and version history; importing it creates an independent file whose
 components no longer link to the original library. The committed inventory,
 token mappings, inspection result, and screenshots make that import auditable.
+
+The repository receipt cannot prove that an uninspected live file is current.
+After Figma access is restored, run the Figma-to-repository reconciliation in
+`SYNC.md`, refresh the live checkpoint and screenshots, and only then mark
+token or study parity as passed.
 
 ## Optional release checkpoint
 

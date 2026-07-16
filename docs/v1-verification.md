@@ -25,14 +25,14 @@ npm run verify
 ```
 
 The checks cover the official DTCG 2025.10 schema, JBM token mappings,
-provenance, aliases, contrast, reduced-motion values, generated parity,
-formatting, TypeScript, six unit tests, the static Astro build, eight Chromium
-behavior and accessibility tests, and three visual-regression surfaces.
+round-trip sync evidence, provenance, aliases, contrast, reduced-motion values,
+generated parity, formatting, TypeScript, unit tests, the static Astro build,
+Chromium behavior and accessibility tests, and visual-regression surfaces.
 
 ## Live Figma verification
 
 Programmatic inspection of the live file and a native screenshot review passed
-on 2026-07-14:
+again on 2026-07-16:
 
 - the six pages remain in their approved order;
 - `JBM Primitives` contains 28 variables and `JBM Semantics` contains 12;
@@ -41,13 +41,16 @@ on 2026-07-14:
 - four text styles and two effect styles remain local and named;
 - seven described component sets contain 23 auto-layout variants with exposed
   properties, bound values, and styled text; and
-- the Technical Figure and Reading Instrument remain source-tagged to their
-  governing `DESIGN.md` sections.
+- the Technical Figure expresses one system through four owning forms;
+- the Reading Instrument remains source-tagged to the governing principles;
+  and
+- Contextual Marginalia records the default register, active-note, and
+  narrow/print states without being promoted to a component.
 
 The durable machine inventory and full-page images live in
 [`docs/figma/v1`](figma/v1). The document root also holds the verified
-`jbm_dsb/checkpoint_foundations`, `checkpoint_components`, and
-`final_validation` records because the connector runtime cannot create named
+`jbm_dsb/checkpoint_foundations`, `checkpoint_components`,
+`checkpoint_contextual_marginalia`, and `final_validation` records because the connector runtime cannot create named
 Figma version-history entries. The final audit also records
 `jbm_dsb/v1_release_verification` on document node `0:0`; its status is
 `published` and it links issue #7, the publication pull request and deployment,
@@ -81,14 +84,16 @@ behavior, and all eight principles remaining present.
 | Paper and pressure | Surface, rule, radius, and shadow values | Ground, Rule, and Plate forms | Responsive paper surfaces with hard edges and restrained pressure |
 | Authority exchange | Four owned concerns in `DESIGN.md` | Original Technical Figure | Semantic figure plus complete text equivalent |
 | Principle reading | Eight principles and four lenses | Original Reading Instrument study | One content dataset drives marks, counts, status, and ledger |
+| Contextual Marginalia | Existing named values verified as sufficient | Register, active-note, and narrow/print study states | Executable pointer, focus, activation, responsive, print, and reduced-motion behavior |
 | Access | Contrast and reduced-motion contracts | Visible focus and state specimens | Keyboard, pointer, touch-sized targets, reflow, reduced motion, and no-JavaScript behavior |
 
 Intentional medium differences remain explicit. Figma owns editable geometry,
 styles, component properties, and studies. The browser owns focus order,
 viewport-derived reading state, native progress, fragment navigation,
 responsive reflow, motion resolution, and the no-JavaScript baseline. The
-canonical token file owns portable values. These are translations, not hidden
-disagreements.
+canonical token file owns portable values. [`SYNC.md`](../SYNC.md) makes the
+repository and Figma peer entry points and requires an explicit parity state in
+every core form. These are translations, not hidden disagreements.
 
 ## Adoption and licensing
 
