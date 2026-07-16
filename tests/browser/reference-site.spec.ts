@@ -98,6 +98,18 @@ test("contextual marginalia exchanges its register for the matching note", async
   await expect(study.locator(".marginal-note")).toHaveCount(2);
   await expect(register).toHaveCSS("opacity", "1");
   await expect(firstNote).toHaveCSS("opacity", "0");
+  const boundaries = await Promise.all(
+    [firstTrigger, secondTrigger].map((trigger) =>
+      trigger.evaluate((element) => ({
+        before: element.previousSibling?.textContent?.slice(-1),
+        after: element.nextSibling?.textContent?.slice(0, 1),
+      })),
+    ),
+  );
+  expect(boundaries).toEqual([
+    { before: " ", after: " " },
+    { before: " ", after: " " },
+  ]);
 
   await firstTrigger.hover();
   await expect(register).toHaveCSS("opacity", "0");
