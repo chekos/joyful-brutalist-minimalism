@@ -108,7 +108,7 @@ export function validateTasteDefinition(definition) {
   const smells = Array.isArray(rubric?.smells) ? rubric.smells : [];
   const motifs = Array.isArray(rubric?.motifs) ? rubric.motifs : [];
   if (dimensions.length !== 7) errors.push("taste-v0 must define exactly 7 score dimensions.");
-  if (smells.length !== 8) errors.push("taste-v0 must define exactly 8 smells.");
+  if (smells.length !== 9) errors.push("taste-v0 must define exactly 9 smells.");
   if (motifs.length !== 11) errors.push("taste-v0 must define exactly 11 neutral motifs.");
 
   for (const [kind, items, fields] of [

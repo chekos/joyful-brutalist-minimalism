@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "figmaFile": {
     "key": "T4jEmsyQBURKMr6s3zYfFJ",
     "url": "https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ"
@@ -149,10 +149,11 @@
         "source": "DESIGN.md#authority-parity-and-conflict-resolution",
         "syncModel": "one-system-four-owners-round-trip-parity"
       },
-      "readingInstrument": {
+      "principleIndex": {
         "nodeId": "41:7",
         "status": "study",
         "principles": 8,
+        "interaction": "static-adjacent-anchors",
         "counts": {
           "structure": 2,
           "experience": 2,
@@ -160,6 +161,17 @@
           "access": 1
         },
         "source": "DESIGN.md#principles"
+      },
+      "earnedScale": {
+        "nodeId": "76:14",
+        "comparisonNodeId": "76:20",
+        "status": "accepted-study",
+        "unearnedPx": 48,
+        "acceptedPx": 32,
+        "reductionTest": "smaller-preserves-hierarchy",
+        "source": "DESIGN.md#typography",
+        "portableValuesChanged": false,
+        "componentInventoryChanged": false
       },
       "contextualMarginalia": {
         "nodeId": "61:8",
@@ -178,7 +190,7 @@
   "sync": {
     "contract": "SYNC.md",
     "manifest": "docs/sync/manifest.json",
-    "liveCheckpoint": "jbm_dsb/checkpoint_contextual_marginalia"
+    "liveCheckpoint": "jbm_dsb/checkpoint_earned_scale"
   },
   "snapshot": {
     "format": ".fig",

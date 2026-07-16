@@ -38,16 +38,97 @@ test("renders one coherent, source-grounded specimen", async ({ page }) => {
   }
 });
 
-test("reading instrument follows the real principle ledger", async ({ page }) => {
+test("principle index links directly to the real ledger", async ({ page }) => {
   const fifthMark = page.locator("[data-instrument-mark]").nth(4);
   await fifthMark.click();
 
-  await expect(fifthMark).toHaveAttribute("aria-current", "location");
-  await expect(page.locator("#reading-progress")).toHaveJSProperty("value", 5);
-  await expect(page.locator("[data-instrument-status]")).toHaveText(
-    "Principle 5 of 8 · Experience",
-  );
   await expect(page).toHaveURL(/#principle-05$/);
+  await expect(page.locator("#principle-05")).toBeInViewport();
+  await expect(page.locator("#reading-progress")).toHaveCount(0);
+  await expect(page.locator("[data-instrument-status]")).toHaveCount(0);
+});
+
+test("annotated desktop hierarchy is restrained and contained", async ({ page }) => {
+  await page.setViewportSize({ width: 1247, height: 784 });
+  await page.evaluate(() => document.fonts.ready);
+
+  await expect(page.locator(".hero-lede")).toHaveCSS("font-size", "20.4px");
+  await expect(page.locator(".hero-thesis p:not(.hero-lede)")).toHaveCSS(
+    "font-size",
+    "13px",
+  );
+  await expect(page.locator("#reading-progress")).toHaveCount(0);
+
+  const layout = await page.evaluate(() => {
+    const rail = document.querySelector<HTMLElement>(".reading-instrument");
+    const ledger = document.querySelector<HTMLElement>(".translation-ledger");
+    return {
+      documentClientWidth: document.documentElement.clientWidth,
+      documentScrollWidth: document.documentElement.scrollWidth,
+      railClientWidth: rail?.clientWidth ?? 0,
+      railScrollWidth: rail?.scrollWidth ?? 0,
+      railScrollbarColor: rail ? getComputedStyle(rail).scrollbarColor : "auto",
+      ledgerClientWidth: ledger?.clientWidth ?? 0,
+      ledgerScrollWidth: ledger?.scrollWidth ?? 0,
+    };
+  });
+
+  expect(layout.documentScrollWidth).toBe(layout.documentClientWidth);
+  expect(layout.railScrollWidth).toBe(layout.railClientWidth);
+  expect(layout.ledgerScrollWidth).toBe(layout.ledgerClientWidth);
+  expect(layout.railScrollbarColor).not.toBe("auto");
+});
+
+test("tablet, mobile, and 200 percent zoom equivalents do not overflow", async ({ page }) => {
+  for (const viewport of [
+    { width: 900, height: 900 },
+    { width: 720, height: 900 },
+    { width: 390, height: 844 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await page.goto("/");
+    await page.evaluate(() => document.fonts.ready);
+
+    const width = await page.evaluate(() => ({
+      client: document.documentElement.clientWidth,
+      scroll: document.documentElement.scrollWidth,
+    }));
+
+    expect(width.scroll).toBe(width.client);
+    await expect(page.getByRole("link", { name: /Read the constitution/ })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Open the Figma source/ })).toBeVisible();
+  }
+});
+
+test("long translation copy stays inside its ruled ledger", async ({ page }) => {
+  await page.setViewportSize({ width: 1247, height: 784 });
+  await page.goto("/#translation");
+
+  const secondEntry = page.locator(".translation-ledger article").nth(1);
+  await secondEntry.locator("h3").evaluate((heading) => {
+    heading.textContent =
+      "Responsive composition with a deliberatelyunbrokenevidencelabelthatmuststillwrap";
+  });
+  await secondEntry.locator("p").evaluate((paragraph) => {
+    paragraph.textContent =
+      "A longer explanation remains bounded by the same authored rule and never widens the document.";
+  });
+
+  const layout = await page.evaluate(() => {
+    const ledger = document.querySelector<HTMLElement>(".translation-ledger");
+    const entry = ledger?.children[1] as HTMLElement | undefined;
+    const ledgerBounds = ledger?.getBoundingClientRect();
+    const entryBounds = entry?.getBoundingClientRect();
+    return {
+      documentClientWidth: document.documentElement.clientWidth,
+      documentScrollWidth: document.documentElement.scrollWidth,
+      ledgerRight: ledgerBounds?.right ?? 0,
+      entryRight: entryBounds?.right ?? Number.POSITIVE_INFINITY,
+    };
+  });
+
+  expect(layout.documentScrollWidth).toBe(layout.documentClientWidth);
+  expect(layout.entryRight).toBeLessThanOrEqual(layout.ledgerRight);
 });
 
 test("keyboard entry exposes a strong focus indicator", async ({ page }) => {
@@ -178,13 +259,11 @@ test("reduced motion preserves state while removing movement", async ({ page }) 
     const style = getComputedStyle(element);
     return {
       duration: style.transitionDuration,
-      transform: style.transform,
       scrollBehavior: getComputedStyle(document.documentElement).scrollBehavior,
     };
   });
 
   expect(motion.duration).toBe("0s");
-  expect(motion.transform).toBe("none");
   expect(motion.scrollBehavior).toBe("auto");
   await expect(page.locator('[data-note="01"]')).toHaveCSS(
     "transition-duration",

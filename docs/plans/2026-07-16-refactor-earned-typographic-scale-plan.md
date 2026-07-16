@@ -1,7 +1,7 @@
 ---
 title: "Refactor: Earn typographic scale and preserve functional asymmetry"
 type: refactor
-status: active
+status: completed
 date: 2026-07-16
 ---
 
@@ -112,22 +112,39 @@ placement makes that relationship more legible.
 
 ## Acceptance criteria
 
-- [ ] The current Figma and browser specimens have a complete inventory of
+- [x] The current Figma and browser specimens have a complete inventory of
       dominant display treatments and meaningful offsets.
-- [ ] Every retained large-scale treatment and offset has a stated content,
+- [x] Every retained large-scale treatment and offset has a stated content,
       hierarchy, state, or interaction function.
-- [ ] The assessment distinguishes neutral motifs from the `unearned-scale`
+- [x] The assessment distinguishes neutral motifs from the `unearned-scale`
       smell and does not impose a generic blacklist.
-- [ ] The Plate grid remains unchanged unless separately authorized.
-- [ ] Figma contains approved restrained-scale visual decisions and a named
-      version-history checkpoint.
-- [ ] The reference site no longer uses monumental scale or viewport staging as
+- [x] The Plate grid remains unchanged unless separately authorized.
+- [x] Figma contains approved restrained-scale visual decisions and the verified
+      `jbm_dsb/checkpoint_earned_scale` connector checkpoint. Named version
+      history remains unavailable to the remote runtime and is documented as a
+      manual Figma action.
+- [x] The reference site no longer uses monumental scale or viewport staging as
       a default compositional shortcut.
-- [ ] Desktop, tablet, mobile, 200% zoom, long-content, keyboard, reduced-motion,
+- [x] Desktop, tablet, mobile, 200% zoom, long-content, keyboard, reduced-motion,
       and no-JavaScript verification preserve meaning and actions.
-- [ ] Automated repository checks and browser tests pass, with before/after
+- [x] Automated repository checks and browser tests pass, with before/after
       screenshots attached to the implementation pull request.
-- [ ] No consumer repository is changed.
+- [x] No consumer repository is changed.
+
+## Outcome
+
+The inventory retained Figma's 64px cover and page headings because they orient
+distinct 1440px reference canvases; component-section names remain subordinate
+at 36px. The browser hero remains its sole display moment. Its thesis, support
+copy, section headings, Plate headings, and typography quotation now pass the
+reduction test, while the full-viewport staging and decorative empty-space
+pressure are gone.
+
+The sticky rail remains a functional asymmetric navigation surface, but its
+viewport-derived progress and active-row animation were removed. The Figma
+Principle Index now labels its bars as real lens counts, and the new Earned Scale
+study records the rejected 48px treatment beside the accepted 32px composition.
+No portable value, component set, Plate variant, or consumer repository changed.
 
 ## Issue structure
 

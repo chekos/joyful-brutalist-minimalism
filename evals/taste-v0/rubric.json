@@ -63,6 +63,11 @@
       "description": "Borders, type, contrast, density, or friction become aggressive without helping the task."
     },
     {
+      "id": "unearned-scale",
+      "name": "Unearned scale",
+      "description": "Display type remains unusually large even though reducing it would preserve hierarchy, comprehension, and experience."
+    },
+    {
       "id": "effect-stacking",
       "name": "Effect stacking",
       "description": "Multiple unrelated delights or atmospheric effects compete for attention."

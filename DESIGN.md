@@ -175,6 +175,12 @@ A substitute is compliant when it preserves the relationship:
 Do not set paragraphs in Instrument merely to look technical. Do not set
 measurements in an expressive display face when alignment or scanning matters.
 
+Display scale is earned, not a synonym for editorial or brutalist character.
+Before enlarging type, run a reduction test: if substantially smaller type keeps
+the hierarchy and comprehension intact, the larger treatment has no job. Prefer
+typeface, weight, measure, spacing, and placement before size. Large type remains
+available when reducing it would materially weaken orientation or meaning.
+
 ### Space
 
 The portable scale uses a 4px base:
@@ -205,6 +211,10 @@ the page into generic dashboard chrome.
 ## Composition
 
 Begin with the content relationship, not a component inventory.
+
+Asymmetry also needs a visible reason. Keep unequal columns or offsets when they
+clarify distinct roles, navigation, comparison, or sequence; remove them when
+they merely manufacture empty space or tension.
 
 1. Choose a Ground appropriate to the reading environment.
 2. Establish the primary editorial voice.

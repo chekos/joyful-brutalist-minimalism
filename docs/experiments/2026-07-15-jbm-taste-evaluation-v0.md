@@ -54,6 +54,10 @@ Use the dimension, smell, and motif IDs in
 Motifs are neutral observations. Record `dominant-display-hero`, for example,
 whenever it is present; do not mark a smell unless its use lacks a content job
 or causes a named failure. Every smell requires artifact-specific evidence.
+Use `unearned-scale` only when substantially smaller type preserves the same
+hierarchy and comprehension, proving that the larger treatment was spectacle
+rather than structure. A dominant hero remains neutral when its scale has a
+specific, evidenced job.
 
 Each review has this shape:
 

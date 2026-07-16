@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 2,
-  "runId": "jbm-figma-sync-20260716",
+  "schemaVersion": 3,
+  "runId": "jbm-figma-sync-20260716-earned-scale",
   "status": "passed",
   "file": {
     "key": "T4jEmsyQBURKMr6s3zYfFJ",
@@ -114,10 +114,11 @@
       "source": "DESIGN.md#authority-parity-and-conflict-resolution",
       "syncModel": "one-system-four-owners-round-trip-parity"
     },
-    "readingInstrument": {
+    "principleIndex": {
       "nodeId": "41:7",
       "status": "study",
       "principles": 8,
+      "interaction": "static-adjacent-anchors",
       "counts": {
         "structure": 2,
         "experience": 2,
@@ -125,6 +126,17 @@
         "access": 1
       },
       "source": "DESIGN.md#principles"
+    },
+    "earnedScale": {
+      "nodeId": "76:14",
+      "comparisonNodeId": "76:20",
+      "status": "accepted-study",
+      "unearnedPx": 48,
+      "acceptedPx": 32,
+      "reductionTest": "smaller-preserves-hierarchy",
+      "source": "DESIGN.md#typography",
+      "portableValuesChanged": false,
+      "componentInventoryChanged": false
     },
     "contextualMarginalia": {
       "nodeId": "61:8",
@@ -143,6 +155,7 @@
     "foundations": "jbm_dsb/checkpoint_foundations",
     "components": "jbm_dsb/checkpoint_components",
     "contextualMarginalia": "jbm_dsb/checkpoint_contextual_marginalia",
+    "earnedScale": "jbm_dsb/checkpoint_earned_scale",
     "finalValidation": "jbm_dsb/final_validation",
     "namedVersionHistory": "unsupported-by-remote-runtime"
   },
@@ -167,6 +180,7 @@
     "05-studies.png",
     "technical-figure.png",
     "reading-instrument.png",
+    "earned-scale.png",
     "contextual-marginalia.png"
   ]
 }
