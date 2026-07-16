@@ -200,14 +200,12 @@ test("matches representative desktop and mobile surfaces", async ({ page }) => {
   );
 
   const marginaliaStudy = page.locator(".marginalia-study");
+  await marginaliaStudy.scrollIntoViewIfNeeded();
   await marginaliaStudy.locator('[data-note-trigger="02"]').hover();
-  await expect(marginaliaStudy).toHaveScreenshot(
-    "reference-site-marginalia.png",
-    {
-      animations: "disabled",
-      maxDiffPixelRatio: 0.03,
-    },
-  );
+  await expect(page).toHaveScreenshot("reference-site-marginalia.png", {
+    animations: "disabled",
+    maxDiffPixelRatio: 0.03,
+  });
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
