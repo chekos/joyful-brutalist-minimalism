@@ -19,8 +19,9 @@ Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 - Astro produces one static route with vanilla CSS and a small TypeScript
   enhancement. There is no React, Vue, Svelte, or other client UI runtime.
 - The page communicates the founding thesis, all eight principles, portable
-  foundations, the seven authored forms, the Technical Figure, and the Reading
-  Instrument in one editorial composition.
+  foundations, the seven authored forms, the Technical Figure, the Reading
+  Instrument, and one explicitly unpromoted Contextual Marginalia study in one
+  editorial composition.
 - Source Serif 4 and IBM Plex Mono are bundled locally so the approved
   Editorial and Instrument roles do not depend on a third-party font request.
 - The generated CSS token file remains the only browser value bridge. Site CSS
@@ -46,6 +47,26 @@ The primary-lens result matches the Figma study:
 With JavaScript, an `IntersectionObserver` updates the active source mark and
 native progress element. Without JavaScript, all eight source links, counts,
 principles, and destinations remain readable and operable.
+
+## Contextual Marginalia study
+
+The page adds an original two-annotation reading passage informed by the
+interaction contract observed in
+[Making Software](https://www.makingsoftware.com/chapters/how-to-make-a-font).
+The source contributed the useful relationship—an annotated term temporarily
+exchanges a side measure for contextual explanation—not reusable wording,
+geometry, assets, code, rulers, or exact animation.
+
+The default sidecar is an honest register of the passage's two real notes.
+Hovering or focusing either bold, dotted-underlined term exchanges that register
+for its matching note. Direct activation targets the same note without
+JavaScript. At narrow widths and in print, the register disappears and both
+notes flow directly after the passage. Reduced motion makes the exchange
+immediate while preserving the state.
+
+Decision 0002 keeps Contextual Marginalia as a named study until a second
+genuinely different content context proves a stable contract. No token, Figma,
+or consumer-repository change is implied by the browser evidence.
 
 ## Authored forms in context
 
@@ -98,6 +119,7 @@ browser suite verifies:
 - content-derived instrument state;
 - keyboard entry and visible focus;
 - complete no-JavaScript content and fragment navigation;
+- Contextual Marginalia pointer, keyboard, activation, and narrow-layout states;
 - reduced-motion duration, transform, state, and reading content;
 - automated accessibility analysis with axe; and
 - desktop, mobile, and Technical Figure screenshot regression.
@@ -118,6 +140,10 @@ tree, clean desktop and mobile composition, and no console or page errors.
 ### Technical Figure in context
 
 ![Technical Figure browser composition](reference-site/v1/technical-figure.png)
+
+### Contextual Marginalia in its note state
+
+![Contextual Marginalia browser study](reference-site/v1/contextual-marginalia.png)
 
 The executable visual baselines are stored with the browser tests in
 [`tests/browser/__screenshots__`](../tests/browser/__screenshots__). They are

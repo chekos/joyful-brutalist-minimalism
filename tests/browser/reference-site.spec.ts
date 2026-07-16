@@ -83,6 +83,51 @@ test("pointer entry exposes the authored action state", async ({ page }) => {
     .not.toBe(before.paddingInline);
 });
 
+test("contextual marginalia exchanges its register for the matching note", async ({
+  page,
+}) => {
+  const study = page.locator('[data-jbm-study="contextual-marginalia"]');
+  const register = study.locator(".marginalia-register");
+  const firstTrigger = study.locator('[data-note-trigger="01"]');
+  const secondTrigger = study.locator('[data-note-trigger="02"]');
+  const firstNote = study.locator('[data-note="01"]');
+  const secondNote = study.locator('[data-note="02"]');
+
+  await expect(study).toBeAttached();
+  await expect(study.locator(".marginalia-register li")).toHaveCount(2);
+  await expect(study.locator(".marginal-note")).toHaveCount(2);
+  await expect(register).toHaveCSS("opacity", "1");
+  await expect(firstNote).toHaveCSS("opacity", "0");
+
+  await firstTrigger.hover();
+  await expect(register).toHaveCSS("opacity", "0");
+  await expect(firstNote).toHaveCSS("opacity", "1");
+
+  await page.locator("#marginalia-title").hover();
+  await firstTrigger.focus();
+  await page.keyboard.press("Tab");
+  await expect(secondTrigger).toBeFocused();
+  await expect(register).toHaveCSS("opacity", "0");
+  await expect(secondNote).toHaveCSS("opacity", "1");
+});
+
+test("contextual marginalia places every note in narrow reading order", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.reload();
+  await page.evaluate(() => document.fonts.ready);
+
+  const study = page.locator('[data-jbm-study="contextual-marginalia"]');
+  await expect(study.locator(".marginalia-register")).toBeHidden();
+  await expect(study.locator('[data-note="01"]')).toBeVisible();
+  await expect(study.locator('[data-note="02"]')).toBeVisible();
+
+  await study.locator('[data-note-trigger="01"]').click();
+  await expect(study.locator('[data-note="01"]')).toHaveCSS("position", "static");
+  await expect(study.locator('[data-note="02"]')).toHaveCSS("opacity", "1");
+});
+
 test("the complete page remains useful without JavaScript", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
@@ -90,8 +135,14 @@ test("the complete page remains useful without JavaScript", async ({ browser }) 
 
   await expect(page.locator("[data-principle]")).toHaveCount(8);
   await expect(page.locator("[data-instrument-mark]")).toHaveCount(8);
-  await expect(page.getByRole("figure")).toBeVisible();
+  await expect(page.locator(".technical-figure")).toBeVisible();
   await expect(page.getByRole("link", { name: /Canonical tokens/ })).toBeVisible();
+
+  const firstAnnotation = page.locator('[data-note-trigger="01"]');
+  await firstAnnotation.click();
+  await expect(page).toHaveURL(/#contextual-note-01$/);
+  await page.mouse.move(0, 0);
+  await expect(page.locator('[data-note="01"]')).toHaveCSS("opacity", "1");
 
   const finalMark = page.locator("[data-instrument-mark]").last();
   await finalMark.click();
@@ -119,6 +170,10 @@ test("reduced motion preserves state while removing movement", async ({ page }) 
   expect(motion.duration).toBe("0s");
   expect(motion.transform).toBe("none");
   expect(motion.scrollBehavior).toBe("auto");
+  await expect(page.locator('[data-note="01"]')).toHaveCSS(
+    "transition-duration",
+    "0s",
+  );
   await expect(page.locator("[data-principle]")).toHaveCount(8);
 });
 
@@ -143,6 +198,14 @@ test("matches representative desktop and mobile surfaces", async ({ page }) => {
       maxDiffPixelRatio: 0.03,
     },
   );
+
+  const marginaliaStudy = page.locator(".marginalia-study");
+  await marginaliaStudy.scrollIntoViewIfNeeded();
+  await marginaliaStudy.locator('[data-note-trigger="02"]').hover();
+  await expect(page).toHaveScreenshot("reference-site-marginalia.png", {
+    animations: "disabled",
+    maxDiffPixelRatio: 0.03,
+  });
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");

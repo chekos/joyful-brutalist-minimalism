@@ -149,6 +149,7 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
       <nav aria-label="Page sections">
         <a href="#principles">Principles</a>
         <a href="#foundations">Foundations</a>
+        <a href="#marginalia">Marginalia</a>
         <a href="#figure">Figure</a>
         <a href="#sources">Sources</a>
       </nav>
@@ -353,10 +354,120 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
 
         <hr class="rule" data-jbm-form="rule" />
 
+        <section
+          class="section marginalia-section"
+          id="marginalia"
+          aria-labelledby="marginalia-title"
+          data-jbm-study="contextual-marginalia"
+        >
+          <header class="section-intro split-intro">
+            <div>
+              <p class="kicker signal" data-jbm-form="kicker">03 / Browser study</p>
+              <h2 id="marginalia-title">Let the note borrow the measure.</h2>
+            </div>
+            <p>
+              Contextual Marginalia keeps the sentence primary, then exchanges
+              orientation for explanation exactly when a reader asks for it.
+            </p>
+          </header>
+
+          <figure class="marginalia-study">
+            <div class="marginalia-reading">
+              <p class="study-status">
+                STUDY 01 · TERM ANNOTATION · TWO REAL NOTES
+              </p>
+              <p class="marginalia-passage">
+                An authored pattern earns its name when a
+                <a
+                  class="marginalia-term"
+                  href="#contextual-note-01"
+                  data-note-trigger="01"
+                  aria-describedby="contextual-note-copy-01"
+                >
+                  <strong>second context</strong><sup aria-hidden="true">01</sup><span class="sr-only">
+                    , annotation 1</span
+                  >
+                </a>
+                proves the relationship survives outside its source. Until then,
+                keeping it as
+                <a
+                  class="marginalia-term"
+                  href="#contextual-note-02"
+                  data-note-trigger="02"
+                  aria-describedby="contextual-note-copy-02"
+                >
+                  <strong>named evidence</strong><sup aria-hidden="true">02</sup><span class="sr-only">
+                    , annotation 2</span
+                  >
+                </a>
+                protects a useful idea from becoming generic kit.
+              </p>
+              <p class="study-instruction">
+                Hover or focus an annotated term. On narrow screens, both notes
+                stay in reading order.
+              </p>
+            </div>
+
+            <aside class="marginalia-sidecar" aria-label="Annotations for the study passage">
+              <div class="marginalia-register" aria-hidden="true">
+                <div class="register-head">
+                  <span>Annotation register</span>
+                  <strong>02 terms</strong>
+                </div>
+                <ol>
+                  <li>
+                    <span>01</span>
+                    <strong>Second context</strong>
+                  </li>
+                  <li>
+                    <span>02</span>
+                    <strong>Named evidence</strong>
+                  </li>
+                </ol>
+              </div>
+
+              <ol class="marginal-notes">
+                <li class="marginal-note" id="contextual-note-01" data-note="01">
+                  <span class="note-number">01</span>
+                  <div>
+                    <strong>Second context</strong>
+                    <p id="contextual-note-copy-01">
+                      A genuinely different content setting that shows the
+                      relationship works beyond its source example.
+                    </p>
+                  </div>
+                </li>
+                <li class="marginal-note" id="contextual-note-02" data-note="02">
+                  <span class="note-number">02</span>
+                  <div>
+                    <strong>Named evidence</strong>
+                    <p id="contextual-note-copy-02">
+                      A useful study kept explicit and inspectable without yet
+                      claiming reusable component status.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+            </aside>
+
+            <figcaption class="study-caption">
+              <span>STUDY · NOT YET PROMOTED</span>
+              <strong>Contextual Marginalia exchanges a real register for relevant explanation.</strong>
+              <small>
+                PROVENANCE · Interaction contract studied from
+                <a href="https://www.makingsoftware.com/chapters/how-to-make-a-font">Making Software</a>
+                · Original JBM wording, geometry, and motion
+              </small>
+            </figcaption>
+          </figure>
+        </section>
+
+        <hr class="rule" data-jbm-form="rule" />
+
         <section class="section figure-section" id="figure" aria-labelledby="figure-title">
           <header class="section-intro split-intro">
             <div>
-              <p class="kicker signal" data-jbm-form="kicker">03 / Technical figure</p>
+              <p class="kicker signal" data-jbm-form="kicker">04 / Technical figure</p>
               <h2 id="figure-title">Change one owner. Translate intentionally.</h2>
             </div>
             <p>
@@ -410,7 +521,7 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
 
         <section class="section translation-section" aria-labelledby="translation-title">
           <header class="section-intro">
-            <p class="kicker" data-jbm-form="kicker">04 / Medium ledger</p>
+            <p class="kicker" data-jbm-form="kicker">05 / Medium ledger</p>
             <h2 id="translation-title">Semantic agreement beats pixel identity.</h2>
             <p>
               The Figma library establishes visual intent. This browser proof keeps
@@ -450,7 +561,7 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
         <section class="section source-section" id="sources" aria-labelledby="sources-title">
           <header class="section-intro split-intro">
             <div>
-              <p class="kicker signal" data-jbm-form="kicker">05 / Inspect the source</p>
+              <p class="kicker signal" data-jbm-form="kicker">06 / Inspect the source</p>
               <h2 id="sources-title">The language stays legible from idea to implementation.</h2>
             </div>
             <p>
