@@ -207,13 +207,27 @@ test("matches representative desktop and mobile surfaces", async ({ page }) => {
     maxDiffPixelRatio: 0.03,
   });
 
-  await expect(page.locator(".technical-figure")).toHaveScreenshot(
-    "reference-site-figure.png",
-    {
-      animations: "disabled",
-      maxDiffPixelRatio: 0.03,
+  const figure = page.locator(".technical-figure");
+  await figure.scrollIntoViewIfNeeded();
+  const figureBox = await figure.boundingBox();
+  if (!figureBox) {
+    throw new Error("Technical Figure has no renderable bounds");
+  }
+
+  // Normalize fractional page coordinates so macOS and Linux capture the
+  // same integer-sized surface around the fixed-height figure composition.
+  const figureScreenshot = await page.screenshot({
+    animations: "disabled",
+    clip: {
+      x: Math.round(figureBox.x),
+      y: Math.round(figureBox.y),
+      width: Math.round(figureBox.width),
+      height: Math.round(figureBox.height),
     },
-  );
+  });
+  expect(figureScreenshot).toMatchSnapshot("reference-site-figure.png", {
+    maxDiffPixelRatio: 0.03,
+  });
 
   const marginaliaStudy = page.locator(".marginalia-study");
   await marginaliaStudy.scrollIntoViewIfNeeded();

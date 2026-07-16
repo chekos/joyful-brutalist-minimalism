@@ -1125,6 +1125,7 @@ main {
 
 .figure-caption {
   display: grid;
+  min-height: 14rem;
   padding: var(--jbm-space-6) clamp(2rem, 6vw, 6rem);
   border-top: var(--jbm-rule-width-strong) solid var(--jbm-color-semantic-rule-default);
   gap: var(--jbm-space-3);
