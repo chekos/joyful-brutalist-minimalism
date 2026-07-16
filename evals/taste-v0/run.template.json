@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "evalVersion": "taste-v0",
+  "run": {
+    "id": null,
+    "label": null,
+    "generator": null,
+    "generatedAt": null,
+    "notes": null
+  },
+  "outputs": [
+    {
+      "briefId": "essay-reading",
+      "artifact": null,
+      "screenshots": {
+        "desktop": null,
+        "mobile": null
+      },
+      "motifs": [],
+      "reviews": []
+    },
+    {
+      "briefId": "cli-recovery",
+      "artifact": null,
+      "screenshots": {
+        "desktop": null,
+        "mobile": null
+      },
+      "motifs": [],
+      "reviews": []
+    },
+    {
+      "briefId": "garden-shifts",
+      "artifact": null,
+      "screenshots": {
+        "desktop": null,
+        "mobile": null
+      },
+      "motifs": [],
+      "reviews": []
+    },
+    {
+      "briefId": "tidepool-notes",
+      "artifact": null,
+      "screenshots": {
+        "desktop": null,
+        "mobile": null
+      },
+      "motifs": [],
+      "reviews": []
+    },
+    {
+      "briefId": "library-catalog",
+      "artifact": null,
+      "screenshots": {
+        "desktop": null,
+        "mobile": null
+      },
+      "motifs": [],
+      "reviews": []
+    },
+    {
+      "briefId": "transit-alert",
+      "artifact": null,
+      "screenshots": {
+        "desktop": null,
+        "mobile": null
+      },
+      "motifs": [],
+      "reviews": []
+    },
+    {
+      "briefId": "release-ledger",
+      "artifact": null,
+      "screenshots": {
+        "desktop": null,
+        "mobile": null
+      },
+      "motifs": [],
+      "reviews": []
+    },
+    {
+      "briefId": "oral-history",
+      "artifact": null,
+      "screenshots": {
+        "desktop": null,
+        "mobile": null
+      },
+      "motifs": [],
+      "reviews": []
+    },
+    {
+      "briefId": "workshop-agenda",
+      "artifact": null,
+      "screenshots": {
+        "desktop": null,
+        "mobile": null
+      },
+      "motifs": [],
+      "reviews": []
+    },
+    {
+      "briefId": "radio-comparison",
+      "artifact": null,
+      "screenshots": {
+        "desktop": null,
+        "mobile": null
+      },
+      "motifs": [],
+      "reviews": []
+    }
+  ]
+}
