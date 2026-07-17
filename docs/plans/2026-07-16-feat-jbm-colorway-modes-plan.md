@@ -1,7 +1,7 @@
 ---
 title: "feat: Make JBM colorways deployment-scoped"
 type: feat
-status: active
+status: completed
 date: 2026-07-16
 origin: docs/brainstorms/2026-07-16-jbm-colorway-model-brainstorm.md
 ---
@@ -123,9 +123,9 @@ refresh the repository inspection receipt and sync manifest.
 - [x] Sync inspection, screenshots, manifest, and publication receipts are
       refreshed.
 - [x] `npm run verify` and the DTCG schema check pass.
-- [ ] Work lands through a `codex/` branch, reviewed PR, clean merge, Pages
+- [x] Work lands through a `codex/` branch, reviewed PR, clean merge, Pages
       deployment, live smoke test, and synced local `main`.
-- [ ] Issue #31 closes with evidence while issue #32 remains open for the
+- [x] Issue #31 closes with evidence while issue #32 remains open for the
       independent Paper/Bone study.
 
 ## Risks and mitigations

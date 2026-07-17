@@ -13,7 +13,7 @@ records the adoption and publication boundaries required by
 | Figma foundations, components, and studies | [Issue #5](https://github.com/chekos/joyful-brutalist-minimalism/issues/5), [pull request #8](https://github.com/chekos/joyful-brutalist-minimalism/pull/8), the [editable Figma source](https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ), and its [inspection receipt](figma-v1.md) |
 | Executable browser specimen | [Issue #6](https://github.com/chekos/joyful-brutalist-minimalism/issues/6), [pull request #9](https://github.com/chekos/joyful-brutalist-minimalism/pull/9), and the [reference-site receipt](reference-site-v1.md) |
 | Adoption, final verification, and publication | [Issue #7](https://github.com/chekos/joyful-brutalist-minimalism/issues/7), [pull request #10](https://github.com/chekos/joyful-brutalist-minimalism/pull/10), [publication pull request #11](https://github.com/chekos/joyful-brutalist-minimalism/pull/11), the [successful Pages deployment](https://github.com/chekos/joyful-brutalist-minimalism/actions/runs/29388865075), and the [adoption guide](../ADOPTION.md) |
-| Deployment-scoped colorways | [Issue #31](https://github.com/chekos/joyful-brutalist-minimalism/issues/31), [pull request #33](https://github.com/chekos/joyful-brutalist-minimalism/pull/33), [decision 0004](decisions/0004-colorways-are-deployment-scoped.md), the [Figma receipt](figma-v1.md), and the [reference-site receipt](reference-site-v1.md) |
+| Deployment-scoped colorways | [Issue #31](https://github.com/chekos/joyful-brutalist-minimalism/issues/31), [pull request #33](https://github.com/chekos/joyful-brutalist-minimalism/pull/33), [Pages run 29561194273](https://github.com/chekos/joyful-brutalist-minimalism/actions/runs/29561194273), [decision 0004](decisions/0004-colorways-are-deployment-scoped.md), the [Figma receipt](figma-v1.md), and the [reference-site receipt](reference-site-v1.md) |
 
 ## Repository verification
 
@@ -158,3 +158,19 @@ A live Chromium smoke repeated the title, eight-principle ledger, four-node
 authority figure, keyboard entry, reduced-motion, no-JavaScript, and axe
 checks against the public URL. HTTP redirects to HTTPS, and the live response
 contains no mixed-content asset references.
+
+The deployment-scoped colorway update completed on 2026-07-16:
+
+- [pull request #33](https://github.com/chekos/joyful-brutalist-minimalism/pull/33)
+  merged commit `3164ac1b39806f39ea9d8c020829490e88137005`;
+- [CI run 29561194234](https://github.com/chekos/joyful-brutalist-minimalism/actions/runs/29561194234)
+  passed the pinned repository contract on `main`;
+- [Pages run 29561194273](https://github.com/chekos/joyful-brutalist-minimalism/actions/runs/29561194273)
+  deployed that commit successfully;
+- the public HTTPS response declares `data-jbm-colorway="terra"` and its
+  stylesheet contains the generated Terra, Sage, and Sky root selectors; and
+- a live Chromium smoke switched the whole page through Sage and Sky, retained
+  exactly one pressed control state, and reported no console or page errors.
+
+Issue #31 closed with this evidence. Issue #32 remains open for the separate
+Paper/Bone material study.
