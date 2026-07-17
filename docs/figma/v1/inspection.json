@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 3,
-  "runId": "jbm-colorways-20260716",
+  "schemaVersion": 4,
+  "runId": "jbm-clarity-20260717",
   "status": "passed",
   "file": {
     "key": "T4jEmsyQBURKMr6s3zYfFJ",
@@ -135,7 +135,8 @@
     "technicalFigure": {
       "nodeId": "39:7",
       "authorities": 4,
-      "captionComponentInstance": true,
+      "layout": "two-step-owner-and-reconciliation-check",
+      "captionComponentInstance": false,
       "source": "DESIGN.md#authority-parity-and-conflict-resolution",
       "syncModel": "one-system-four-owners-round-trip-parity"
     },
@@ -144,12 +145,8 @@
       "status": "study",
       "principles": 8,
       "interaction": "static-adjacent-anchors",
-      "counts": {
-        "structure": 2,
-        "experience": 2,
-        "translation": 3,
-        "access": 1
-      },
+      "representation": "number-and-title-only",
+      "lensEncoding": false,
       "source": "DESIGN.md#principles"
     },
     "earnedScale": {
@@ -172,6 +169,8 @@
         "narrowAndPrint": "64:2"
       },
       "captionInstance": "64:20",
+      "content": "realistic-article-paragraph",
+      "plainLanguageCaption": true,
       "source": "DESIGN.md#contextual-marginalia",
       "browser": "https://jbm.bns.studio/#marginalia"
     }
@@ -182,6 +181,7 @@
     "contextualMarginalia": "jbm_dsb/checkpoint_contextual_marginalia",
     "earnedScale": "jbm_dsb/checkpoint_earned_scale",
     "colorways": "jbm_dsb/checkpoint_colorways",
+    "clarity": "jbm_dsb/checkpoint_clarity",
     "finalValidation": "jbm_dsb/final_validation",
     "namedVersionHistory": "unsupported-by-remote-runtime"
   },

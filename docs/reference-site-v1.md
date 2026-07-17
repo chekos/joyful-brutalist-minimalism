@@ -14,6 +14,10 @@ and
 [pull request #33](https://github.com/chekos/joyful-brutalist-minimalism/pull/33);
 the separate Paper/Bone review remains open in
 [issue #32](https://github.com/chekos/joyful-brutalist-minimalism/issues/32).
+The clarity pass that followed direct browser review is tracked in
+[issue #35](https://github.com/chekos/joyful-brutalist-minimalism/issues/35)
+and
+[pull request #36](https://github.com/chekos/joyful-brutalist-minimalism/pull/36).
 
 Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 [`tokens/jbm.tokens.json`](../tokens/jbm.tokens.json), the generated
@@ -26,9 +30,9 @@ Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
   class for progressive enhancement. There is no React, Vue, Svelte, or other
   client UI runtime.
 - The page communicates the founding thesis, all eight principles, portable
-  foundations, the seven authored forms, the Technical Figure, the Principle
-  Index, and one explicitly unpromoted Contextual Marginalia study in one
-  editorial composition.
+  foundations, the seven authored forms, a two-step Technical Figure, a direct
+  Principle Index, and one explicitly unpromoted Contextual Marginalia study in
+  one editorial composition.
 - Source Serif 4 and IBM Plex Mono are bundled locally so the approved
   Editorial and Instrument roles do not depend on a third-party font request.
 - The generated CSS token file remains the only browser value bridge. Site CSS
@@ -56,23 +60,14 @@ turning Terra, Sage, and Sky into permanent content categories.
 ## Content-derived Principle Index
 
 The page defines one eight-item principle dataset. That same dataset renders
-the principle ledger, index marks, and lens counts. The index therefore cannot
-drift from the prose without changing the source data, and it never pretends to
-measure reading progress that the page does not meaningfully expose.
+the principle ledger and its direct index links, so titles cannot drift between
+the two without changing the source data.
 
-The primary-lens result matches the Figma study:
-
-| Lens | Principles | Count |
-| --- | --- | ---: |
-| Structure | 01, 02 | 2 / 8 |
-| Experience | 03, 05 | 2 / 8 |
-| Translation | 04, 06, 07 | 3 / 8 |
-| Access | 08 | 1 / 8 |
-
-All eight adjacent marks are ordinary fragment links. They remain readable and
-operable without JavaScript, and every mark jumps directly to its principle in
-the real ledger. Lens bars in Figma summarize classification counts; the browser
-does not reinterpret them as viewport-derived progress.
+The index says only what a reader needs to choose a destination: number and
+title. It does not repeat the title as a glyph, classify the same item again by
+lens, restate category counts, or pretend to measure reading progress. All
+eight links remain readable and operable without JavaScript and jump directly
+to their principle in the real ledger.
 
 ## Earned scale
 
@@ -87,7 +82,7 @@ token or changing the Plate grid.
 
 ## Contextual Marginalia study
 
-The page adds an original two-annotation reading passage informed by the
+The page adds an original two-annotation article example informed by the
 interaction contract observed in
 [Making Software](https://www.makingsoftware.com/chapters/how-to-make-a-font).
 The source contributed the useful relationship—an annotated term temporarily
@@ -117,28 +112,28 @@ The page uses the seven Figma forms for their documented functions:
 | Kicker | Section, source, and evidence orientation |
 | Rule | Section hierarchy, measure, and figure connection |
 | Index Row | The inspectable eight-principle ledger |
-| Plate | Color, type, space, pressure, and figure artifacts |
+| Plate | Color, type, pressure, and figure artifacts |
 | Action Link | Explicit source and provenance destinations |
 | Figure Caption | Figure identity, explanation, source, and originality note |
 
 ## Technical Figure
 
-The original diagram encodes one system through the four owning forms defined
-in `DESIGN.md`: meaning, portable values, visual representation, and browser
-behavior. Its accepted-change plate states the round-trip rule: change one
-owner, reconcile all forms, then verify or document divergence explicitly.
-Adjacent text provides the complete non-visual equivalent.
+The figure explains the sync contract as two checks. First, identify which of
+the four forms owns a change: meaning, portable values, visual representation,
+or browser behavior. Then represent the result in every form, verify existing
+coverage, mark it not applicable, or record a deliberate difference. The
+linear explanation remains complete without decorative connectors.
 
 ## Semantic agreement and intentional differences
 
 Figma and browser agree on vocabulary, semantic token roles, hard-edged paper
 grammar, the four-owner round-trip relationship, Contextual Marginalia's three
-representative states, the static principle classification, and the earned-scale
+representative states, the direct eight-principle index, and the earned-scale
 reduction test.
 The following differences belong to the browser medium:
 
-- the wide Principle Index becomes a sticky left rail on large screens and a
-  horizontal source index on narrow screens;
+- the two-column Principle Index becomes a sticky left rail on large screens
+  and a horizontal source index on narrow screens;
 - the rail remains static because all eight destinations are adjacent; direct
   fragment links expose useful navigation without fake progress;
 - visible focus, logical keyboard order, touch behavior, responsive reflow,
@@ -147,9 +142,8 @@ The following differences belong to the browser medium:
 - the document, rail, and narrow mast use square, token-colored authored
   scrollbars instead of dropping an unconsidered system scrollbar into the
   composition; and
-- the Technical Figure reflows into a linear two-column or single-column
-  explanation on narrow screens while preserving its four owners and center
-  rule.
+- the Technical Figure reflows from a four-column owner check into two or one
+  column while preserving the same two-step explanation.
 
 These are intentional translations, not token or meaning disagreements. The
 current parity states and node evidence live in
@@ -162,13 +156,15 @@ Astro type checking, unit tests, the static build, and the Chromium suite. The
 browser suite verifies:
 
 - all eight source principles and all seven authored forms;
-- content-derived static index links and lens counts;
+- content-derived static index links with no redundant lens encoding or fake
+  progress;
 - Terra as the default deployment colorway, complete whole-site Sage and Sky
   switching, one pressed state, and Terra fallback for unknown values;
-- neutral principle-taxonomy cues with no concurrent palette-family encoding;
+- three equal colorway cards with no concurrent palette-family taxonomy;
 - keyboard entry and visible focus;
 - complete no-JavaScript content and fragment navigation;
-- Contextual Marginalia pointer, keyboard, activation, and narrow-layout states;
+- a realistic Contextual Marginalia article, plus its pointer, keyboard,
+  activation, and narrow-layout states;
 - reduced-motion duration, state, and reading content;
 - exact annotated type roles, authored scrollbar styling, and no horizontal
   overflow at desktop, tablet, 200% zoom-equivalent, and mobile widths;

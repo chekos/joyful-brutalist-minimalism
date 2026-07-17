@@ -170,7 +170,8 @@
       "technicalFigure": {
         "nodeId": "39:7",
         "authorities": 4,
-        "captionComponentInstance": true,
+        "layout": "two-step-owner-and-reconciliation-check",
+        "captionComponentInstance": false,
         "source": "DESIGN.md#authority-parity-and-conflict-resolution",
         "syncModel": "one-system-four-owners-round-trip-parity"
       },
@@ -179,12 +180,8 @@
         "status": "study",
         "principles": 8,
         "interaction": "static-adjacent-anchors",
-        "counts": {
-          "structure": 2,
-          "experience": 2,
-          "translation": 3,
-          "access": 1
-        },
+        "representation": "number-and-title-only",
+        "lensEncoding": false,
         "source": "DESIGN.md#principles"
       },
       "earnedScale": {
@@ -207,6 +204,8 @@
           "narrowAndPrint": "64:2"
         },
         "captionInstance": "64:20",
+        "content": "realistic-article-paragraph",
+        "plainLanguageCaption": true,
         "source": "DESIGN.md#contextual-marginalia",
         "browser": "https://jbm.bns.studio/#marginalia"
       }
@@ -215,7 +214,7 @@
   "sync": {
     "contract": "SYNC.md",
     "manifest": "docs/sync/manifest.json",
-    "liveCheckpoint": "jbm_dsb/checkpoint_colorways"
+    "liveCheckpoint": "jbm_dsb/checkpoint_clarity"
   },
   "snapshot": {
     "format": ".fig",

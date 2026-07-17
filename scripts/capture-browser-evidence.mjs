@@ -65,7 +65,7 @@ try {
     const colorPlate = keyboardPage.locator(".color-plate");
     for (const colorway of ["terra", "sage", "sky"]) {
       await keyboardPage
-        .getByRole("button", { name: new RegExp(`^${colorway}$`, "i") })
+        .locator(`[data-colorway-option="${colorway}"]`)
         .click();
       await keyboardPage.evaluate(
         () =>
