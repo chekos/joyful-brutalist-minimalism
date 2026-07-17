@@ -14,6 +14,7 @@ records the adoption and publication boundaries required by
 | Executable browser specimen | [Issue #6](https://github.com/chekos/joyful-brutalist-minimalism/issues/6), [pull request #9](https://github.com/chekos/joyful-brutalist-minimalism/pull/9), and the [reference-site receipt](reference-site-v1.md) |
 | Adoption, final verification, and publication | [Issue #7](https://github.com/chekos/joyful-brutalist-minimalism/issues/7), [pull request #10](https://github.com/chekos/joyful-brutalist-minimalism/pull/10), [publication pull request #11](https://github.com/chekos/joyful-brutalist-minimalism/pull/11), the [successful Pages deployment](https://github.com/chekos/joyful-brutalist-minimalism/actions/runs/29388865075), and the [adoption guide](../ADOPTION.md) |
 | Deployment-scoped colorways | [Issue #31](https://github.com/chekos/joyful-brutalist-minimalism/issues/31), [pull request #33](https://github.com/chekos/joyful-brutalist-minimalism/pull/33), [Pages run 29561194273](https://github.com/chekos/joyful-brutalist-minimalism/actions/runs/29561194273), [decision 0004](decisions/0004-colorways-are-deployment-scoped.md), the [Figma receipt](figma-v1.md), and the [reference-site receipt](reference-site-v1.md) |
+| Human-outcome clarity pass | [Issue #35](https://github.com/chekos/joyful-brutalist-minimalism/issues/35), [decision 0005](decisions/0005-principles-speak-about-human-outcomes.md), the [Figma receipt](figma-v1.md), and the [reference-site receipt](reference-site-v1.md) |
 
 ## Repository verification
 
@@ -33,7 +34,7 @@ Chromium behavior and accessibility tests, and visual-regression surfaces.
 ## Live Figma verification
 
 Programmatic inspection of the live file and a native screenshot review passed
-again on 2026-07-16:
+again on 2026-07-17:
 
 - the six pages remain in their approved order;
 - `JBM Primitives` contains 28 variables and `JBM Semantics` contains 12;
@@ -43,12 +44,15 @@ again on 2026-07-16:
 - four text styles and two effect styles remain local and named;
 - seven described component sets contain 23 auto-layout variants with exposed
   properties, bound values, and styled text; and
-- the Technical Figure expresses one system through four owning forms;
-- the Principle Index keeps all eight adjacent anchors visible, classifies each
-  once, and explicitly avoids claiming reading progress;
+- the Principles page matches the revised human-outcome language in
+  `DESIGN.md`;
+- the Technical Figure expresses the parity contract as an owner check followed
+  by a four-form reconciliation check;
+- the Principle Index keeps all eight numbered titles visible without lens
+  glyphs, count bars, or repeated category summaries;
 - the Earned Scale study records the accepted 48px-to-32px reduction test while
   leaving the Plate component grid unchanged; and
-- Contextual Marginalia records the default register, active-note, and
+- Contextual Marginalia records a realistic article, active-note, and
   narrow/print states without being promoted to a component; and
 - the bound Foundations colorway preview records one deployment mode at a time,
   Kicker tones use semantic names, and palette families no longer encode the
@@ -57,22 +61,24 @@ again on 2026-07-16:
 The durable machine inventory and full-page images live in
 [`docs/figma/v1`](figma/v1). The document root also holds the verified
 `jbm_dsb/checkpoint_foundations`, `checkpoint_components`,
-`checkpoint_contextual_marginalia`, `checkpoint_earned_scale`, and
-`checkpoint_colorways`, plus `final_validation` records because the connector
-runtime cannot create named Figma version-history entries. The final audit also records
+`checkpoint_contextual_marginalia`, `checkpoint_earned_scale`,
+`checkpoint_colorways`, and `checkpoint_clarity`, plus `final_validation`
+records because the connector runtime cannot create named Figma version-history
+entries. The final audit also records
 `jbm_dsb/v1_release_verification` on document node `0:0`; its status is
 `published` and it links issue #7, the publication pull request and deployment,
 and the live reference site without changing any visual node.
 
 ## Browser verification
 
-The browser suite verifies desktop and mobile composition, keyboard entry and
+The browser suite verifies desktop and mobile composition, shared section
+hierarchy, three equal color cards, keyboard entry and
 visible focus, pointer hover state, reduced-motion behavior, complete
 no-JavaScript content and fragment navigation, semantic structure, and an axe
 scan with no automatically detectable violations. It also verifies Terra as
 the whole-document default, Sage and Sky as complete alternate mappings, one
-pressed preview state, an unknown-value Terra fallback, and neutral taxonomy
-cues.
+pressed preview state, an unknown-value Terra fallback, a direct principle
+index, and the absence of redundant lens and spacing specimens.
 
 Representative evidence:
 
@@ -97,10 +103,10 @@ or animated reading status and that all eight destinations remain present.
 | Vocabulary and roles | Canonical names and aliases | Matching variable and style names | Matching semantic custom properties and labels |
 | Deployment colorway | Terra fallback plus complete Terra, Sage, and Sky semantic mappings | Three semantic modes and a bound Foundations preview | One root attribute switches the whole specimen; Terra remains the no-JavaScript fallback |
 | Paper and pressure | Surface, rule, radius, and shadow values | Ground, Rule, and Plate forms | Responsive paper surfaces with hard edges and restrained pressure |
-| Authority exchange | Four owned concerns in `DESIGN.md` | Original Technical Figure | Semantic figure plus complete text equivalent |
-| Principle index | Eight principles and four lenses | Static Principle Index study with honest count bars | One content dataset drives adjacent fragment links, counts, and ledger without fake progress |
+| Authority exchange | Four owned concerns in `DESIGN.md` | Two-step owner and reconciliation figure | Semantic figure plus complete text equivalent |
+| Principle index | Eight principles | Numbered-title study without lens encoding | One content dataset drives direct fragment links and the ledger without fake progress |
 | Earned scale | Reduction test in `DESIGN.md`; no new portable value | Accepted 48px-to-32px comparison study | Restrained thesis, support, section, and specimen type; hero remains the sole display moment |
-| Contextual Marginalia | Existing named values verified as sufficient | Register, active-note, and narrow/print study states | Executable pointer, focus, activation, responsive, print, and reduced-motion behavior |
+| Contextual Marginalia | Existing named values verified as sufficient | Realistic article, active-note, and narrow/print study states | Executable pointer, focus, activation, responsive, print, and reduced-motion behavior |
 | Access | Contrast and reduced-motion contracts | Visible focus and state specimens | Keyboard, pointer, touch-sized targets, reflow, reduced motion, and no-JavaScript behavior |
 
 Intentional medium differences remain explicit. Figma owns editable geometry,

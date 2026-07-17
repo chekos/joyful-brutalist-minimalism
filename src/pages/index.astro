@@ -10,74 +10,52 @@ const principles = [
   {
     number: "01",
     title: "Make structure honest",
-    lens: "Structure",
-    code: "S",
     summary:
-      "Every line, edge, and interval must clarify hierarchy, expose an action, or make behavior easier to perceive.",
+      "A line, edge, or gap belongs when it clarifies hierarchy, exposes an action, or makes behavior easier to understand.",
   },
   {
     number: "02",
     title: "Make the work inspectable",
-    lens: "Structure",
-    code: "S",
     summary:
-      "Indexes, measures, diagrams, and status come from real content or state—not an atmosphere of precision.",
+      "Show where important information came from, what state it is in, and how an action changed it. The work should be traceable, not merely confident.",
   },
   {
     number: "03",
-    title: "Treat joy as function",
-    lens: "Experience",
-    code: "E",
+    title: "Let joy do useful work",
     summary:
-      "Warmth and surprise count when they improve clarity, attention, memory, or emotional ease.",
+      "Joy belongs when it makes something clearer, easier to remember, or more comfortable to use.",
   },
   {
     number: "04",
     title: "Pair warmth with precision",
-    lens: "Translation",
-    code: "T",
     summary:
-      "Editorial reading and technical notation should feel like two voices working on the same artifact.",
+      "Let the reading voice be warm and the factual voice be exact. They should support each other without pretending to be the same.",
   },
   {
     number: "05",
-    title: "Use one delight at a time",
-    lens: "Experience",
-    code: "E",
+    title: "Keep delight unexpected",
     summary:
-      "Choose one coordinated playful system and give it a useful job instead of stacking unrelated effects.",
+      "A delight is a useful surprise. Give it room to land; when everything is unexpected, surprise becomes the house style and stops feeling surprising.",
   },
   {
     number: "06",
-    title: "Animate explanation",
-    lens: "Translation",
-    code: "T",
+    title: "Animate to aid understanding",
     summary:
-      "Motion may reveal relationship, progress, hierarchy, or cause and effect. It never gates the only copy of meaning.",
+      "Animation should make an explanation easier to grasp or an interaction easier to follow. The words and structure still carry the meaning without it.",
   },
   {
     number: "07",
-    title: "Design each medium intentionally",
-    lens: "Translation",
-    code: "T",
+    title: "Design for each medium",
     summary:
-      "Figma and the browser agree semantically while geometry, interaction, and responsiveness honor their own medium.",
+      "Carry the same intent into each medium, then adapt the form to what that medium does well. Agreement matters more than imitation.",
   },
   {
     number: "08",
-    title: "Preserve an escape hatch",
-    lens: "Access",
-    code: "A",
+    title: "Make it available to everyone",
     summary:
-      "Keyboard, mobile, zoom, no JavaScript, low power, and reduced motion are designed states—not degraded exceptions.",
+      "Design for different bodies, devices, connections, and ways of interacting from the start. Access is part of the work, not a fallback.",
   },
 ] as const;
-
-const lenses = ["Structure", "Experience", "Translation", "Access"] as const;
-const lensCounts = lenses.map((lens) => ({
-  lens,
-  count: principles.filter((principle) => principle.lens === lens).length,
-}));
 
 const colors = [
   { name: "Page", token: "surface.page", className: "page" },
@@ -89,9 +67,11 @@ const colors = [
   { name: "Accent strong", token: "accent.strong", className: "accent-strong" },
 ] as const;
 
-const colorways = ["terra", "sage", "sky"] as const;
-
-const spaces = [0, 4, 8, 12, 16, 24, 32, 48, 64] as const;
+const colorways = [
+  { name: "terra", tone: "400", note: "default" },
+  { name: "sage", tone: "200", note: "alternate" },
+  { name: "sky", tone: "200", note: "alternate" },
+] as const;
 
 const authorities = [
   {
@@ -114,9 +94,9 @@ const authorities = [
   },
   {
     className: "representation",
-    owner: "Visual representation",
+    owner: "Visual decisions",
     artifact: "Figma",
-    detail: "geometry · styles · studies",
+    detail: "composition · states · studies",
   },
 ] as const;
 
@@ -161,10 +141,9 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
       <aside class="reading-instrument" aria-labelledby="instrument-heading">
         <div class="instrument-head">
           <p class="kicker" data-jbm-form="kicker">Principle index</p>
-          <h2 id="instrument-heading">Eight principles. Four lenses.</h2>
+          <h2 id="instrument-heading">Eight principles.</h2>
           <p class="instrument-summary">
-            Jump to the ledger. Each principle is classified once by its primary
-            decision lens.
+            Jump straight to the part you need.
           </p>
         </div>
 
@@ -173,30 +152,17 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
             principles.map((principle) => (
               <li>
                 <a
-                  class:list={["instrument-mark", `lens-${principle.lens.toLowerCase()}`]}
+                  class="instrument-mark"
                   href={`#principle-${principle.number}`}
                   data-instrument-mark
                 >
                   <span class="mark-number">{principle.number}</span>
-                  <span class="mark-code" aria-hidden="true">{principle.code}</span>
                   <span class="mark-title">{principle.title}</span>
-                  <span class="sr-only">{principle.lens} lens</span>
                 </a>
               </li>
             ))
           }
         </ol>
-
-        <dl class="lens-ledger">
-          {
-            lensCounts.map(({ lens, count }) => (
-              <div>
-                <dt>{lens}</dt>
-                <dd>{count} / {principles.length}</dd>
-              </div>
-            ))
-          }
-        </dl>
       </aside>
 
       <main id="main-content" tabindex="-1">
@@ -228,12 +194,14 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
         <hr class="rule strong" data-jbm-form="rule" />
 
         <section class="section principles-section" id="principles" aria-labelledby="principles-title">
-          <header class="section-intro">
-            <p class="kicker" data-jbm-form="kicker">01 / Principles in use</p>
-            <h2 id="principles-title">Eight constraints make the work recognizable.</h2>
+          <header class="section-intro split-intro">
+            <div>
+              <p class="kicker" data-jbm-form="kicker">01 / Principles in use</p>
+              <h2 id="principles-title">Eight principles decide what belongs.</h2>
+            </div>
             <p>
-              The index and the ledger share one source. Their counts cannot
-              drift from the content without changing this page's data.
+              Use them to test a choice: does it make the work clearer, more
+              useful, easier to use, or more memorable?
             </p>
           </header>
 
@@ -241,21 +209,18 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
             {
               principles.map((principle) => (
                 <li
-                  class:list={["index-row", `lens-${principle.lens.toLowerCase()}`]}
+                  class="index-row"
                   id={`principle-${principle.number}`}
                   data-principle
                   data-number={principle.number}
-                  data-lens={principle.lens}
                   data-jbm-form="index-row"
                   tabindex="-1"
                 >
-                  <span class="index-signal" aria-hidden="true" />
                   <span class="index-number">{principle.number} / 08</span>
                   <div>
                     <h3>{principle.title}</h3>
                     <p>{principle.summary}</p>
                   </div>
-                  <span class="index-lens">{principle.lens}</span>
                 </li>
               ))
             }
@@ -271,24 +236,25 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
               <h2 id="foundations-title">Named matter, not a mood board.</h2>
             </div>
             <p>
-              Every swatch and interval below comes from the canonical DTCG token
-              file. The browser consumes generated custom properties rather than a
-              second hand-edited palette.
+              Color, type, rules, and paper depth come from named roles. The
+              browser consumes generated values rather than a second hand-edited
+              palette.
             </p>
           </header>
 
           <div class="foundation-grid">
             <article class="plate color-plate" data-jbm-form="plate">
               <header>
-                <p class="kicker">Color / one deployment mode</p>
+                <p class="kicker">Color / choose one family</p>
                 <h3>One colorway at a time</h3>
               </header>
               <div class="colorway-preview" data-colorway-preview hidden>
                 <div class="colorway-preview-copy">
                   <p id="colorway-preview-label">Preview the deployment colorway</p>
                   <p>
-                    Terra is the fallback. This reference control changes the
-                    whole specimen, not one component.
+                    Choose a card to change the whole specimen. Terra is the
+                    default; Sage and Sky carry the same roles in a different
+                    voice.
                   </p>
                 </div>
                 <div
@@ -300,10 +266,16 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
                     colorways.map((colorway) => (
                       <button
                         type="button"
-                        data-colorway-option={colorway}
-                        aria-pressed={colorway === "terra" ? "true" : "false"}
+                        data-colorway-option={colorway.name}
+                        aria-pressed={colorway.name === "terra" ? "true" : "false"}
                       >
-                        {colorway}
+                        <span class:list={["colorway-card-field", `colorway-card-${colorway.name}`]} aria-hidden="true">
+                          <span>JBM</span>
+                        </span>
+                        <span class="colorway-card-copy">
+                          <strong>{colorway.name}</strong>
+                          <small>{colorway.tone} / {colorway.note}</small>
+                        </span>
                       </button>
                     ))
                   }
@@ -338,24 +310,6 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
               </p>
             </article>
 
-            <article class="plate space-plate" data-jbm-form="plate">
-              <header>
-                <p class="kicker">Space / 4px basis</p>
-                <h3>Nine honest intervals</h3>
-              </header>
-              <ol class="space-ruler">
-                {
-                  spaces.map((space, index) => (
-                    <li>
-                      <span>{String(index).padStart(2, "0")}</span>
-                      <span>{space}px</span>
-                      <span class="space-measure" style={`--measure: ${space}px`} aria-hidden="true" />
-                    </li>
-                  ))
-                }
-              </ol>
-            </article>
-
             <article class="plate pressure-plate" data-jbm-form="plate">
               <header>
                 <p class="kicker">Shape / depth / movement</p>
@@ -384,48 +338,58 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
           <header class="section-intro split-intro">
             <div>
               <p class="kicker signal" data-jbm-form="kicker">03 / Browser study</p>
-              <h2 id="marginalia-title">Let the note borrow the measure.</h2>
+              <h2 id="marginalia-title">Keep context close to the sentence.</h2>
             </div>
             <p>
-              Contextual Marginalia keeps the sentence primary, then exchanges
-              orientation for explanation exactly when a reader asks for it.
+              Contextual Marginalia keeps short explanations beside the
+              paragraph they belong to. Hover, focus, or follow a marked term
+              to read its note.
             </p>
           </header>
 
           <figure class="marginalia-study">
             <div class="marginalia-reading">
-              <p class="study-status">
-                STUDY 01 · TERM ANNOTATION · TWO REAL NOTES
-              </p>
-              <p class="marginalia-passage">
-                An authored pattern earns its name when a{" "}
-                <a
-                  class="marginalia-term"
-                  href="#contextual-note-01"
-                  data-note-trigger="01"
-                  aria-describedby="contextual-note-copy-01"
-                >
-                  <strong>second context</strong><sup aria-hidden="true">01</sup><span class="sr-only">
-                    , annotation 1</span
+              <article class="marginalia-article" aria-labelledby="marginalia-article-title">
+                <p class="study-status">FIELD NOTE · READING ON THE WEB</p>
+                <h3 id="marginalia-article-title">A quiet page still has structure.</h3>
+                <p>
+                  Calm does not come from removing information. It comes from
+                  giving each idea a clear place to land.
+                </p>
+                <p class="marginalia-passage">
+                  A comfortable{" "}
+                  <a
+                    class="marginalia-term"
+                    href="#contextual-note-01"
+                    data-note-trigger="01"
+                    aria-describedby="contextual-note-copy-01"
                   >
-                </a>
-                {" "}proves the relationship survives outside its source. Until
-                then, keeping it as{" "}
-                <a
-                  class="marginalia-term"
-                  href="#contextual-note-02"
-                  data-note-trigger="02"
-                  aria-describedby="contextual-note-copy-02"
-                >
-                  <strong>named evidence</strong><sup aria-hidden="true">02</sup><span class="sr-only">
-                    , annotation 2</span
+                    <strong>reading measure</strong><sup aria-hidden="true">01</sup><span class="sr-only">
+                      , annotation 1</span
+                    >
+                  </a>
+                  {" "}helps the eye return to the next line. A{" "}
+                  <a
+                    class="marginalia-term"
+                    href="#contextual-note-02"
+                    data-note-trigger="02"
+                    aria-describedby="contextual-note-copy-02"
                   >
-                </a>
-                {" "}protects a useful idea from becoming generic kit.
-              </p>
+                    <strong>deliberate pause</strong><sup aria-hidden="true">02</sup><span class="sr-only">
+                      , annotation 2</span
+                    >
+                  </a>
+                  {" "}marks a real change in subject without turning every
+                  thought into a card.
+                </p>
+                <p>
+                  The structure is visible, but the paragraph remains the thing
+                  you came to read.
+                </p>
+              </article>
               <p class="study-instruction">
-                Hover or focus an annotated term. On narrow screens, both notes
-                stay in reading order.
+                Hover or focus a marked term. On narrow screens, both notes
+                follow the article in reading order.
               </p>
             </div>
 
@@ -438,11 +402,11 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
                 <ol>
                   <li>
                     <span>01</span>
-                    <strong>Second context</strong>
+                    <strong>Reading measure</strong>
                   </li>
                   <li>
                     <span>02</span>
-                    <strong>Named evidence</strong>
+                    <strong>Deliberate pause</strong>
                   </li>
                 </ol>
               </div>
@@ -451,20 +415,20 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
                 <li class="marginal-note" id="contextual-note-01" data-note="01">
                   <span class="note-number">01</span>
                   <div>
-                    <strong>Second context</strong>
+                    <strong>Reading measure</strong>
                     <p id="contextual-note-copy-01">
-                      A genuinely different content setting that shows the
-                      relationship works beyond its source example.
+                      The width of a line of text. A comfortable measure helps
+                      readers follow a line and find the start of the next one.
                     </p>
                   </div>
                 </li>
                 <li class="marginal-note" id="contextual-note-02" data-note="02">
                   <span class="note-number">02</span>
                   <div>
-                    <strong>Named evidence</strong>
+                    <strong>Deliberate pause</strong>
                     <p id="contextual-note-copy-02">
-                      A useful study kept explicit and inspectable without yet
-                      claiming reusable component status.
+                      Space tied to a real change in subject or emphasis. It
+                      gives the reader a breath and makes the hierarchy visible.
                     </p>
                   </div>
                 </li>
@@ -473,7 +437,7 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
 
             <figcaption class="study-caption">
               <span>STUDY · NOT YET PROMOTED</span>
-              <strong>Contextual Marginalia exchanges a real register for relevant explanation.</strong>
+              <strong>The explanation stays beside the paragraph and appears when it is useful.</strong>
               <small>
                 PROVENANCE · Interaction contract studied from{" "}
                 <a href="https://www.makingsoftware.com/chapters/how-to-make-a-font">Making Software</a>
@@ -489,11 +453,12 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
           <header class="section-intro split-intro">
             <div>
               <p class="kicker signal" data-jbm-form="kicker">04 / Technical figure</p>
-              <h2 id="figure-title">One system. Four owning forms.</h2>
+              <h2 id="figure-title">One change. Four clear checks.</h2>
             </div>
             <p>
-              The repository and Figma are peer entry points. Each form owns a
-              concern, and every accepted change receives an explicit parity state.
+              Meaning, shared values, visual decisions, and browser behavior
+              each have a home. Change the source that owns the decision, then
+              check the other three.
             </p>
           </header>
 
@@ -502,27 +467,27 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
               class="authority-map"
               role="img"
               aria-describedby="figure-equivalent figure-caption"
-              aria-label="One design system stays synchronized through four owning forms."
+              aria-label="An accepted change is resolved in its owning source, then checked across all four forms."
             >
-              {
-                authorities.map((authority) => (
-                  <div class={`authority-node authority-${authority.className}`}>
-                    <span>{authority.owner}</span>
-                    <strong>{authority.artifact}</strong>
-                    <small>{authority.detail}</small>
-                  </div>
-                ))
-              }
-              <div class="accepted-decision">
-                <span>Accepted change</span>
-                <strong>
-                  <span class="decision-line">Change one owner.</span>
-                  <span class="decision-line">Reconcile</span>
-                  <span class="decision-line">all forms.</span>
-                </strong>
+              <div class="authority-step authority-step-change">
+                <span>01 / Resolve the change</span>
+                <strong>Change the source that owns the decision.</strong>
               </div>
-              <span class="exchange-label translate">Round-trip</span>
-              <span class="exchange-label verify">Verify / diverge explicitly</span>
+              <ol class="authority-grid">
+                {
+                  authorities.map((authority, index) => (
+                    <li class={`authority-node authority-${authority.className}`}>
+                      <span>{String(index + 1).padStart(2, "0")} / {authority.owner}</span>
+                      <strong>{authority.artifact}</strong>
+                      <small>{authority.detail}</small>
+                    </li>
+                  ))
+                }
+              </ol>
+              <div class="authority-step authority-step-check">
+                <span>02 / Check every form</span>
+                <strong>Represent it · verify it · mark it not applicable · document the difference</strong>
+              </div>
             </div>
             <p class="sr-only" id="figure-equivalent">
               Meaning belongs to DESIGN.md, portable values belong to the token
@@ -534,7 +499,7 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
             </p>
             <figcaption class="figure-caption" id="figure-caption" data-jbm-form="figure-caption">
               <span>FIG. 01</span>
-              <strong>One design system stays synchronized without erasing each form’s ownership.</strong>
+              <strong>Every accepted change has one owner and four explicit checks.</strong>
               <small>SOURCE · DESIGN.md § Authority, parity, and conflict resolution · Original JBM figure</small>
             </figcaption>
           </figure>
@@ -543,9 +508,11 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
         <hr class="rule" data-jbm-form="rule" />
 
         <section class="section translation-section" aria-labelledby="translation-title">
-          <header class="section-intro">
-            <p class="kicker" data-jbm-form="kicker">05 / Medium ledger</p>
-            <h2 id="translation-title">Round-trip parity beats pixel identity.</h2>
+          <header class="section-intro split-intro">
+            <div>
+              <p class="kicker" data-jbm-form="kicker">05 / Medium ledger</p>
+              <h2 id="translation-title">Round-trip parity beats pixel identity.</h2>
+            </div>
             <p>
               Figma and the repository are peer entry points. This browser proof
               keeps the same system while accepting behavior that only a page can own.
@@ -570,7 +537,7 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
             </article>
             <article>
               <span>Belongs here</span>
-              <h3>Interaction and escape hatches</h3>
+              <h3>Interaction and access</h3>
               <p>
                 Focus order, pointer feedback, direct fragment navigation,
                 no-JavaScript anchors, and reduced motion are browser-owned decisions.

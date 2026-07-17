@@ -24,14 +24,14 @@ test("renders one coherent, source-grounded specimen", async ({ page }) => {
   await expect(page.locator("[data-principle]")).toHaveCount(8);
   await expect(page.locator(".authority-node")).toHaveCount(4);
   await expect(
-    page.getByRole("heading", { name: "One system. Four owning forms." }),
+    page.getByRole("heading", { name: "One change. Four clear checks." }),
   ).toBeVisible();
   await expect(page.getByRole("link", { name: /Round-trip sync/ })).toBeVisible();
-  const lensRows = page.locator(".lens-ledger > div");
-  await expect(lensRows.nth(0)).toContainText(/Structure\s*2 \/ 8/);
-  await expect(lensRows.nth(1)).toContainText(/Experience\s*2 \/ 8/);
-  await expect(lensRows.nth(2)).toContainText(/Translation\s*3 \/ 8/);
-  await expect(lensRows.nth(3)).toContainText(/Access\s*1 \/ 8/);
+  await expect(page.locator("[data-instrument-mark]")).toHaveCount(8);
+  await expect(page.locator(".mark-code")).toHaveCount(0);
+  await expect(page.locator(".lens-ledger")).toHaveCount(0);
+  await expect(page.locator(".index-lens")).toHaveCount(0);
+  await expect(page.locator(".space-plate")).toHaveCount(0);
 
   for (const form of authoredForms) {
     await expect(page.locator(`[data-jbm-form="${form}"]`).first()).toBeAttached();
@@ -75,18 +75,47 @@ test("defaults to Terra and previews one whole-site colorway at a time", async (
   await expect(accentDefault).toHaveCSS("background-color", "rgb(169, 66, 41)");
 });
 
-test("content taxonomies do not assign different hue families", async ({
-  page,
-}) => {
-  const markColors = await page.locator(".mark-code").evaluateAll((marks) =>
-    marks.map((mark) => getComputedStyle(mark).backgroundColor),
-  );
-  const indexColors = await page.locator(".index-signal").evaluateAll((marks) =>
-    marks.map((mark) => getComputedStyle(mark).backgroundColor),
+test("colorway choices render as three equal color cards", async ({ page }) => {
+  const cards = page.locator("[data-colorway-option]");
+  await expect(cards).toHaveCount(3);
+
+  const geometry = await cards.evaluateAll((elements) =>
+    elements.map((element) => {
+      const bounds = element.getBoundingClientRect();
+      const field = element.querySelector(".colorway-card-field")?.getBoundingClientRect();
+      return {
+        width: Math.round(bounds.width),
+        fieldHeight: Math.round(field?.height ?? 0),
+      };
+    }),
   );
 
-  expect(new Set(markColors).size).toBe(1);
-  expect(new Set(indexColors).size).toBe(1);
+  expect(new Set(geometry.map(({ width }) => width)).size).toBe(1);
+  expect(geometry.every(({ fieldHeight }) => fieldHeight >= 112)).toBe(true);
+});
+
+test("section introductions share one clear hierarchy", async ({ page }) => {
+  const alignment = await page.evaluate(() =>
+    ["principles", "foundations", "marginalia", "figure"].map((id) => {
+      const section = document.querySelector(`#${id}`);
+      const label = section?.querySelector(".kicker")?.getBoundingClientRect();
+      const copy = section
+        ?.querySelector(".section-intro > p:last-child")
+        ?.getBoundingClientRect();
+      const title = section?.querySelector("h2")?.getBoundingClientRect();
+      return {
+        id,
+        labelTop: Math.round(label?.top ?? -1),
+        copyTop: Math.round(copy?.top ?? -2),
+        titleTop: Math.round(title?.top ?? -3),
+      };
+    }),
+  );
+
+  for (const section of alignment) {
+    expect(section.copyTop, section.id).toBe(section.labelTop);
+    expect(section.titleTop, section.id).toBeGreaterThan(section.labelTop);
+  }
 });
 
 test("principle index links directly to the real ledger", async ({ page }) => {
@@ -232,6 +261,10 @@ test("contextual marginalia exchanges its register for the matching note", async
   await expect(study).toBeAttached();
   await expect(study.locator(".marginalia-register li")).toHaveCount(2);
   await expect(study.locator(".marginal-note")).toHaveCount(2);
+  await expect(study.locator(".marginalia-passage")).toHaveCSS(
+    "font-size",
+    "16px",
+  );
   await expect(register).toHaveCSS("opacity", "1");
   await expect(firstNote).toHaveCSS("opacity", "0");
   const boundaries = await Promise.all(

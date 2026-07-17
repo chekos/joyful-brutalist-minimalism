@@ -17,6 +17,8 @@ through
 [pull request #33](https://github.com/chekos/joyful-brutalist-minimalism/pull/33);
 the independent Paper/Bone reassessment remains tracked in
 [issue #32](https://github.com/chekos/joyful-brutalist-minimalism/issues/32).
+The human-outcome clarity pass fulfills
+[issue #35](https://github.com/chekos/joyful-brutalist-minimalism/issues/35).
 Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 [`tokens/jbm.tokens.json`](../tokens/jbm.tokens.json), and the generated
 [`tokens/jbm.figma.json`](../tokens/jbm.figma.json). The machine-readable
@@ -43,20 +45,24 @@ inventory needed to audit an imported copy or a manual rebuild.
   than named after primitive color families.
 - Foundations contains a bound three-state deployment preview at node `87:2`.
   Each state explicitly selects one semantic mode while preserving the shared
-  Paper/Bone surfaces, Ink, type, geometry, and motion.
-- The Technical Figure encodes the four repository-defined authorities and
-  their one-system, round-trip parity rule. It uses a live Figure Caption
-  instance with provenance.
-- The Principle Index remains a study. It keeps all eight adjacent anchors
-  visible, classifies each once by primary decision lens, and labels its bars as
-  real lens counts rather than reading progress: Structure 2, Experience 2,
-  Translation 3, and Access 1.
+  Paper/Bone surfaces, Ink, type, geometry, and motion. Its three equal swatch
+  cards already cover the browser's color-card decision.
+- The Principles page carries the revised human-outcome titles and summaries
+  from `DESIGN.md`, including useful surprise, animation as an aid, and access
+  as a baseline rather than a fallback.
+- The Technical Figure presents the parity rule as two clear checks: identify
+  the owner, then reconcile all four forms. Decorative connector lines and the
+  duplicate caption were removed.
+- The Principle Index remains a study. It shows eight numbered titles in a
+  two-column grid without lens glyphs, category counts, legends, or repeated
+  summaries.
 - The Earned Scale study records the accepted reduction test. The 48px treatment
   is rejected because 32px preserves hierarchy and comprehension; the Plate
   component grid and all portable values remain unchanged.
-- Contextual Marginalia remains a study. It represents the default two-term
-  register, note 02 active through hover or focus, and the narrow/print reading
-  order. The existing JBM roles cover it; no new portable token was required.
+- Contextual Marginalia remains a study. It uses a realistic article paragraph,
+  plain-language notes, an active hover/focus state, and the narrow/print
+  reading order. The existing JBM roles cover it; no new portable token was
+  required.
 - Live reconciliation passed for all 40 variable names, values, aliases,
   scopes, WEB syntax, and all three semantic modes, plus all four text styles
   and both effect styles. No old palette-specific semantic binding remains
@@ -89,6 +95,9 @@ namespace:
   study, unchanged component inventory, and no portable-value change;
 - `checkpoint_colorways`: Terra as the default, complete Sage and Sky aliases,
   and the bound three-mode Foundations preview; and
+- `checkpoint_clarity`: human-outcome principles, the direct index, realistic
+  marginalia, the two-step authority figure, and verified existing color cards;
+  and
 - `final_validation`: the complete pages, tokens, styles, components, and
   studies audit.
 

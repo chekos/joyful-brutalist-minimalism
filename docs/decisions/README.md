@@ -13,3 +13,5 @@ the decision; the record explains the choice but does not replace that source.
 - [`0001` — Portability is a repository invariant](0001-portability-is-a-repository-invariant.md)
 - [`0002` — Contextual Marginalia starts as a study](0002-contextual-marginalia-starts-as-a-study.md)
 - [`0003` — Round-trip parity is a system invariant](0003-round-trip-parity-is-a-system-invariant.md)
+- [`0004` — Colorways are deployment-scoped](0004-colorways-are-deployment-scoped.md)
+- [`0005` — Principles speak about human outcomes](0005-principles-speak-about-human-outcomes.md)

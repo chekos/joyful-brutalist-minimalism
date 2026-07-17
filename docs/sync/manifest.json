@@ -3,7 +3,7 @@
   "system": "Joyful Brutalist Minimalism",
   "contract": "SYNC.md",
   "decision": "docs/decisions/0003-round-trip-parity-is-a-system-invariant.md",
-  "updatedOn": "2026-07-16",
+  "updatedOn": "2026-07-17",
   "figmaFile": {
     "key": "T4jEmsyQBURKMr6s3zYfFJ",
     "url": "https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ"
@@ -63,7 +63,8 @@
             "sky": "87:23"
           },
           "checkpoint": "jbm_dsb/checkpoint_colorways",
-          "screenshot": "docs/figma/v1/colorways.png"
+          "screenshot": "docs/figma/v1/colorways.png",
+          "presentation": "three-equal-swatch-cards"
         },
         "browser": {
           "status": "represented",
@@ -71,7 +72,8 @@
           "sourceMarker": "data-colorway-preview",
           "selector": "[data-colorway-preview]",
           "deploymentAttribute": "data-jbm-colorway",
-          "default": "terra"
+          "default": "terra",
+          "presentation": "three-equal-pantone-like-cards"
         }
       }
     },
@@ -91,6 +93,7 @@
         "figma": {
           "status": "represented",
           "nodeId": "39:7",
+          "layout": "two-step-owner-and-reconciliation-check",
           "screenshot": "docs/figma/v1/technical-figure.png"
         },
         "browser": {
@@ -123,6 +126,8 @@
             "narrowAndPrint": "64:2"
           },
           "captionInstance": "64:20",
+          "content": "realistic-article-paragraph",
+          "plainLanguageCaption": true,
           "screenshot": "docs/figma/v1/contextual-marginalia.png"
         },
         "browser": {
@@ -145,13 +150,15 @@
         },
         "tokens": {
           "status": "verified-existing",
-          "reason": "Existing surface, text, neutral rule, accent, and spacing roles cover the index. Lens classifications are not encoded as a permanent multi-hue taxonomy."
+          "reason": "Existing surface, text, neutral rule, accent, and spacing roles cover the direct numbered-title index; no new portable value is needed."
         },
         "figma": {
           "status": "represented",
           "nodeId": "41:7",
           "interaction": "static-adjacent-anchors",
-          "checkpoint": "jbm_dsb/checkpoint_earned_scale",
+          "representation": "number-and-title-only",
+          "lensEncoding": false,
+          "checkpoint": "jbm_dsb/checkpoint_clarity",
           "screenshot": "docs/figma/v1/reading-instrument.png"
         },
         "browser": {
@@ -159,7 +166,35 @@
           "source": "src/pages/index.astro",
           "sourceMarker": "class=\"reading-instrument\"",
           "selector": ".reading-instrument",
-          "behavior": "Direct fragment navigation with no viewport-derived progress."
+          "behavior": "Direct fragment navigation with no lens encoding or viewport-derived progress."
+        }
+      }
+    },
+    {
+      "id": "principles-human-outcomes",
+      "status": "accepted",
+      "forms": {
+        "meaning": {
+          "status": "represented",
+          "path": "DESIGN.md",
+          "anchorHeading": "## Principles"
+        },
+        "tokens": {
+          "status": "not-applicable",
+          "reason": "The wording and selection criteria change no portable value."
+        },
+        "figma": {
+          "status": "represented",
+          "nodeId": "13:2",
+          "supportingStudyNodeId": "41:7",
+          "checkpoint": "jbm_dsb/checkpoint_clarity",
+          "screenshot": "docs/figma/v1/01-principles.png"
+        },
+        "browser": {
+          "status": "represented",
+          "source": "src/pages/index.astro",
+          "sourceMarker": "Eight principles decide what belongs.",
+          "selector": "#principles"
         }
       }
     },

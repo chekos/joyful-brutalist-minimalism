@@ -66,15 +66,18 @@ to make the page look engineered.
 
 ### 2. Make the work inspectable
 
-Indexes, progress, measurements, diagrams, provenance, and status come from
-real content or state. If a visitor cannot explain what a mark measures, the
-mark is decoration and should be removed or honestly presented as illustration.
+Make important information traceable. Show where it came from, what state it is
+in, and, when useful, the action or rule that produced it. An index, diagram, or
+measure belongs only when a person can follow what it refers to.
 
-### 3. Treat joy as function
+Inspectability is not the appearance of technical precision. It is the ability
+to understand and verify the work.
 
-Warmth, tactility, wit, and surprise count when they improve clarity,
-attention, memory, or emotional ease. Joy is not a visual surcharge added
-after the interface works.
+### 3. Let joy do useful work
+
+Warmth, tactility, wit, and surprise belong when they improve clarity,
+attention, memory, or emotional ease. Joy is part of how the interface works,
+not a visual surcharge added afterward.
 
 ### 4. Pair editorial warmth with technical precision
 
@@ -83,29 +86,37 @@ location, measure, provenance, and action exact. Neither role should impersonate
 the other: a long paragraph should not feel like telemetry, and a measurement
 should not become literary ornament.
 
-### 5. Use one delight at a time
+### 5. Keep delight unexpected
 
-A composition gets one coordinated playful system. A paper-pressure field, a
-semantic ruler, a caption reveal, or a useful stamp can be the delight. Do not
-stack unrelated effects to prove that the design is expressive.
+A delight is a useful surprise: a detail that helps and brings joy because it
+was not expected. A page already contains many things, so do not ask all of
+them to perform. Give one coordinated delight room to land. Once surprise
+becomes constant, it becomes expectation and loses its effect.
 
-### 6. Animate explanation, not decoration
+### 6. Animate to aid understanding
 
-Motion may reveal relationship, progress, hierarchy, or cause and effect.
-Animation that merely announces its own presence is noise.
+Animation should make an explanation easier to grasp or an interaction easier
+to follow. The words, structure, and available state still carry the meaning
+when animation is absent. Animation that merely announces its own presence is
+noise.
 
-### 7. Design each medium intentionally and reconcile it
+### 7. Design for each medium
 
-Figma, browser, print, and a consumer product translate the language according
-to their constraints. The repository and Figma remain peer access points to
-the same system, so accepted changes receive an explicit parity state in both.
-Semantic agreement matters more than pixel identity across unlike media.
+Carry the same intent into each medium, then adapt the form to what that medium
+does well. A printed page, an interactive site, and an editable design study
+should not imitate one another mechanically. Agreement in meaning matters more
+than identical output.
 
-### 8. Preserve an escape hatch
+The repository and Figma remain peer access points to the same system. Their
+specific reconciliation rules live in the authority and sync contracts rather
+than in this general principle.
 
-Keyboard use, visible focus, mobile layouts, zoom, low-power contexts, no
-JavaScript, and reduced motion are part of the design. They are not degraded
-exceptions.
+### 8. Make it available to everyone
+
+Design for different bodies, devices, connections, and ways of interacting
+from the start. Keyboard use, visible focus, mobile layouts, zoom, low-power
+contexts, no JavaScript, and reduced animation are ordinary design states.
+Access is part of the work, not a fallback or degraded version of it.
 
 ## Vocabulary
 
@@ -204,9 +215,16 @@ available when reducing it would materially weaken orientation or meaning.
 The portable scale uses a 4px base:
 `0, 4, 8, 12, 16, 24, 32, 48, 64`.
 
-The scale gives related things a shared rhythm. It is not a demand for
-mechanical uniformity. Editorial pauses may be asymmetric when the content
-requires them; the reason should be visible in hierarchy or measure.
+This scale is intentionally ordinary infrastructure. Four pixels is a compact
+common denominator for dense labels and larger editorial pauses; the scale
+stops at 64px because composition, not a longer token ladder, should decide
+larger gaps.
+
+The scale gives related things a shared rhythm. It is not an authored motif or
+a demand for mechanical uniformity, so it does not need to become a specimen
+unless space itself is being compared or debugged. Editorial pauses may be
+asymmetric when the content requires them; the reason should be visible in
+hierarchy or measure.
 
 ### Rules
 
@@ -313,8 +331,9 @@ The motion vocabulary has two tempos:
   `cubic-bezier(.2, .75, .25, 1)` when spatial change explains relationship,
   sequence, or progress.
 
-Motion starts from a question: “What becomes easier to understand because this
-moves?” If the answer is only “it feels lively,” use a static treatment.
+Animation starts from a question: “What becomes easier to understand or follow
+because this changes over time?” If the answer is only “it feels lively,” use a
+static treatment.
 
 Never require animation to reveal the only copy of content or state. The
 no-JavaScript form remains readable and navigable.
