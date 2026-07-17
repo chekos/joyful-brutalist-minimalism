@@ -142,8 +142,9 @@ The following differences belong to the browser medium:
 - the document, rail, and narrow mast use square, token-colored authored
   scrollbars instead of dropping an unconsidered system scrollbar into the
   composition; and
-- the Technical Figure reflows from a four-column owner check into two or one
-  column while preserving the same two-step explanation.
+- the Technical Figure keeps the four owner checks in a roomy two-column grid
+  and reflows to one column on narrower screens while preserving the same
+  two-step explanation.
 
 These are intentional translations, not token or meaning disagreements. The
 current parity states and node evidence live in

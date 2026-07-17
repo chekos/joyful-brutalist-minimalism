@@ -142,6 +142,10 @@ test("annotated desktop hierarchy is restrained and contained", async ({ page })
   const layout = await page.evaluate(() => {
     const rail = document.querySelector<HTMLElement>(".reading-instrument");
     const ledger = document.querySelector<HTMLElement>(".translation-ledger");
+    const authorityGrid = document.querySelector<HTMLElement>(".authority-grid");
+    const authorityCells = Array.from(
+      authorityGrid?.children ?? [],
+    ) as HTMLElement[];
     return {
       documentClientWidth: document.documentElement.clientWidth,
       documentScrollWidth: document.documentElement.scrollWidth,
@@ -150,6 +154,23 @@ test("annotated desktop hierarchy is restrained and contained", async ({ page })
       railScrollbarColor: rail ? getComputedStyle(rail).scrollbarColor : "auto",
       ledgerClientWidth: ledger?.clientWidth ?? 0,
       ledgerScrollWidth: ledger?.scrollWidth ?? 0,
+      authorityColumns:
+        getComputedStyle(authorityGrid!).gridTemplateColumns.split(" ").length,
+      authorityCellWidths: authorityCells.map((cell) =>
+        Math.round(cell.getBoundingClientRect().width),
+      ),
+      authorityCellOverflow: authorityCells.map(
+        (cell) => cell.scrollWidth - cell.clientWidth,
+      ),
+      authorityCellInsets: authorityCells.map((cell) => {
+        const style = getComputedStyle(cell);
+        return Math.min(
+          Number.parseFloat(style.paddingTop),
+          Number.parseFloat(style.paddingRight),
+          Number.parseFloat(style.paddingBottom),
+          Number.parseFloat(style.paddingLeft),
+        );
+      }),
     };
   });
 
@@ -157,6 +178,10 @@ test("annotated desktop hierarchy is restrained and contained", async ({ page })
   expect(layout.railScrollWidth).toBe(layout.railClientWidth);
   expect(layout.ledgerScrollWidth).toBe(layout.ledgerClientWidth);
   expect(layout.railScrollbarColor).not.toBe("auto");
+  expect(layout.authorityColumns).toBe(2);
+  expect(layout.authorityCellWidths.every((width) => width >= 300)).toBe(true);
+  expect(layout.authorityCellOverflow.every((overflow) => overflow <= 0)).toBe(true);
+  expect(layout.authorityCellInsets.every((inset) => inset >= 32)).toBe(true);
 });
 
 test("tablet, mobile, and 200 percent zoom equivalents do not overflow", async ({ page }) => {
