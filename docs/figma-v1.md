@@ -12,7 +12,9 @@ The round-trip reconciliation and Contextual Marginalia study fulfill
 The earned-scale and static-index recalibration fulfills
 [issues #25–#27](https://github.com/chekos/joyful-brutalist-minimalism/issues/25).
 The deployment-scoped colorway migration fulfills
-[issue #31](https://github.com/chekos/joyful-brutalist-minimalism/issues/31);
+[issue #31](https://github.com/chekos/joyful-brutalist-minimalism/issues/31)
+through
+[pull request #33](https://github.com/chekos/joyful-brutalist-minimalism/pull/33);
 the independent Paper/Bone reassessment remains tracked in
 [issue #32](https://github.com/chekos/joyful-brutalist-minimalism/issues/32).
 Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),

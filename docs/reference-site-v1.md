@@ -9,7 +9,9 @@ and is reviewed in
 [pull request #9](https://github.com/chekos/joyful-brutalist-minimalism/pull/9)
 without creating a client component framework or changing a consumer repository.
 The deployment-scoped colorway implementation is tracked in
-[issue #31](https://github.com/chekos/joyful-brutalist-minimalism/issues/31);
+[issue #31](https://github.com/chekos/joyful-brutalist-minimalism/issues/31)
+and
+[pull request #33](https://github.com/chekos/joyful-brutalist-minimalism/pull/33);
 the separate Paper/Bone review remains open in
 [issue #32](https://github.com/chekos/joyful-brutalist-minimalism/issues/32).
 

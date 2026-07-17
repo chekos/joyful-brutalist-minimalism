@@ -53,6 +53,8 @@ common beige-plus-orange AI aesthetic is tracked separately in issue #32.
   `docs/brainstorms/2026-07-16-jbm-colorway-model-brainstorm.md`
 - Implementation and verification:
   `docs/plans/2026-07-16-feat-jbm-colorway-modes-plan.md`
+- Implementation pull request:
+  https://github.com/chekos/joyful-brutalist-minimalism/pull/33
 - Live parity receipt:
   `docs/figma/v1/inspection.json`
 - Browser evidence:
