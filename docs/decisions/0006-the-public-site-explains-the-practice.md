@@ -47,6 +47,8 @@ decision gives them a clear reader-facing purpose.
 
 - Tracking issue:
   https://github.com/chekos/joyful-brutalist-minimalism/issues/39
+- Implementation pull request:
+  https://github.com/chekos/joyful-brutalist-minimalism/pull/40
 - Browser sources:
   `src/pages/index.astro`, `src/pages/constitution.astro`, and
   `src/content/constitution.ts`
