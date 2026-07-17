@@ -19,23 +19,27 @@ a browser implementation to redefine a principle, or change Figma geometry to
 create a new portable value. Change the owning source and translate the result
 deliberately.
 
-## A six-step workflow
+## A seven-step workflow
 
 1. **Name the concern.** State the content, relationship, or behavior the
    consumer needs. Avoid starting from a desired visual effect.
 2. **Read the governing meaning.** Read the relevant principle and vocabulary
    in `DESIGN.md`. Inspect Figma for visual intent and the reference site for
    executable behavior.
-3. **Choose the smallest useful form.** Adopt one relevant token role, rule,
+3. **Choose one deployment colorway.** Accept Terra as the default or map the
+   complete Sage or Sky mode at the consumer root. Keep Paper/Bone, Ink, rules,
+   type, geometry, and motion shared. Do not assign primitive families to
+   simultaneous components or permanent content categories.
+4. **Choose the smallest useful form.** Adopt one relevant token role, rule,
    plate, index row, action link, caption, or composition pattern. Do not copy
    the whole specimen when one relationship will do.
-4. **Translate into local semantics.** Map the chosen role to the consumer's
+5. **Translate into local semantics.** Map the chosen role to the consumer's
    framework, component names, content model, and existing tokens. Preserve
    the function; local implementation details may differ.
-5. **Verify access and behavior.** Check semantic structure, keyboard order,
+6. **Verify access and behavior.** Check semantic structure, keyboard order,
    visible focus, contrast, pointer and touch behavior, responsive reflow,
    reduced motion, and the useful no-JavaScript baseline where applicable.
-6. **Record intentional divergence.** In the consumer's issue or pull request,
+7. **Record intentional divergence.** In the consumer's issue or pull request,
    name the source pattern, the local decision, why the medium or product
    required it, and the evidence used to verify it.
 
@@ -46,6 +50,7 @@ Use this compact record in a consumer issue or pull request:
 ```md
 JBM source: DESIGN.md § [principle or vocabulary] + [token/form/pattern]
 Local concern: [the content, relationship, or behavior being served]
+Deployment colorway: [Terra, Sage, Sky, or intentional local mapping]
 Translation: [the local semantic or implementation choice]
 Divergence: [none, or the intentional difference and its reason]
 Evidence: [keyboard, pointer/touch, viewport, contrast, motion, and test links]

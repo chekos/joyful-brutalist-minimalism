@@ -2,6 +2,16 @@
   "generated": true,
   "generatedFrom": "tokens/jbm.tokens.json",
   "specification": "DTCG 2025.10",
+  "colorways": {
+    "default": "Terra",
+    "modes": [
+      "Terra",
+      "Sage",
+      "Sky"
+    ],
+    "attribute": "data-jbm-colorway",
+    "collection": "JBM Semantics"
+  },
   "instructions": "Do not edit. Reconcile live Figma variables and styles to these targets. Promote accepted Figma-originated portable-value changes to the canonical token file, regenerate, and record any intentional divergence.",
   "mappings": [
     {
@@ -460,7 +470,36 @@
       }
     },
     {
-      "token": "color.semantic.action.default",
+      "token": "color.semantic.accent.field",
+      "type": "color",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.843137,
+          0.396078,
+          0.239216
+        ],
+        "hex": "#d7653d"
+      },
+      "cssCustomProperty": "--jbm-color-semantic-accent-field",
+      "figma": {
+        "target": "variable",
+        "name": "Color/Semantic/Accent/Field",
+        "modes": {
+          "Terra": "{color.primitive.terra.400}",
+          "Sage": "{color.primitive.sage.200}",
+          "Sky": "{color.primitive.sky.200}"
+        },
+        "collection": "JBM Semantics",
+        "type": "COLOR",
+        "scopes": [
+          "ALL_FILLS",
+          "STROKE_COLOR"
+        ]
+      }
+    },
+    {
+      "token": "color.semantic.accent.default",
       "type": "color",
       "resolvedValue": {
         "colorSpace": "srgb",
@@ -471,10 +510,15 @@
         ],
         "hex": "#a94229"
       },
-      "cssCustomProperty": "--jbm-color-semantic-action-default",
+      "cssCustomProperty": "--jbm-color-semantic-accent-default",
       "figma": {
         "target": "variable",
-        "name": "Color/Semantic/Action/Default",
+        "name": "Color/Semantic/Accent/Default",
+        "modes": {
+          "Terra": "{color.primitive.terra.700}",
+          "Sage": "{color.primitive.sage.700}",
+          "Sky": "{color.primitive.sky.700}"
+        },
         "collection": "JBM Semantics",
         "type": "COLOR",
         "scopes": [
@@ -484,7 +528,7 @@
       }
     },
     {
-      "token": "color.semantic.action.hover",
+      "token": "color.semantic.accent.hover",
       "type": "color",
       "resolvedValue": {
         "colorSpace": "srgb",
@@ -495,10 +539,44 @@
         ],
         "hex": "#b54724"
       },
-      "cssCustomProperty": "--jbm-color-semantic-action-hover",
+      "cssCustomProperty": "--jbm-color-semantic-accent-hover",
       "figma": {
         "target": "variable",
-        "name": "Color/Semantic/Action/Hover",
+        "name": "Color/Semantic/Accent/Hover",
+        "modes": {
+          "Terra": "{color.primitive.terra.600}",
+          "Sage": "{color.primitive.sage.700}",
+          "Sky": "{color.primitive.sky.700}"
+        },
+        "collection": "JBM Semantics",
+        "type": "COLOR",
+        "scopes": [
+          "ALL_FILLS",
+          "STROKE_COLOR"
+        ]
+      }
+    },
+    {
+      "token": "color.semantic.accent.strong",
+      "type": "color",
+      "resolvedValue": {
+        "colorSpace": "srgb",
+        "components": [
+          0.662745,
+          0.258824,
+          0.160784
+        ],
+        "hex": "#a94229"
+      },
+      "cssCustomProperty": "--jbm-color-semantic-accent-strong",
+      "figma": {
+        "target": "variable",
+        "name": "Color/Semantic/Accent/Strong",
+        "modes": {
+          "Terra": "{color.primitive.terra.700}",
+          "Sage": "{color.primitive.sage.700}",
+          "Sky": "{color.primitive.sky.700}"
+        },
         "collection": "JBM Semantics",
         "type": "COLOR",
         "scopes": [
@@ -513,67 +591,24 @@
       "resolvedValue": {
         "colorSpace": "srgb",
         "components": [
-          0.180392,
-          0.4,
-          0.439216
+          0.662745,
+          0.258824,
+          0.160784
         ],
-        "hex": "#2e6670"
+        "hex": "#a94229"
       },
       "cssCustomProperty": "--jbm-color-semantic-focus-ring",
       "figma": {
         "target": "variable",
         "name": "Color/Semantic/Focus/Ring",
+        "modes": {
+          "Terra": "{color.primitive.terra.700}",
+          "Sage": "{color.primitive.sage.700}",
+          "Sky": "{color.primitive.sky.700}"
+        },
         "collection": "JBM Semantics",
         "type": "COLOR",
         "scopes": [
-          "STROKE_COLOR"
-        ]
-      }
-    },
-    {
-      "token": "color.semantic.signal.sage",
-      "type": "color",
-      "resolvedValue": {
-        "colorSpace": "srgb",
-        "components": [
-          0.372549,
-          0.439216,
-          0.341176
-        ],
-        "hex": "#5f7057"
-      },
-      "cssCustomProperty": "--jbm-color-semantic-signal-sage",
-      "figma": {
-        "target": "variable",
-        "name": "Color/Semantic/Signal/Sage",
-        "collection": "JBM Semantics",
-        "type": "COLOR",
-        "scopes": [
-          "ALL_FILLS",
-          "STROKE_COLOR"
-        ]
-      }
-    },
-    {
-      "token": "color.semantic.signal.sky",
-      "type": "color",
-      "resolvedValue": {
-        "colorSpace": "srgb",
-        "components": [
-          0.180392,
-          0.4,
-          0.439216
-        ],
-        "hex": "#2e6670"
-      },
-      "cssCustomProperty": "--jbm-color-semantic-signal-sky",
-      "figma": {
-        "target": "variable",
-        "name": "Color/Semantic/Signal/Sky",
-        "collection": "JBM Semantics",
-        "type": "COLOR",
-        "scopes": [
-          "ALL_FILLS",
           "STROKE_COLOR"
         ]
       }
@@ -607,11 +642,12 @@
       "resolvedValue": {
         "colorSpace": "srgb",
         "components": [
-          0.372549,
-          0.439216,
-          0.341176
+          0.039216,
+          0.039216,
+          0.039216
         ],
-        "hex": "#5f7057"
+        "alpha": 0.18,
+        "hex": "#0a0a0a"
       },
       "cssCustomProperty": "--jbm-color-semantic-rule-quiet",
       "figma": {

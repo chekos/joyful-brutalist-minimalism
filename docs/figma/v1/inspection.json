@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "runId": "jbm-figma-sync-20260716-earned-scale",
+  "runId": "jbm-colorways-20260716",
   "status": "passed",
   "file": {
     "key": "T4jEmsyQBURKMr6s3zYfFJ",
@@ -26,6 +26,12 @@
       "JBM Primitives": 28,
       "JBM Semantics": 12
     },
+    "semanticModes": [
+      "Terra",
+      "Sage",
+      "Sky"
+    ],
+    "defaultSemanticMode": "Terra",
     "semanticAliases": 12,
     "canonicalWebSyntax": 40,
     "deliberateScopes": 40
@@ -60,6 +66,11 @@
         "variants": 3,
         "axes": [
           "Tone"
+        ],
+        "values": [
+          "Neutral",
+          "Default",
+          "Strong"
         ]
       },
       {
@@ -107,6 +118,20 @@
     ]
   },
   "studies": {
+    "deploymentColorways": {
+      "nodeId": "87:2",
+      "status": "accepted",
+      "default": "Terra",
+      "states": {
+        "Terra": "87:3",
+        "Sage": "87:13",
+        "Sky": "87:23"
+      },
+      "semanticVariables": 12,
+      "oldPaletteSemanticBindingsOutsideFoundations": 0,
+      "source": "DESIGN.md#color",
+      "browserAttribute": "data-jbm-colorway"
+    },
     "technicalFigure": {
       "nodeId": "39:7",
       "authorities": 4,
@@ -156,6 +181,7 @@
     "components": "jbm_dsb/checkpoint_components",
     "contextualMarginalia": "jbm_dsb/checkpoint_contextual_marginalia",
     "earnedScale": "jbm_dsb/checkpoint_earned_scale",
+    "colorways": "jbm_dsb/checkpoint_colorways",
     "finalValidation": "jbm_dsb/final_validation",
     "namedVersionHistory": "unsupported-by-remote-runtime"
   },
@@ -168,7 +194,7 @@
       "variables": 40,
       "textStyles": 4,
       "effectStyles": 2,
-      "namesValuesAliasesScopesAndSyntax": "exact"
+      "namesValuesAliasesScopesSyntaxAndModes": "exact"
     }
   },
   "screenshots": [
@@ -178,6 +204,7 @@
     "03-components.png",
     "04-patterns.png",
     "05-studies.png",
+    "colorways.png",
     "technical-figure.png",
     "reading-instrument.png",
     "earned-scale.png",

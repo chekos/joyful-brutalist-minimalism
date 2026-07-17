@@ -38,6 +38,57 @@ test("renders one coherent, source-grounded specimen", async ({ page }) => {
   }
 });
 
+test("defaults to Terra and previews one whole-site colorway at a time", async ({
+  page,
+}) => {
+  const root = page.locator("html");
+  const preview = page.locator("[data-colorway-preview]");
+  const accentDefault = page.locator(".swatch-accent-default .swatch-chip");
+  const accentField = page.locator(".swatch-accent-field .swatch-chip");
+
+  await expect(root).toHaveAttribute("data-jbm-colorway", "terra");
+  await expect(preview).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "terra" }),
+  ).toHaveAttribute("aria-pressed", "true");
+  await expect(accentDefault).toHaveCSS("background-color", "rgb(169, 66, 41)");
+
+  await page.getByRole("button", { name: "sage" }).click();
+  await expect(root).toHaveAttribute("data-jbm-colorway", "sage");
+  await expect(accentDefault).toHaveCSS("background-color", "rgb(95, 112, 87)");
+  await expect(accentField).toHaveCSS("background-color", "rgb(223, 229, 219)");
+  await expect(page.locator(".colorway-status")).toHaveText(
+    "Sage colorway active",
+  );
+
+  await page.getByRole("button", { name: "sky" }).click();
+  await expect(root).toHaveAttribute("data-jbm-colorway", "sky");
+  await expect(accentDefault).toHaveCSS("background-color", "rgb(46, 102, 112)");
+  await expect(accentField).toHaveCSS("background-color", "rgb(167, 216, 222)");
+  await expect(
+    page.locator('[data-colorway-option][aria-pressed="true"]'),
+  ).toHaveCount(1);
+
+  await root.evaluate((element) => {
+    (element as HTMLElement).dataset.jbmColorway = "unknown";
+  });
+  await expect(accentDefault).toHaveCSS("background-color", "rgb(169, 66, 41)");
+});
+
+test("content taxonomies do not assign different hue families", async ({
+  page,
+}) => {
+  const markColors = await page.locator(".mark-code").evaluateAll((marks) =>
+    marks.map((mark) => getComputedStyle(mark).backgroundColor),
+  );
+  const indexColors = await page.locator(".index-signal").evaluateAll((marks) =>
+    marks.map((mark) => getComputedStyle(mark).backgroundColor),
+  );
+
+  expect(new Set(markColors).size).toBe(1);
+  expect(new Set(indexColors).size).toBe(1);
+});
+
 test("principle index links directly to the real ledger", async ({ page }) => {
   const fifthMark = page.locator("[data-instrument-mark]").nth(4);
   await fifthMark.click();
@@ -234,6 +285,11 @@ test("the complete page remains useful without JavaScript", async ({ browser }) 
   await expect(page.locator("[data-instrument-mark]")).toHaveCount(8);
   await expect(page.locator(".technical-figure")).toBeVisible();
   await expect(page.getByRole("link", { name: /Canonical tokens/ })).toBeVisible();
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-jbm-colorway",
+    "terra",
+  );
+  await expect(page.locator("[data-colorway-preview]")).toBeHidden();
 
   const firstAnnotation = page.locator('[data-note-trigger="01"]');
   await firstAnnotation.click();

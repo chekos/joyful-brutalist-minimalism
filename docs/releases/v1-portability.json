@@ -30,22 +30,22 @@
     {
       "path": "tokens/jbm.tokens.json",
       "role": "canonical portable values",
-      "sha256": "9f516e65a9d2c753e8c9837c625aceacc6bb6de93fa475607428d29af33e1d1a"
+      "sha256": "7a2fe712adffff9354c80ebbc20e7012c1bd8a2d0b8abc87e09b7dbf5d479aeb"
     },
     {
       "path": "tokens/jbm.figma.json",
       "role": "generated Figma mapping",
-      "sha256": "b00c36106ddb332fd532eb6605f12a85c4d043df330c0dc82035c745a3b14946"
+      "sha256": "6245c52a41a26f2a666ae8b43ad23738146a0ae508743f6a884c5e51412e3664"
     },
     {
       "path": "docs/figma/v1/inspection.json",
       "role": "machine-readable Figma inspection",
-      "sha256": "0169a007d9ee7913ecf1c5eee30920e921562ca2e106bdf83a355192f5580fc0"
+      "sha256": "877cf38411e2eded1bb6b20ba4f01f4c23ea03178f6048b31aa6f1f43890b72a"
     },
     {
       "path": "docs/v1-verification.md",
       "role": "cross-medium verification receipt",
-      "sha256": "0468adc0c6b8595219242fec549a01576a63d3a15e5e1f07c3e8b8470d8b8a1b"
+      "sha256": "f78325ac01cbde51afe2248a74ebce2eafa0358a7b52265b61c363a9b874008e"
     },
     {
       "path": "SYNC.md",
@@ -55,7 +55,7 @@
     {
       "path": "docs/sync/manifest.json",
       "role": "machine-readable sync receipt",
-      "sha256": "f4cd66776ff00d45bf6b3b7d81bbb1d1e6a6ce1f664b9fd4caa45bac45aa887d"
+      "sha256": "423ea68757c6033bb28af360cbd5a0301e6a75ce94d075bd634114048255755b"
     }
   ],
   "verification": {

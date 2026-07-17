@@ -50,7 +50,7 @@ a {
 }
 
 ::selection {
-  background: var(--jbm-color-primitive-sky-200);
+  background: var(--jbm-color-semantic-accent-field);
   color: var(--jbm-color-semantic-text-primary);
 }
 
@@ -195,7 +195,7 @@ html::-webkit-scrollbar-thumb,
 html::-webkit-scrollbar-thumb:hover,
 .site-mast::-webkit-scrollbar-thumb:hover,
 .reading-instrument::-webkit-scrollbar-thumb:hover {
-  background: var(--jbm-color-semantic-action-default);
+  background: var(--jbm-color-semantic-accent-default);
 }
 
 .kicker {
@@ -219,7 +219,7 @@ html::-webkit-scrollbar-thumb:hover,
 }
 
 .kicker.signal {
-  color: var(--jbm-color-semantic-action-default);
+  color: var(--jbm-color-semantic-accent-default);
 }
 
 .instrument-head h2 {
@@ -296,22 +296,6 @@ html::-webkit-scrollbar-thumb:hover,
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.lens-structure {
-  --lens: var(--jbm-color-semantic-signal-sky);
-}
-
-.lens-experience {
-  --lens: var(--jbm-color-semantic-action-default);
-}
-
-.lens-translation {
-  --lens: var(--jbm-color-semantic-signal-sage);
-}
-
-.lens-access {
-  --lens: var(--jbm-color-semantic-text-primary);
 }
 
 .lens-ledger {
@@ -406,7 +390,7 @@ main {
   gap: var(--jbm-space-2);
   padding: var(--jbm-space-2) 0;
   border-bottom: var(--jbm-rule-width-strong) solid currentcolor;
-  color: var(--jbm-color-semantic-action-default);
+  color: var(--jbm-color-semantic-accent-default);
   font-family: var(--font-instrument);
   font-size: 0.75rem;
   font-weight: 500;
@@ -421,7 +405,7 @@ main {
 
 .action-link:hover {
   padding-inline: var(--jbm-space-2);
-  color: var(--jbm-color-semantic-action-hover);
+  color: var(--jbm-color-semantic-accent-hover);
 }
 
 .action-link.quiet {
@@ -622,16 +606,87 @@ main {
   background: var(--jbm-color-semantic-text-primary);
 }
 
-.swatch-terra .swatch-chip {
-  background: var(--jbm-color-semantic-action-default);
+.swatch-accent-field .swatch-chip {
+  background: var(--jbm-color-semantic-accent-field);
 }
 
-.swatch-sage .swatch-chip {
-  background: var(--jbm-color-semantic-signal-sage);
+.swatch-accent-default .swatch-chip {
+  background: var(--jbm-color-semantic-accent-default);
 }
 
-.swatch-sky .swatch-chip {
-  background: var(--jbm-color-semantic-signal-sky);
+.swatch-accent-strong .swatch-chip {
+  background: var(--jbm-color-semantic-accent-strong);
+}
+
+.colorway-preview {
+  display: grid;
+  padding: var(--jbm-space-6) 0;
+  border-bottom: var(--jbm-rule-width-default) solid var(--jbm-color-semantic-rule-default);
+  gap: var(--jbm-space-4);
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.colorway-preview[hidden] {
+  display: none;
+}
+
+.colorway-preview-copy p,
+.colorway-status {
+  margin: 0;
+}
+
+.colorway-preview-copy > p:first-child,
+.colorway-status {
+  font-family: var(--font-instrument);
+  font-size: 0.625rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.colorway-preview-copy > p:last-child {
+  max-width: 30rem;
+  margin-top: var(--jbm-space-2);
+  color: var(--jbm-color-semantic-text-secondary);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.colorway-options {
+  display: flex;
+  align-items: start;
+  border: var(--jbm-rule-width-default) solid var(--jbm-color-semantic-rule-default);
+}
+
+.colorway-options button {
+  min-height: 2.5rem;
+  padding: 0 var(--jbm-space-3);
+  border: 0;
+  border-radius: 0;
+  background: var(--jbm-color-semantic-surface-page);
+  color: var(--jbm-color-semantic-text-primary);
+  cursor: pointer;
+  font-family: var(--font-instrument);
+  font-size: 0.625rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.colorway-options button + button {
+  border-left: var(--jbm-rule-width-default) solid var(--jbm-color-semantic-rule-default);
+}
+
+.colorway-options button[aria-pressed="true"] {
+  background: var(--jbm-color-semantic-accent-default);
+  color: var(--jbm-color-semantic-surface-page);
+}
+
+.colorway-options button:hover:not([aria-pressed="true"]) {
+  background: var(--jbm-color-semantic-surface-quiet);
+}
+
+.colorway-status {
+  color: var(--jbm-color-semantic-accent-strong);
+  grid-column: 1 / -1;
 }
 
 .type-plate blockquote {
@@ -680,7 +735,7 @@ main {
   width: max(2px, var(--measure));
   height: 0.75rem;
   max-width: 100%;
-  background: var(--jbm-color-semantic-action-default);
+  background: var(--jbm-color-semantic-accent-default);
 }
 
 .pressure-plate > p {
@@ -775,7 +830,7 @@ main {
   position: relative;
   top: -0.16em;
   margin-left: 0.12em;
-  color: var(--jbm-color-semantic-action-default);
+  color: var(--jbm-color-semantic-accent-default);
   font-family: var(--font-instrument);
   font-size: 0.34em;
   font-weight: 500;
@@ -788,7 +843,7 @@ main {
 .marginalia-study:has(#contextual-note-01:target):not(:has([data-note-trigger]:is(:hover, :focus-visible))) [data-note-trigger="01"],
 .marginalia-study:has(#contextual-note-02:target):not(:has([data-note-trigger]:is(:hover, :focus-visible))) [data-note-trigger="02"] {
   background: var(--jbm-color-semantic-surface-quiet);
-  color: var(--jbm-color-semantic-action-default);
+  color: var(--jbm-color-semantic-accent-default);
   text-decoration-color: currentcolor;
 }
 
@@ -852,7 +907,7 @@ main {
 }
 
 .marginalia-register li span {
-  color: var(--jbm-color-semantic-action-default);
+  color: var(--jbm-color-semantic-accent-default);
   font-variant-numeric: tabular-nums;
 }
 
@@ -881,7 +936,7 @@ main {
 }
 
 .note-number {
-  color: var(--jbm-color-semantic-action-default);
+  color: var(--jbm-color-semantic-accent-default);
   font-family: var(--font-instrument);
   font-size: 0.6875rem;
   font-variant-numeric: tabular-nums;
@@ -957,7 +1012,7 @@ main {
 }
 
 .study-caption > span {
-  color: var(--jbm-color-semantic-action-default);
+  color: var(--jbm-color-semantic-accent-default);
 }
 
 .study-caption strong {
@@ -1001,7 +1056,7 @@ main {
   flex-direction: column;
   justify-content: center;
   padding: var(--jbm-space-6);
-  border: var(--jbm-rule-width-default) solid var(--jbm-color-semantic-signal-sage);
+  border: var(--jbm-rule-width-default) solid var(--jbm-color-semantic-accent-strong);
   background: var(--jbm-color-semantic-surface-page);
 }
 
@@ -1074,7 +1129,7 @@ main {
   flex-direction: column;
   justify-content: center;
   padding: var(--jbm-space-6);
-  background: var(--jbm-color-semantic-action-default);
+  background: var(--jbm-color-semantic-accent-default);
   color: var(--jbm-color-semantic-surface-page);
   grid-column: 2;
   grid-row: 1 / span 2;
@@ -1119,7 +1174,7 @@ main {
 
 .figure-caption > span,
 .figure-caption small {
-  color: var(--jbm-color-semantic-signal-sky);
+  color: var(--jbm-color-semantic-accent-strong);
   font-family: var(--font-instrument);
   font-size: 0.625rem;
   letter-spacing: 0.05em;
@@ -1155,7 +1210,7 @@ main {
 }
 
 .translation-ledger span {
-  color: var(--jbm-color-semantic-action-default);
+  color: var(--jbm-color-semantic-accent-default);
   font-family: var(--font-instrument);
   font-size: 0.625rem;
   letter-spacing: 0.05em;
@@ -1195,7 +1250,7 @@ main {
 .source-links .action-link:hover {
   padding-inline: var(--jbm-space-6);
   background: var(--jbm-color-semantic-surface-paper);
-  color: var(--jbm-color-semantic-action-default);
+  color: var(--jbm-color-semantic-accent-default);
 }
 
 .source-links .action-link > span:first-child {
@@ -1333,7 +1388,7 @@ main {
 
   .site-mast {
     overflow-x: auto;
-    scrollbar-color: var(--jbm-color-semantic-action-default) var(--jbm-color-semantic-surface-quiet);
+    scrollbar-color: var(--jbm-color-semantic-accent-default) var(--jbm-color-semantic-surface-quiet);
     scrollbar-width: thin;
   }
 
@@ -1349,7 +1404,7 @@ main {
   .site-mast::-webkit-scrollbar-thumb {
     min-width: 3rem;
     border: 0;
-    background: var(--jbm-color-semantic-action-default);
+    background: var(--jbm-color-semantic-accent-default);
   }
 
   .wordmark {
@@ -1382,6 +1437,14 @@ main {
     border-right: 0;
     border-bottom: var(--jbm-rule-width-strong) solid var(--jbm-color-semantic-rule-default);
     overflow: visible;
+  }
+
+  .colorway-preview {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .colorway-options {
+    width: fit-content;
   }
 
   .instrument-head {

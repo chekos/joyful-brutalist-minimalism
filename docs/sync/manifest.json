@@ -26,7 +26,7 @@
     "canonical": "tokens/jbm.tokens.json",
     "generatedMapping": "tokens/jbm.figma.json",
     "figmaInspection": "docs/figma/v1/inspection.json",
-    "liveCheckpoint": "jbm_dsb/checkpoint_earned_scale",
+    "liveCheckpoint": "jbm_dsb/checkpoint_colorways",
     "expected": {
       "variables": 40,
       "textStyles": 4,
@@ -34,6 +34,47 @@
     }
   },
   "features": [
+    {
+      "id": "deployment-colorways",
+      "status": "accepted",
+      "forms": {
+        "meaning": {
+          "status": "represented",
+          "path": "DESIGN.md",
+          "anchorHeading": "### Color"
+        },
+        "tokens": {
+          "status": "represented",
+          "path": "tokens/jbm.tokens.json",
+          "generatedMapping": "tokens/jbm.figma.json",
+          "default": "terra",
+          "modes": [
+            "terra",
+            "sage",
+            "sky"
+          ]
+        },
+        "figma": {
+          "status": "represented",
+          "nodeId": "87:2",
+          "states": {
+            "terra": "87:3",
+            "sage": "87:13",
+            "sky": "87:23"
+          },
+          "checkpoint": "jbm_dsb/checkpoint_colorways",
+          "screenshot": "docs/figma/v1/colorways.png"
+        },
+        "browser": {
+          "status": "represented",
+          "source": "src/pages/index.astro",
+          "sourceMarker": "data-colorway-preview",
+          "selector": "[data-colorway-preview]",
+          "deploymentAttribute": "data-jbm-colorway",
+          "default": "terra"
+        }
+      }
+    },
     {
       "id": "authority-exchange",
       "status": "study",
@@ -71,7 +112,7 @@
         },
         "tokens": {
           "status": "verified-existing",
-          "reason": "Existing surface, text, action, rule, space, type, and motion roles cover the study; exact live Figma parity passed with no new portable value."
+          "reason": "Existing surface, text, accent, rule, space, type, and motion roles cover the study; exact live Figma parity passed with no new portable value."
         },
         "figma": {
           "status": "represented",
@@ -104,7 +145,7 @@
         },
         "tokens": {
           "status": "verified-existing",
-          "reason": "Existing surface, text, rule, lens-signal, and spacing roles cover the index; no portable value changed."
+          "reason": "Existing surface, text, neutral rule, accent, and spacing roles cover the index. Lens classifications are not encoded as a permanent multi-hue taxonomy."
         },
         "figma": {
           "status": "represented",

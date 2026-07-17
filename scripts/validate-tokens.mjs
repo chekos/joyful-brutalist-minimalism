@@ -13,8 +13,9 @@ if (errors.length > 0) {
     `validated ${tokens.length} DTCG tokens, ${tokens.length} CSS mappings, and ${tokens.length} Figma mappings`
   );
   for (const pair of contrasts) {
+    const colorway = pair.colorway ? ` [${pair.colorway}]` : "";
     console.log(
-      `contrast: ${pair.name} ${pair.ratio.toFixed(2)}:1 (minimum ${pair.minimum}:1)`
+      `contrast: ${pair.name}${colorway} ${pair.ratio.toFixed(2)}:1 (minimum ${pair.minimum}:1)`
     );
   }
 }

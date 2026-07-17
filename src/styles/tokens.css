@@ -43,20 +43,20 @@
   --jbm-color-semantic-text-primary: var(--jbm-color-primitive-ink-900);
   /* Secondary readable ink. */
   --jbm-color-semantic-text-secondary: var(--jbm-color-primitive-ink-700);
+  /* Large non-text accent field. */
+  --jbm-color-semantic-accent-field: var(--jbm-color-primitive-terra-400);
   /* Default text and control action. */
-  --jbm-color-semantic-action-default: var(--jbm-color-primitive-terra-700);
+  --jbm-color-semantic-accent-default: var(--jbm-color-primitive-terra-700);
   /* Hover and active action. */
-  --jbm-color-semantic-action-hover: var(--jbm-color-primitive-terra-600);
+  --jbm-color-semantic-accent-hover: var(--jbm-color-primitive-terra-600);
+  /* Strong readable accent for signals and compact marks. */
+  --jbm-color-semantic-accent-strong: var(--jbm-color-primitive-terra-700);
   /* Visible keyboard focus ring. */
-  --jbm-color-semantic-focus-ring: var(--jbm-color-primitive-sky-700);
-  /* Quiet readable status or metadata. */
-  --jbm-color-semantic-signal-sage: var(--jbm-color-primitive-sage-700);
-  /* Informational annotation. */
-  --jbm-color-semantic-signal-sky: var(--jbm-color-primitive-sky-700);
+  --jbm-color-semantic-focus-ring: var(--jbm-color-primitive-terra-700);
   /* Structural rule with decisive contrast. */
   --jbm-color-semantic-rule-default: var(--jbm-color-primitive-ink-800);
   /* Quiet notebook or measure rule. */
-  --jbm-color-semantic-rule-quiet: var(--jbm-color-primitive-sage-700);
+  --jbm-color-semantic-rule-quiet: var(--jbm-color-primitive-ink-alpha-18);
   /* V1 editorial body specimen and fallbacks. */
   --jbm-typography-role-editorial-body-font-family: "Source Serif 4", Georgia, serif;
   --jbm-typography-role-editorial-body-font-weight: 400;
@@ -99,4 +99,28 @@
   --jbm-motion-easing-reveal: cubic-bezier(0.2, 0.75, 0.25, 1);
   --jbm-motion-reduced-duration: var(--jbm-motion-duration-instant);
   --jbm-motion-reduced-transform-distance: 0px;
+}
+
+:root[data-jbm-colorway="terra"] {
+  --jbm-color-semantic-accent-field: var(--jbm-color-primitive-terra-400);
+  --jbm-color-semantic-accent-default: var(--jbm-color-primitive-terra-700);
+  --jbm-color-semantic-accent-hover: var(--jbm-color-primitive-terra-600);
+  --jbm-color-semantic-accent-strong: var(--jbm-color-primitive-terra-700);
+  --jbm-color-semantic-focus-ring: var(--jbm-color-primitive-terra-700);
+}
+
+:root[data-jbm-colorway="sage"] {
+  --jbm-color-semantic-accent-field: var(--jbm-color-primitive-sage-200);
+  --jbm-color-semantic-accent-default: var(--jbm-color-primitive-sage-700);
+  --jbm-color-semantic-accent-hover: var(--jbm-color-primitive-sage-700);
+  --jbm-color-semantic-accent-strong: var(--jbm-color-primitive-sage-700);
+  --jbm-color-semantic-focus-ring: var(--jbm-color-primitive-sage-700);
+}
+
+:root[data-jbm-colorway="sky"] {
+  --jbm-color-semantic-accent-field: var(--jbm-color-primitive-sky-200);
+  --jbm-color-semantic-accent-default: var(--jbm-color-primitive-sky-700);
+  --jbm-color-semantic-accent-hover: var(--jbm-color-primitive-sky-700);
+  --jbm-color-semantic-accent-strong: var(--jbm-color-primitive-sky-700);
+  --jbm-color-semantic-focus-ring: var(--jbm-color-primitive-sky-700);
 }
