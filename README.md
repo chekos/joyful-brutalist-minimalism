@@ -56,7 +56,10 @@ npm run verify
 value source. It follows the
 [Design Tokens Community Group 2025.10 format](https://www.designtokens.org/TR/2025.10/format/)
 and contains the mapping policy, provenance, contrast pairs, and reduced-motion
-contract alongside the tokens.
+contract alongside the tokens. Terra is the default deployment colorway; Sage
+and Sky are complete alternate mappings for the same semantic accent roles.
+Paper/Bone surfaces, Ink, neutral rules, type, geometry, and motion remain
+shared.
 
 Generate the derived views:
 
@@ -70,6 +73,17 @@ This updates:
 - `src/styles/tokens.css` for browsers;
 - `tokens/jbm.figma.json` for exact Figma targets and scopes; and
 - `docs/token-reference.md` for the human mapping and contrast ledger.
+
+Generated CSS includes the Terra fallback and root-level overrides. A consumer
+that adopts the portable values selects one colorway for the deployment:
+
+```html
+<html data-jbm-colorway="terra">
+```
+
+Use `sage` or `sky` as the attribute value for an alternate deployment. Do not
+mix these families into simultaneous component variants or permanent content
+categories; components consume `accent.*` and `focus.ring` roles instead.
 
 Verify formatting, DTCG shape, aliases, mappings, color contrast, generated
 parity, and tests:

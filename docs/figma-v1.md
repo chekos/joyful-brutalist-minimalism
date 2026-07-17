@@ -11,6 +11,10 @@ The round-trip reconciliation and Contextual Marginalia study fulfill
 [issue #24](https://github.com/chekos/joyful-brutalist-minimalism/issues/24).
 The earned-scale and static-index recalibration fulfills
 [issues #25–#27](https://github.com/chekos/joyful-brutalist-minimalism/issues/25).
+The deployment-scoped colorway migration fulfills
+[issue #31](https://github.com/chekos/joyful-brutalist-minimalism/issues/31);
+the independent Paper/Bone reassessment remains tracked in
+[issue #32](https://github.com/chekos/joyful-brutalist-minimalism/issues/32).
 Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 [`tokens/jbm.tokens.json`](../tokens/jbm.tokens.json), and the generated
 [`tokens/jbm.figma.json`](../tokens/jbm.figma.json). The machine-readable
@@ -24,14 +28,20 @@ inventory needed to audit an imported copy or a manual rebuild.
 - Pages exist in the required order: `00 Cover`, `01 Principles`,
   `02 Foundations`, `03 Components`, `04 Patterns`, and `05 Studies`.
 - `JBM Primitives` contains 28 variables and `JBM Semantics` contains 12
-  semantic aliases. All 40 variables have deliberate scopes and canonical WEB
-  code syntax.
+  semantic aliases. The semantic collection has `Terra`, `Sage`, and `Sky`
+  modes, with Terra as the default. All 40 variables have deliberate scopes
+  and canonical WEB code syntax.
 - Four text styles and two paper effect styles match the generated mapping.
   `System/Utility` uses Inter as the documented Figma substitute for the
   browser-native `system-ui` stack.
 - Seven auto-layout component sets contain 23 variants. Every set has exposed
   text or boolean properties, usage documentation, mapped text styles, and
   variable-bound committed values.
+- Kicker tone values are semantic—`Neutral`, `Default`, and `Strong`—rather
+  than named after primitive color families.
+- Foundations contains a bound three-state deployment preview at node `87:2`.
+  Each state explicitly selects one semantic mode while preserving the shared
+  Paper/Bone surfaces, Ink, type, geometry, and motion.
 - The Technical Figure encodes the four repository-defined authorities and
   their one-system, round-trip parity rule. It uses a live Figure Caption
   instance with provenance.
@@ -46,7 +56,9 @@ inventory needed to audit an imported copy or a manual rebuild.
   register, note 02 active through hover or focus, and the narrow/print reading
   order. The existing JBM roles cover it; no new portable token was required.
 - Live reconciliation passed for all 40 variable names, values, aliases,
-  scopes, and WEB syntax, plus all four text styles and both effect styles.
+  scopes, WEB syntax, and all three semantic modes, plus all four text styles
+  and both effect styles. No old palette-specific semantic binding remains
+  outside the Foundations source and mode documentation.
 - Programmatic inspection and native-resolution screenshot review passed.
 
 | Component | Variant axes | Variants | Exposed properties |
@@ -72,7 +84,9 @@ namespace:
 - `checkpoint_contextual_marginalia`: exact token parity and the three required
   study states; and
 - `checkpoint_earned_scale`: the static Principle Index, accepted reduction
-  study, unchanged component inventory, and no portable-value change; and
+  study, unchanged component inventory, and no portable-value change;
+- `checkpoint_colorways`: Terra as the default, complete Sage and Sky aliases,
+  and the bound three-mode Foundations preview; and
 - `final_validation`: the complete pages, tokens, styles, components, and
   studies audit.
 
@@ -118,6 +132,10 @@ deferred.
 ### Foundations
 
 ![Foundations page](figma/v1/02-foundations.png)
+
+### Deployment colorways
+
+![Terra, Sage, and Sky deployment modes](figma/v1/colorways.png)
 
 ### Components
 

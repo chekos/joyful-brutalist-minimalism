@@ -62,6 +62,22 @@ try {
       animations: "disabled",
       path: `${outputDirectory}/technical-figure.png`,
     });
+    const colorPlate = keyboardPage.locator(".color-plate");
+    for (const colorway of ["terra", "sage", "sky"]) {
+      await keyboardPage
+        .getByRole("button", { name: new RegExp(`^${colorway}$`, "i") })
+        .click();
+      await keyboardPage.evaluate(
+        () =>
+          new Promise((resolve) =>
+            requestAnimationFrame(() => requestAnimationFrame(resolve)),
+          ),
+      );
+      await colorPlate.screenshot({
+        animations: "disabled",
+        path: `${outputDirectory}/colorway-${colorway}.png`,
+      });
+    }
     await keyboardContext.close();
 
     const reducedContext = await browser.newContext({
@@ -85,5 +101,5 @@ try {
 }
 
 console.log(
-  `captured keyboard, contextual-marginalia, technical-figure, and reduced-motion evidence in ${outputDirectory}`,
+  `captured keyboard, colorway, contextual-marginalia, technical-figure, and reduced-motion evidence in ${outputDirectory}`,
 );

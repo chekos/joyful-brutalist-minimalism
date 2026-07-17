@@ -79,7 +79,8 @@ export function flattenTokens(document) {
     const context = {
       type: node.$type ?? inherited.type,
       figma: extension.figma ?? inherited.figma,
-      provenance: extension.provenance ?? inherited.provenance
+      provenance: extension.provenance ?? inherited.provenance,
+      colorwayValues: extension.colorwayValues ?? inherited.colorwayValues
     };
     const childKeys = Object.keys(node).filter((key) => !key.startsWith("$"));
 
@@ -98,7 +99,8 @@ export function flattenTokens(document) {
         cssCustomProperty: canonicalToCss(path),
         figmaName: canonicalToFigma(path),
         figma: context.figma,
-        provenance: context.provenance
+        provenance: context.provenance,
+        colorwayValues: context.colorwayValues
       });
       return;
     }
@@ -156,6 +158,62 @@ export function resolveTokenValue(path, tokensOrIndex, stack = []) {
   }
 
   return deepResolve(token.value, tokensByPath, [...stack, path]);
+}
+
+function deepResolveForColorway(value, colorway, tokensByPath, stack) {
+  const referencedPath = referencePath(value);
+  if (referencedPath) {
+    return resolveTokenValueForColorway(
+      referencedPath,
+      colorway,
+      tokensByPath,
+      stack
+    );
+  }
+
+  if (Array.isArray(value)) {
+    return value.map((item) =>
+      deepResolveForColorway(item, colorway, tokensByPath, stack)
+    );
+  }
+
+  if (isObject(value)) {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, item]) => [
+        key,
+        deepResolveForColorway(item, colorway, tokensByPath, stack)
+      ])
+    );
+  }
+
+  return value;
+}
+
+export function resolveTokenValueForColorway(
+  path,
+  colorway,
+  tokensOrIndex,
+  stack = []
+) {
+  const tokensByPath =
+    tokensOrIndex instanceof Map ? tokensOrIndex : tokenIndex(tokensOrIndex);
+  const token = tokensByPath.get(path);
+
+  if (!token) {
+    throw new Error(`Unknown token reference: ${path}`);
+  }
+
+  if (stack.includes(path)) {
+    throw new Error(`Circular token reference: ${[...stack, path].join(" -> ")}`);
+  }
+
+  const value = token.colorwayValues?.[colorway] ?? token.value;
+  return deepResolveForColorway(
+    value,
+    colorway,
+    tokensByPath,
+    [...stack, path]
+  );
 }
 
 function cssColor(value) {
@@ -265,7 +323,17 @@ function displayEffectStyle(token) {
 export function figmaMapping(token) {
   const base = {
     target: token.figma.target,
-    name: token.figmaName
+    name: token.figmaName,
+    ...(token.colorwayValues
+      ? {
+          modes: Object.fromEntries(
+            Object.entries(token.colorwayValues).map(([name, value]) => [
+              titleCase(name),
+              value
+            ])
+          )
+        }
+      : {})
   };
 
   switch (token.figma.target) {
@@ -433,6 +501,7 @@ export function validateTokenDocument(document) {
   const tokensByPath = tokenIndex(tokens);
   const errors = [...structureErrors];
   const rootExtension = extensionFor(document);
+  const colorways = rootExtension.colorways;
 
   if (document.$schema !== DTCG_SCHEMA) {
     errors.push(`$schema must be ${DTCG_SCHEMA}.`);
@@ -517,25 +586,129 @@ export function validateTokenDocument(document) {
           `${token.path} aliases ${directReference} with a different token type.`
         );
       }
+
+      if (
+        token.path.startsWith("color.semantic.") &&
+        /\.(bone|ink|terra|sage|sky)(\.|$)/.test(token.path)
+      ) {
+        errors.push(
+          `${token.path} embeds a primitive family name in a semantic role.`
+        );
+      }
     } catch (error) {
       errors.push(`${token.path}: ${error.message}`);
     }
   }
 
-  const contrasts = [];
-  for (const pair of rootExtension.contrastPairs ?? []) {
-    try {
-      const foreground = resolveTokenValue(pair.foreground, tokensByPath);
-      const background = resolveTokenValue(pair.background, tokensByPath);
-      const ratio = contrastRatio(foreground, background);
-      contrasts.push({ ...pair, ratio });
-      if (ratio < pair.minimum) {
+  const colorwayNames = Array.isArray(colorways?.modes)
+    ? colorways.modes
+    : [];
+  const requiredColorwayTokens = Array.isArray(colorways?.requiredTokens)
+    ? colorways.requiredTokens
+    : [];
+
+  if (
+    !colorways ||
+    !/^[a-z][a-z0-9-]*$/.test(colorways.default ?? "") ||
+    !/^[a-z][a-z0-9-]*$/.test(colorways.attribute ?? "") ||
+    colorwayNames.length < 2 ||
+    new Set(colorwayNames).size !== colorwayNames.length ||
+    !colorwayNames.includes(colorways.default) ||
+    requiredColorwayTokens.length === 0
+  ) {
+    errors.push(
+      "The root extension must declare a default, attribute, unique modes, and required colorway tokens."
+    );
+  } else {
+    for (const path of requiredColorwayTokens) {
+      const token = tokensByPath.get(path);
+      if (!token) {
+        errors.push(`Required colorway token ${path} does not exist.`);
+        continue;
+      }
+
+      const declaredNames = Object.keys(token.colorwayValues ?? {});
+      for (const colorway of colorwayNames) {
+        if (!declaredNames.includes(colorway)) {
+          errors.push(`${path} has no ${colorway} colorway value.`);
+          continue;
+        }
+
+        try {
+          const resolvedValue = resolveTokenValueForColorway(
+            path,
+            colorway,
+            tokensByPath
+          );
+          if (!validateResolvedValue(token, resolvedValue)) {
+            errors.push(
+              `${path} does not contain a valid resolved ${token.type} value for ${colorway}.`
+            );
+          }
+
+          const reference = referencePath(token.colorwayValues[colorway]);
+          if (reference && tokensByPath.get(reference)?.type !== token.type) {
+            errors.push(
+              `${path} aliases ${reference} with a different token type in ${colorway}.`
+            );
+          }
+        } catch (error) {
+          errors.push(`${path} [${colorway}]: ${error.message}`);
+        }
+      }
+
+      for (const colorway of declaredNames) {
+        if (!colorwayNames.includes(colorway)) {
+          errors.push(`${path} declares unknown colorway ${colorway}.`);
+        }
+      }
+
+      if (
+        JSON.stringify(token.value) !==
+        JSON.stringify(token.colorwayValues[colorways.default])
+      ) {
         errors.push(
-          `${pair.name} contrast is ${ratio.toFixed(2)}:1; expected at least ${pair.minimum}:1.`
+          `${path} default value must equal its ${colorways.default} colorway value.`
         );
       }
-    } catch (error) {
-      errors.push(`${pair.name}: ${error.message}`);
+    }
+  }
+
+  const contrasts = [];
+  for (const pair of rootExtension.contrastPairs ?? []) {
+    const usesColorway = [pair.foreground, pair.background].some(
+      (path) => tokensByPath.get(path)?.colorwayValues
+    );
+    const modes = usesColorway ? colorwayNames : [undefined];
+
+    for (const colorway of modes) {
+      try {
+        const foreground = colorway
+          ? resolveTokenValueForColorway(
+              pair.foreground,
+              colorway,
+              tokensByPath
+            )
+          : resolveTokenValue(pair.foreground, tokensByPath);
+        const background = colorway
+          ? resolveTokenValueForColorway(
+              pair.background,
+              colorway,
+              tokensByPath
+            )
+          : resolveTokenValue(pair.background, tokensByPath);
+        const ratio = contrastRatio(foreground, background);
+        contrasts.push({ ...pair, colorway, ratio });
+        if (ratio < pair.minimum) {
+          const suffix = colorway ? ` [${colorway}]` : "";
+          errors.push(
+            `${pair.name}${suffix} contrast is ${ratio.toFixed(2)}:1; expected at least ${pair.minimum}:1.`
+          );
+        }
+      } catch (error) {
+        const suffix = colorway ? ` [${colorway}]` : "";
+        errors.push(`${pair.name}${suffix}: ${error.message}`);
+      }
     }
   }
 
@@ -586,6 +759,22 @@ export function renderCss(document) {
   }
 
   lines.push("}", "");
+
+  const colorways = extensionFor(document).colorways;
+  const colorwayTokens = tokens.filter((token) => token.colorwayValues);
+  for (const colorway of colorways.modes) {
+    lines.push(`:root[${colorways.attribute}="${colorway}"] {`);
+    for (const token of colorwayTokens) {
+      lines.push(
+        `  ${token.cssCustomProperty}: ${toCssValue(
+          { ...token, value: token.colorwayValues[colorway] },
+          tokensByPath
+        )};`
+      );
+    }
+    lines.push("}", "");
+  }
+
   return lines.join("\n");
 }
 
@@ -630,6 +819,7 @@ export function renderTokenReference(document) {
     throw new Error(errors.join("\n"));
   }
   const tokensByPath = tokenIndex(tokens);
+  const colorways = extensionFor(document).colorways;
   const lines = [
     "<!-- GENERATED FILE — DO NOT EDIT DIRECTLY. Run: npm run generate -->",
     "",
@@ -661,6 +851,32 @@ export function renderTokenReference(document) {
 
   lines.push(
     "",
+    "## Deployment colorways",
+    "",
+    `Terra is the fallback. Set \`${colorways.attribute}\` on the deployment root`,
+    "to select one whole-site colorway; do not mix these mappings per component.",
+    "",
+    "| Semantic token | " +
+      colorways.modes.map((mode) => titleCase(mode)).join(" | ") +
+      " |",
+    "| --- | " + colorways.modes.map(() => "---").join(" | ") + " |"
+  );
+
+  for (const token of tokens.filter((item) => item.colorwayValues)) {
+    lines.push(
+      `| \`${token.path}\` | ${colorways.modes
+        .map(
+          (mode) =>
+            `\`${formatResolvedValue(
+              resolveTokenValueForColorway(token.path, mode, tokensByPath)
+            )}\``
+        )
+        .join(" | ")} |`
+    );
+  }
+
+  lines.push(
+    "",
     "## Contrast contract",
     "",
     "| Pair | Foreground | Background | Ratio | Required |",
@@ -668,8 +884,11 @@ export function renderTokenReference(document) {
   );
 
   for (const pair of contrasts) {
+    const name = pair.colorway
+      ? `${pair.name} (${titleCase(pair.colorway)})`
+      : pair.name;
     lines.push(
-      `| ${pair.name} | \`${pair.foreground}\` | \`${pair.background}\` | ${pair.ratio.toFixed(2)}:1 | ${pair.minimum}:1 |`
+      `| ${name} | \`${pair.foreground}\` | \`${pair.background}\` | ${pair.ratio.toFixed(2)}:1 | ${pair.minimum}:1 |`
     );
   }
 
@@ -700,6 +919,7 @@ export function renderFigmaMappings(document) {
     throw new Error(errors.join("\n"));
   }
   const tokensByPath = tokenIndex(tokens);
+  const colorways = extensionFor(document).colorways;
 
   return (
     JSON.stringify(
@@ -707,6 +927,12 @@ export function renderFigmaMappings(document) {
         generated: true,
         generatedFrom: "tokens/jbm.tokens.json",
         specification: "DTCG 2025.10",
+        colorways: {
+          default: titleCase(colorways.default),
+          modes: colorways.modes.map(titleCase),
+          attribute: colorways.attribute,
+          collection: "JBM Semantics"
+        },
         instructions:
           "Do not edit. Reconcile live Figma variables and styles to these targets. Promote accepted Figma-originated portable-value changes to the canonical token file, regenerate, and record any intentional divergence.",
         mappings: tokens.map((token) => ({

@@ -124,6 +124,8 @@ particular framework.
 - **Marginalia:** secondary evidence, annotation, or delight attached to
   primary content.
 - **Signal:** the sparse accent that marks action, state, or attention.
+- **Colorway:** the one hue family a deployment chooses to carry its accent
+  field, action, strong signal, and focus roles.
 
 Use the vocabulary only when the function is present. A bordered card is not
 automatically a Plate; a tiny uppercase label without orienting information is
@@ -133,27 +135,43 @@ not automatically a Kicker.
 
 ### Color
 
-The palette has five role families.
+JBM is the shared grammar; each deployment chooses one colorway. Bone / Paper
+and Ink carry the structure. Terra, Sage, and Sky are alternate accent
+colorways, not three simultaneous interface categories. Terra is the default.
 
-| Family | Purpose | Core values |
+| Family | Shared or selected purpose | Core values |
 | --- | --- | --- |
-| Bone / Paper | Page, raised paper, and quiet paper | `#fffef9`, `#f5f1e8`, `#ebe4d5` |
-| Ink | Primary marks, hard rules, and secondary readable text | `#0a0a0a`, `#161514`, `#2a2a2a` |
-| Terra | Action, current state, and sparse warm emphasis | `#a94229`, `#b54724`, `#d7653d` |
-| Sage | Quiet metadata, notebook structure, and secondary signal | `#5f7057`, `#dfe5db` |
-| Sky | Informational diagrams and alternate annotation | `#2e6670`, `#a7d8de` |
+| Bone / Paper | Shared page, raised paper, and quiet paper | `#fffef9`, `#f5f1e8`, `#ebe4d5` |
+| Ink | Shared primary marks, hard rules, and secondary readable text | `#0a0a0a`, `#161514`, `#2a2a2a` |
+| Terra | Default deployment colorway | `#a94229`, `#b54724`, `#d7653d` |
+| Sage | Alternate deployment colorway | `#5f7057`, `#dfe5db` |
+| Sky | Alternate deployment colorway | `#2e6670`, `#a7d8de` |
 
-Semantic tokens state intended use. Prefer
-`color.semantic.action.default` to a raw Terra value when the decision is
-about an action. A consumer may retain a product-specific alias such as
-`ember`, but it should document which language role that alias interprets.
+Choose the colorway at the deployment root. The chosen family supplies
+`color.semantic.accent.field`, `accent.default`, `accent.hover`,
+`accent.strong`, and the focus ring together. Components consume those roles;
+they never ask for Terra, Sage, or Sky directly. A content taxonomy such as
+Structure, Experience, Translation, and Access remains legible through labels,
+order, and geometry rather than receiving a permanent multi-hue legend.
 
-Terra 400, Sage 200, and Sky 200 are fields or large marks, not body-text
-colors. The validator checks every declared text, interaction, signal, and
-focus pairing against its WCAG threshold. The generated
-[token reference](docs/token-reference.md) is the exact ledger.
+The field values—Terra 400, Sage 200, and Sky 200—belong to large areas and
+non-text marks. Readable text, action, and focus roles use the darker values and
+are checked against their WCAG thresholds in every colorway. Sage and Sky
+currently use the same dark value for default, hover, and strong; hover must
+therefore remain perceptible through geometry, underline, pressure, or another
+non-color change.
 
-Use signal color sparsely. If everything is Terra, nothing is a signal.
+A second hue is an exception with a boundary. A figure, data visualization, or
+status system may introduce another family when the hue encodes real
+information and its legend or label makes that meaning explicit. Keep it local
+to that artifact; do not promote it into navigation, category chrome, or
+unrelated emphasis.
+
+Primitive palette documentation may show all source families together. A
+deployed composition should not. Use signal color sparsely: if every structural
+or editorial category receives a color, no color remains a signal. The
+generated [token reference](docs/token-reference.md) is the exact mode and
+contrast ledger.
 
 ### Typography
 

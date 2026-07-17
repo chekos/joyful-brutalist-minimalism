@@ -84,10 +84,12 @@ const colors = [
   { name: "Paper", token: "surface.paper", className: "paper" },
   { name: "Quiet", token: "surface.quiet", className: "quiet" },
   { name: "Ink", token: "text.primary", className: "ink" },
-  { name: "Action", token: "action.default", className: "terra" },
-  { name: "Signal", token: "signal.sage", className: "sage" },
-  { name: "Figure", token: "signal.sky", className: "sky" },
+  { name: "Accent field", token: "accent.field", className: "accent-field" },
+  { name: "Accent default", token: "accent.default", className: "accent-default" },
+  { name: "Accent strong", token: "accent.strong", className: "accent-strong" },
 ] as const;
+
+const colorways = ["terra", "sage", "sky"] as const;
 
 const spaces = [0, 4, 8, 12, 16, 24, 32, 48, 64] as const;
 
@@ -123,7 +125,7 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-jbm-colorway="terra">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -278,9 +280,38 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
           <div class="foundation-grid">
             <article class="plate color-plate" data-jbm-form="plate">
               <header>
-                <p class="kicker">Color / semantic roles</p>
-                <h3>Sparse signals on warm paper</h3>
+                <p class="kicker">Color / one deployment mode</p>
+                <h3>One colorway at a time</h3>
               </header>
+              <div class="colorway-preview" data-colorway-preview hidden>
+                <div class="colorway-preview-copy">
+                  <p id="colorway-preview-label">Preview the deployment colorway</p>
+                  <p>
+                    Terra is the fallback. This reference control changes the
+                    whole specimen, not one component.
+                  </p>
+                </div>
+                <div
+                  class="colorway-options"
+                  role="group"
+                  aria-labelledby="colorway-preview-label"
+                >
+                  {
+                    colorways.map((colorway) => (
+                      <button
+                        type="button"
+                        data-colorway-option={colorway}
+                        aria-pressed={colorway === "terra" ? "true" : "false"}
+                      >
+                        {colorway}
+                      </button>
+                    ))
+                  }
+                </div>
+                <p class="colorway-status" aria-live="polite">
+                  Terra colorway active
+                </p>
+              </div>
               <ul class="swatch-list" aria-label="Semantic color roles">
                 {
                   colors.map((color) => (
@@ -600,5 +631,30 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
       <a href="#top">Return to the measure ↑</a>
     </footer>
 
+    <script is:inline>
+      const preview = document.querySelector("[data-colorway-preview]");
+      const options = document.querySelectorAll("[data-colorway-option]");
+      const status = preview?.querySelector(".colorway-status");
+
+      if (preview instanceof HTMLElement && status instanceof HTMLElement) {
+        preview.hidden = false;
+        options.forEach((option) => {
+          if (!(option instanceof HTMLButtonElement)) return;
+          option.addEventListener("click", () => {
+            const colorway = option.dataset.colorwayOption;
+            if (!colorway) return;
+
+            document.documentElement.dataset.jbmColorway = colorway;
+            options.forEach((candidate) => {
+              candidate.setAttribute(
+                "aria-pressed",
+                String(candidate === option),
+              );
+            });
+            status.textContent = `${colorway[0].toUpperCase()}${colorway.slice(1)} colorway active`;
+          });
+        });
+      }
+    </script>
   </body>
 </html>

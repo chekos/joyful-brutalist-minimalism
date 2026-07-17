@@ -8,6 +8,10 @@ coherent page. It fulfills
 and is reviewed in
 [pull request #9](https://github.com/chekos/joyful-brutalist-minimalism/pull/9)
 without creating a client component framework or changing a consumer repository.
+The deployment-scoped colorway implementation is tracked in
+[issue #31](https://github.com/chekos/joyful-brutalist-minimalism/issues/31);
+the separate Paper/Bone review remains open in
+[issue #32](https://github.com/chekos/joyful-brutalist-minimalism/issues/32).
 
 Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 [`tokens/jbm.tokens.json`](../tokens/jbm.tokens.json), the generated
@@ -28,6 +32,24 @@ Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 - The generated CSS token file remains the only browser value bridge. Site CSS
   consumes its semantic properties rather than defining a parallel palette or
   motion scale.
+- The document declares Terra as its one deployment colorway. The Foundations
+  preview can switch the whole specimen to Sage or Sky without persisting a
+  user preference or mixing palette families inside the interface taxonomy.
+
+## Deployment colorways
+
+The root `data-jbm-colorway` attribute selects one complete semantic accent
+mapping. Terra is both the explicit reference-site default and the generated
+fallback; Sage and Sky override the same `accent.field`, `accent.default`,
+`accent.hover`, `accent.strong`, and `focus.ring` roles. Paper/Bone surfaces,
+Ink, neutral rules, typography, geometry, and motion stay shared.
+
+The preview is an accessible documentation control, not a site-wide preference
+system. Its three buttons expose one pressed state, update a polite status, and
+change the whole specimen. Without JavaScript the control stays hidden and the
+complete Terra document remains readable. Unknown attribute values also fall
+back to Terra. Lens names and principle indices remain neutral instead of
+turning Terra, Sage, and Sky into permanent content categories.
 
 ## Content-derived Principle Index
 
@@ -139,6 +161,9 @@ browser suite verifies:
 
 - all eight source principles and all seven authored forms;
 - content-derived static index links and lens counts;
+- Terra as the default deployment colorway, complete whole-site Sage and Sky
+  switching, one pressed state, and Terra fallback for unknown values;
+- neutral principle-taxonomy cues with no concurrent palette-family encoding;
 - keyboard entry and visible focus;
 - complete no-JavaScript content and fragment navigation;
 - Contextual Marginalia pointer, keyboard, activation, and narrow-layout states;
@@ -164,6 +189,18 @@ tree, clean desktop and mobile composition, and no console or page errors.
 ### Technical Figure in context
 
 ![Technical Figure browser composition](reference-site/v1/technical-figure.png)
+
+### Terra deployment colorway
+
+![Terra deployment colorway](reference-site/v1/colorway-terra.png)
+
+### Sage deployment colorway
+
+![Sage deployment colorway](reference-site/v1/colorway-sage.png)
+
+### Sky deployment colorway
+
+![Sky deployment colorway](reference-site/v1/colorway-sky.png)
 
 ### Contextual Marginalia in its note state
 

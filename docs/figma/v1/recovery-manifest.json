@@ -26,6 +26,12 @@
         "JBM Primitives": 28,
         "JBM Semantics": 12
       },
+      "semanticModes": [
+        "Terra",
+        "Sage",
+        "Sky"
+      ],
+      "defaultSemanticMode": "Terra",
       "semanticAliases": 12,
       "canonicalWebSyntax": 40,
       "deliberateScopes": 40
@@ -66,6 +72,11 @@
         "variants": 3,
         "axes": [
           "Tone"
+        ],
+        "values": [
+          "Neutral",
+          "Default",
+          "Strong"
         ],
         "properties": [
           "Text",
@@ -142,6 +153,20 @@
       }
     ],
     "studies": {
+      "deploymentColorways": {
+        "nodeId": "87:2",
+        "status": "accepted",
+        "default": "Terra",
+        "states": {
+          "Terra": "87:3",
+          "Sage": "87:13",
+          "Sky": "87:23"
+        },
+        "semanticVariables": 12,
+        "oldPaletteSemanticBindingsOutsideFoundations": 0,
+        "source": "DESIGN.md#color",
+        "browserAttribute": "data-jbm-colorway"
+      },
       "technicalFigure": {
         "nodeId": "39:7",
         "authorities": 4,
@@ -190,7 +215,7 @@
   "sync": {
     "contract": "SYNC.md",
     "manifest": "docs/sync/manifest.json",
-    "liveCheckpoint": "jbm_dsb/checkpoint_earned_scale"
+    "liveCheckpoint": "jbm_dsb/checkpoint_colorways"
   },
   "snapshot": {
     "format": ".fig",

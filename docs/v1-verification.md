@@ -13,6 +13,7 @@ records the adoption and publication boundaries required by
 | Figma foundations, components, and studies | [Issue #5](https://github.com/chekos/joyful-brutalist-minimalism/issues/5), [pull request #8](https://github.com/chekos/joyful-brutalist-minimalism/pull/8), the [editable Figma source](https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ), and its [inspection receipt](figma-v1.md) |
 | Executable browser specimen | [Issue #6](https://github.com/chekos/joyful-brutalist-minimalism/issues/6), [pull request #9](https://github.com/chekos/joyful-brutalist-minimalism/pull/9), and the [reference-site receipt](reference-site-v1.md) |
 | Adoption, final verification, and publication | [Issue #7](https://github.com/chekos/joyful-brutalist-minimalism/issues/7), [pull request #10](https://github.com/chekos/joyful-brutalist-minimalism/pull/10), [publication pull request #11](https://github.com/chekos/joyful-brutalist-minimalism/pull/11), the [successful Pages deployment](https://github.com/chekos/joyful-brutalist-minimalism/actions/runs/29388865075), and the [adoption guide](../ADOPTION.md) |
+| Deployment-scoped colorways | [Issue #31](https://github.com/chekos/joyful-brutalist-minimalism/issues/31), [decision 0004](decisions/0004-colorways-are-deployment-scoped.md), the [Figma receipt](figma-v1.md), and the [reference-site receipt](reference-site-v1.md) |
 
 ## Repository verification
 
@@ -37,7 +38,8 @@ again on 2026-07-16:
 - the six pages remain in their approved order;
 - `JBM Primitives` contains 28 variables and `JBM Semantics` contains 12;
 - all 40 variables have deliberate scopes and canonical WEB code syntax;
-- all 12 semantic variables remain aliases;
+- all 12 semantic variables remain aliases in complete `Terra`, `Sage`, and
+  `Sky` modes, with Terra as the default;
 - four text styles and two effect styles remain local and named;
 - seven described component sets contain 23 auto-layout variants with exposed
   properties, bound values, and styled text; and
@@ -47,14 +49,17 @@ again on 2026-07-16:
 - the Earned Scale study records the accepted 48px-to-32px reduction test while
   leaving the Plate component grid unchanged; and
 - Contextual Marginalia records the default register, active-note, and
-  narrow/print states without being promoted to a component.
+  narrow/print states without being promoted to a component; and
+- the bound Foundations colorway preview records one deployment mode at a time,
+  Kicker tones use semantic names, and palette families no longer encode the
+  Principle Index taxonomy.
 
 The durable machine inventory and full-page images live in
 [`docs/figma/v1`](figma/v1). The document root also holds the verified
 `jbm_dsb/checkpoint_foundations`, `checkpoint_components`,
 `checkpoint_contextual_marginalia`, `checkpoint_earned_scale`, and
-`final_validation` records because the connector runtime cannot create named
-Figma version-history entries. The final audit also records
+`checkpoint_colorways`, plus `final_validation` records because the connector
+runtime cannot create named Figma version-history entries. The final audit also records
 `jbm_dsb/v1_release_verification` on document node `0:0`; its status is
 `published` and it links issue #7, the publication pull request and deployment,
 and the live reference site without changing any visual node.
@@ -64,7 +69,10 @@ and the live reference site without changing any visual node.
 The browser suite verifies desktop and mobile composition, keyboard entry and
 visible focus, pointer hover state, reduced-motion behavior, complete
 no-JavaScript content and fragment navigation, semantic structure, and an axe
-scan with no automatically detectable violations.
+scan with no automatically detectable violations. It also verifies Terra as
+the whole-document default, Sage and Sky as complete alternate mappings, one
+pressed preview state, an unknown-value Terra fallback, and neutral taxonomy
+cues.
 
 Representative evidence:
 
@@ -72,7 +80,10 @@ Representative evidence:
 - [mobile composition](reference-site/v1/mobile-hero.png);
 - [keyboard focus](reference-site/v1/keyboard-focus.png);
 - [reduced-motion state](reference-site/v1/reduced-motion.png); and
-- [Technical Figure](reference-site/v1/technical-figure.png).
+- [Technical Figure](reference-site/v1/technical-figure.png);
+- [Terra colorway](reference-site/v1/colorway-terra.png);
+- [Sage colorway](reference-site/v1/colorway-sage.png); and
+- [Sky colorway](reference-site/v1/colorway-sky.png).
 
 The reduced-motion evidence confirms that optional movement resolves
 immediately while content and focus remain intact. The executable assertions
@@ -84,6 +95,7 @@ or animated reading status and that all eight destinations remain present.
 | Concern | Repository tokens | Figma | Browser |
 | --- | --- | --- | --- |
 | Vocabulary and roles | Canonical names and aliases | Matching variable and style names | Matching semantic custom properties and labels |
+| Deployment colorway | Terra fallback plus complete Terra, Sage, and Sky semantic mappings | Three semantic modes and a bound Foundations preview | One root attribute switches the whole specimen; Terra remains the no-JavaScript fallback |
 | Paper and pressure | Surface, rule, radius, and shadow values | Ground, Rule, and Plate forms | Responsive paper surfaces with hard edges and restrained pressure |
 | Authority exchange | Four owned concerns in `DESIGN.md` | Original Technical Figure | Semantic figure plus complete text equivalent |
 | Principle index | Eight principles and four lenses | Static Principle Index study with honest count bars | One content dataset drives adjacent fragment links, counts, and ledger without fake progress |

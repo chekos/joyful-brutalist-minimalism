@@ -14,6 +14,23 @@
           "unboundTargets": "Text styles, effect styles, and prototype documentation are explicit mappings, not pretend variables."
         }
       },
+      "colorways": {
+        "default": "terra",
+        "attribute": "data-jbm-colorway",
+        "modes": [
+          "terra",
+          "sage",
+          "sky"
+        ],
+        "requiredTokens": [
+          "color.semantic.accent.field",
+          "color.semantic.accent.default",
+          "color.semantic.accent.hover",
+          "color.semantic.accent.strong",
+          "color.semantic.focus.ring"
+        ],
+        "contract": "A deployment chooses one mode at its root. Surface, text, rule, type, geometry, and motion roles remain shared."
+      },
       "contrastPairs": [
         {
           "name": "Primary text on page",
@@ -28,26 +45,20 @@
           "minimum": 4.5
         },
         {
-          "name": "Action on page",
-          "foreground": "color.semantic.action.default",
+          "name": "Accent default on page",
+          "foreground": "color.semantic.accent.default",
           "background": "color.semantic.surface.page",
           "minimum": 4.5
         },
         {
-          "name": "Action hover on page",
-          "foreground": "color.semantic.action.hover",
+          "name": "Accent hover on page",
+          "foreground": "color.semantic.accent.hover",
           "background": "color.semantic.surface.page",
           "minimum": 4.5
         },
         {
-          "name": "Sage signal on page",
-          "foreground": "color.semantic.signal.sage",
-          "background": "color.semantic.surface.page",
-          "minimum": 4.5
-        },
-        {
-          "name": "Sky signal on page",
-          "foreground": "color.semantic.signal.sky",
+          "name": "Accent strong on page",
+          "foreground": "color.semantic.accent.strong",
           "background": "color.semantic.surface.page",
           "minimum": 4.5
         },
@@ -391,7 +402,7 @@
           "$value": "{color.primitive.ink.700}"
         }
       },
-      "action": {
+      "accent": {
         "$type": "color",
         "$extensions": {
           "io.soyserg.jbm": {
@@ -406,13 +417,57 @@
             }
           }
         },
+        "field": {
+          "$description": "Large non-text accent field.",
+          "$value": "{color.primitive.terra.400}",
+          "$extensions": {
+            "io.soyserg.jbm": {
+              "colorwayValues": {
+                "terra": "{color.primitive.terra.400}",
+                "sage": "{color.primitive.sage.200}",
+                "sky": "{color.primitive.sky.200}"
+              }
+            }
+          }
+        },
         "default": {
           "$description": "Default text and control action.",
-          "$value": "{color.primitive.terra.700}"
+          "$value": "{color.primitive.terra.700}",
+          "$extensions": {
+            "io.soyserg.jbm": {
+              "colorwayValues": {
+                "terra": "{color.primitive.terra.700}",
+                "sage": "{color.primitive.sage.700}",
+                "sky": "{color.primitive.sky.700}"
+              }
+            }
+          }
         },
         "hover": {
           "$description": "Hover and active action.",
-          "$value": "{color.primitive.terra.600}"
+          "$value": "{color.primitive.terra.600}",
+          "$extensions": {
+            "io.soyserg.jbm": {
+              "colorwayValues": {
+                "terra": "{color.primitive.terra.600}",
+                "sage": "{color.primitive.sage.700}",
+                "sky": "{color.primitive.sky.700}"
+              }
+            }
+          }
+        },
+        "strong": {
+          "$description": "Strong readable accent for signals and compact marks.",
+          "$value": "{color.primitive.terra.700}",
+          "$extensions": {
+            "io.soyserg.jbm": {
+              "colorwayValues": {
+                "terra": "{color.primitive.terra.700}",
+                "sage": "{color.primitive.sage.700}",
+                "sky": "{color.primitive.sky.700}"
+              }
+            }
+          }
         }
       },
       "focus": {
@@ -431,31 +486,16 @@
         },
         "ring": {
           "$description": "Visible keyboard focus ring.",
-          "$value": "{color.primitive.sky.700}"
-        }
-      },
-      "signal": {
-        "$type": "color",
-        "$extensions": {
-          "io.soyserg.jbm": {
-            "figma": {
-              "target": "variable",
-              "collection": "JBM Semantics",
-              "type": "COLOR",
-              "scopes": [
-                "ALL_FILLS",
-                "STROKE_COLOR"
-              ]
+          "$value": "{color.primitive.terra.700}",
+          "$extensions": {
+            "io.soyserg.jbm": {
+              "colorwayValues": {
+                "terra": "{color.primitive.terra.700}",
+                "sage": "{color.primitive.sage.700}",
+                "sky": "{color.primitive.sky.700}"
+              }
             }
           }
-        },
-        "sage": {
-          "$description": "Quiet readable status or metadata.",
-          "$value": "{color.primitive.sage.700}"
-        },
-        "sky": {
-          "$description": "Informational annotation.",
-          "$value": "{color.primitive.sky.700}"
         }
       },
       "rule": {
@@ -478,7 +518,7 @@
         },
         "quiet": {
           "$description": "Quiet notebook or measure rule.",
-          "$value": "{color.primitive.sage.700}"
+          "$value": "{color.primitive.ink.alpha-18}"
         }
       }
     }

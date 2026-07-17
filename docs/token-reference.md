@@ -34,13 +34,13 @@ text style, effect style, or named documentation section instead.
 | `color.semantic.surface.quiet` | `color` | `#ebe4d5` | `--jbm-color-semantic-surface-quiet` | JBM Semantics · Color/Semantic/Surface/Quiet · COLOR · FRAME_FILL, SHAPE_FILL | approved issue #1 synthesis |
 | `color.semantic.text.primary` | `color` | `#0a0a0a` | `--jbm-color-semantic-text-primary` | JBM Semantics · Color/Semantic/Text/Primary · COLOR · TEXT_FILL | approved issue #1 synthesis |
 | `color.semantic.text.secondary` | `color` | `#2a2a2a` | `--jbm-color-semantic-text-secondary` | JBM Semantics · Color/Semantic/Text/Secondary · COLOR · TEXT_FILL | approved issue #1 synthesis |
-| `color.semantic.action.default` | `color` | `#a94229` | `--jbm-color-semantic-action-default` | JBM Semantics · Color/Semantic/Action/Default · COLOR · ALL_FILLS, STROKE_COLOR | approved issue #1 synthesis |
-| `color.semantic.action.hover` | `color` | `#b54724` | `--jbm-color-semantic-action-hover` | JBM Semantics · Color/Semantic/Action/Hover · COLOR · ALL_FILLS, STROKE_COLOR | approved issue #1 synthesis |
-| `color.semantic.focus.ring` | `color` | `#2e6670` | `--jbm-color-semantic-focus-ring` | JBM Semantics · Color/Semantic/Focus/Ring · COLOR · STROKE_COLOR | approved issue #1 synthesis |
-| `color.semantic.signal.sage` | `color` | `#5f7057` | `--jbm-color-semantic-signal-sage` | JBM Semantics · Color/Semantic/Signal/Sage · COLOR · ALL_FILLS, STROKE_COLOR | approved issue #1 synthesis |
-| `color.semantic.signal.sky` | `color` | `#2e6670` | `--jbm-color-semantic-signal-sky` | JBM Semantics · Color/Semantic/Signal/Sky · COLOR · ALL_FILLS, STROKE_COLOR | approved issue #1 synthesis |
+| `color.semantic.accent.field` | `color` | `#d7653d` | `--jbm-color-semantic-accent-field` | JBM Semantics · Color/Semantic/Accent/Field · COLOR · ALL_FILLS, STROKE_COLOR | approved issue #1 synthesis |
+| `color.semantic.accent.default` | `color` | `#a94229` | `--jbm-color-semantic-accent-default` | JBM Semantics · Color/Semantic/Accent/Default · COLOR · ALL_FILLS, STROKE_COLOR | approved issue #1 synthesis |
+| `color.semantic.accent.hover` | `color` | `#b54724` | `--jbm-color-semantic-accent-hover` | JBM Semantics · Color/Semantic/Accent/Hover · COLOR · ALL_FILLS, STROKE_COLOR | approved issue #1 synthesis |
+| `color.semantic.accent.strong` | `color` | `#a94229` | `--jbm-color-semantic-accent-strong` | JBM Semantics · Color/Semantic/Accent/Strong · COLOR · ALL_FILLS, STROKE_COLOR | approved issue #1 synthesis |
+| `color.semantic.focus.ring` | `color` | `#a94229` | `--jbm-color-semantic-focus-ring` | JBM Semantics · Color/Semantic/Focus/Ring · COLOR · STROKE_COLOR | approved issue #1 synthesis |
 | `color.semantic.rule.default` | `color` | `#161514` | `--jbm-color-semantic-rule-default` | JBM Semantics · Color/Semantic/Rule/Default · COLOR · STROKE_COLOR | approved issue #1 synthesis |
-| `color.semantic.rule.quiet` | `color` | `#5f7057` | `--jbm-color-semantic-rule-quiet` | JBM Semantics · Color/Semantic/Rule/Quiet · COLOR · STROKE_COLOR | approved issue #1 synthesis |
+| `color.semantic.rule.quiet` | `color` | `#0a0a0a at 18%` | `--jbm-color-semantic-rule-quiet` | JBM Semantics · Color/Semantic/Rule/Quiet · COLOR · STROKE_COLOR | approved issue #1 synthesis |
 | `typography.role.editorial.body.font-family` | `fontFamily` | `Source Serif 4, Georgia, serif` | `--jbm-typography-role-editorial-body-font-family` | Editorial/Body · fontFamily | soyserg.io, Biblioteca, approved issue #1 synthesis |
 | `typography.role.editorial.body.font-weight` | `fontWeight` | `400` | `--jbm-typography-role-editorial-body-font-weight` | Editorial/Body · fontWeight | soyserg.io, Biblioteca, approved issue #1 synthesis |
 | `typography.role.editorial.body.line-height` | `number` | `1.55` | `--jbm-typography-role-editorial-body-line-height` | Editorial/Body · lineHeight | soyserg.io, Biblioteca, approved issue #1 synthesis |
@@ -81,17 +81,37 @@ text style, effect style, or named documentation section instead.
 | `motion.reduced.duration` | `duration` | `0ms` | `--jbm-motion-reduced-duration` | 02 Foundations · Motion · Motion/Reduced/Duration | soyserg.io, Biblioteca, approved Making Software study |
 | `motion.reduced.transform-distance` | `dimension` | `0px` | `--jbm-motion-reduced-transform-distance` | 02 Foundations · Motion · Motion/Reduced/Transform Distance | soyserg.io, Biblioteca, approved Making Software study |
 
+## Deployment colorways
+
+Terra is the fallback. Set `data-jbm-colorway` on the deployment root
+to select one whole-site colorway; do not mix these mappings per component.
+
+| Semantic token | Terra | Sage | Sky |
+| --- | --- | --- | --- |
+| `color.semantic.accent.field` | `#d7653d` | `#dfe5db` | `#a7d8de` |
+| `color.semantic.accent.default` | `#a94229` | `#5f7057` | `#2e6670` |
+| `color.semantic.accent.hover` | `#b54724` | `#5f7057` | `#2e6670` |
+| `color.semantic.accent.strong` | `#a94229` | `#5f7057` | `#2e6670` |
+| `color.semantic.focus.ring` | `#a94229` | `#5f7057` | `#2e6670` |
+
 ## Contrast contract
 
 | Pair | Foreground | Background | Ratio | Required |
 | --- | --- | --- | ---: | ---: |
 | Primary text on page | `color.semantic.text.primary` | `color.semantic.surface.page` | 19.61:1 | 4.5:1 |
 | Secondary text on page | `color.semantic.text.secondary` | `color.semantic.surface.page` | 14.21:1 | 4.5:1 |
-| Action on page | `color.semantic.action.default` | `color.semantic.surface.page` | 5.94:1 | 4.5:1 |
-| Action hover on page | `color.semantic.action.hover` | `color.semantic.surface.page` | 5.34:1 | 4.5:1 |
-| Sage signal on page | `color.semantic.signal.sage` | `color.semantic.surface.page` | 5.28:1 | 4.5:1 |
-| Sky signal on page | `color.semantic.signal.sky` | `color.semantic.surface.page` | 6.40:1 | 4.5:1 |
-| Focus ring against page | `color.semantic.focus.ring` | `color.semantic.surface.page` | 6.40:1 | 3:1 |
+| Accent default on page (Terra) | `color.semantic.accent.default` | `color.semantic.surface.page` | 5.94:1 | 4.5:1 |
+| Accent default on page (Sage) | `color.semantic.accent.default` | `color.semantic.surface.page` | 5.28:1 | 4.5:1 |
+| Accent default on page (Sky) | `color.semantic.accent.default` | `color.semantic.surface.page` | 6.40:1 | 4.5:1 |
+| Accent hover on page (Terra) | `color.semantic.accent.hover` | `color.semantic.surface.page` | 5.34:1 | 4.5:1 |
+| Accent hover on page (Sage) | `color.semantic.accent.hover` | `color.semantic.surface.page` | 5.28:1 | 4.5:1 |
+| Accent hover on page (Sky) | `color.semantic.accent.hover` | `color.semantic.surface.page` | 6.40:1 | 4.5:1 |
+| Accent strong on page (Terra) | `color.semantic.accent.strong` | `color.semantic.surface.page` | 5.94:1 | 4.5:1 |
+| Accent strong on page (Sage) | `color.semantic.accent.strong` | `color.semantic.surface.page` | 5.28:1 | 4.5:1 |
+| Accent strong on page (Sky) | `color.semantic.accent.strong` | `color.semantic.surface.page` | 6.40:1 | 4.5:1 |
+| Focus ring against page (Terra) | `color.semantic.focus.ring` | `color.semantic.surface.page` | 5.94:1 | 3:1 |
+| Focus ring against page (Sage) | `color.semantic.focus.ring` | `color.semantic.surface.page` | 5.28:1 | 3:1 |
+| Focus ring against page (Sky) | `color.semantic.focus.ring` | `color.semantic.surface.page` | 6.40:1 | 3:1 |
 
 ## Sync boundary
 
