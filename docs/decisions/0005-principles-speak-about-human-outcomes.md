@@ -51,7 +51,8 @@ repeating nearby text.
 
 - Tracking issue:
   https://github.com/chekos/joyful-brutalist-minimalism/issues/35
-- Implementation pull request: to be recorded when merged
+- Implementation pull request:
+  https://github.com/chekos/joyful-brutalist-minimalism/pull/36
 - Browser and Figma receipts:
   `docs/reference-site-v1.md`, `docs/figma-v1.md`, and
   `docs/sync/manifest.json`

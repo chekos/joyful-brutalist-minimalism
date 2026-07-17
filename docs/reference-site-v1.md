@@ -15,7 +15,9 @@ and
 the separate Paper/Bone review remains open in
 [issue #32](https://github.com/chekos/joyful-brutalist-minimalism/issues/32).
 The clarity pass that followed direct browser review is tracked in
-[issue #35](https://github.com/chekos/joyful-brutalist-minimalism/issues/35).
+[issue #35](https://github.com/chekos/joyful-brutalist-minimalism/issues/35)
+and
+[pull request #36](https://github.com/chekos/joyful-brutalist-minimalism/pull/36).
 
 Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 [`tokens/jbm.tokens.json`](../tokens/jbm.tokens.json), the generated

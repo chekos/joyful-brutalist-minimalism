@@ -18,7 +18,9 @@ through
 the independent Paper/Bone reassessment remains tracked in
 [issue #32](https://github.com/chekos/joyful-brutalist-minimalism/issues/32).
 The human-outcome clarity pass fulfills
-[issue #35](https://github.com/chekos/joyful-brutalist-minimalism/issues/35).
+[issue #35](https://github.com/chekos/joyful-brutalist-minimalism/issues/35)
+through
+[pull request #36](https://github.com/chekos/joyful-brutalist-minimalism/pull/36).
 Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 [`tokens/jbm.tokens.json`](../tokens/jbm.tokens.json), and the generated
 [`tokens/jbm.figma.json`](../tokens/jbm.figma.json). The machine-readable
