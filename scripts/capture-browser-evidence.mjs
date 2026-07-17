@@ -45,6 +45,10 @@ try {
     const keyboardPage = await keyboardContext.newPage();
     await keyboardPage.goto(baseURL);
     await keyboardPage.evaluate(() => document.fonts.ready);
+    await keyboardPage.screenshot({
+      animations: "disabled",
+      path: `${outputDirectory}/desktop-hero.png`,
+    });
     await keyboardPage.keyboard.press("Tab");
     await keyboardPage.screenshot({
       animations: "disabled",
@@ -62,6 +66,14 @@ try {
       animations: "disabled",
       path: `${outputDirectory}/technical-figure.png`,
     });
+    await keyboardPage.goto(`${baseURL}/constitution/`);
+    await keyboardPage.evaluate(() => document.fonts.ready);
+    await keyboardPage.screenshot({
+      animations: "disabled",
+      path: `${outputDirectory}/constitution.png`,
+    });
+    await keyboardPage.goto(baseURL);
+    await keyboardPage.evaluate(() => document.fonts.ready);
     const colorPlate = keyboardPage.locator(".color-plate");
     for (const colorway of ["terra", "sage", "sky"]) {
       await keyboardPage
@@ -79,6 +91,18 @@ try {
       });
     }
     await keyboardContext.close();
+
+    const mobileContext = await browser.newContext({
+      viewport: { width: 390, height: 844 },
+    });
+    const mobilePage = await mobileContext.newPage();
+    await mobilePage.goto(baseURL);
+    await mobilePage.evaluate(() => document.fonts.ready);
+    await mobilePage.screenshot({
+      animations: "disabled",
+      path: `${outputDirectory}/mobile-hero.png`,
+    });
+    await mobileContext.close();
 
     const reducedContext = await browser.newContext({
       reducedMotion: "reduce",
@@ -101,5 +125,5 @@ try {
 }
 
 console.log(
-  `captured keyboard, colorway, contextual-marginalia, technical-figure, and reduced-motion evidence in ${outputDirectory}`,
+  `captured desktop, mobile, keyboard, colorway, contextual-marginalia, technical-figure, constitution, and reduced-motion evidence in ${outputDirectory}`,
 );

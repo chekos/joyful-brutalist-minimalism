@@ -18,6 +18,8 @@ The clarity pass that followed direct browser review is tracked in
 [issue #35](https://github.com/chekos/joyful-brutalist-minimalism/issues/35)
 and
 [pull request #36](https://github.com/chekos/joyful-brutalist-minimalism/pull/36).
+The public-content boundary and dedicated Constitution route are tracked in
+[issue #39](https://github.com/chekos/joyful-brutalist-minimalism/issues/39).
 
 Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 [`tokens/jbm.tokens.json`](../tokens/jbm.tokens.json), the generated
@@ -26,13 +28,15 @@ Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 
 ## Browser result
 
-- Astro produces one static route with vanilla CSS and a one-line capability
+- Astro produces two static routes with vanilla CSS and a one-line capability
   class for progressive enhancement. There is no React, Vue, Svelte, or other
   client UI runtime.
-- The page communicates the founding thesis, all eight principles, portable
-  foundations, the seven authored forms, a two-step Technical Figure, a direct
-  Principle Index, and one explicitly unpromoted Contextual Marginalia study in
-  one editorial composition.
+- The home page communicates the founding thesis, all eight principles,
+  portable foundations, a public two-step practice figure, a direct Principle
+  Index, and one explicitly unpromoted Contextual Marginalia study in one
+  editorial composition.
+- `/constitution/` gives the accepted philosophy, principles, foundations, and
+  practical selection guidance their own public reading surface.
 - Source Serif 4 and IBM Plex Mono are bundled locally so the approved
   Editorial and Instrument roles do not depend on a third-party font request.
 - The generated CSS token file remains the only browser value bridge. Site CSS
@@ -75,7 +79,7 @@ The browser applies the reduction test from `DESIGN.md`: when smaller type
 preserves hierarchy and comprehension, the larger treatment has no job. The
 hero title remains the one true display moment; the thesis, support copy,
 section headings, and typography specimen use restrained contextual sizes.
-Whitespace now groups the hero's title, thesis, actions, and provenance instead
+Whitespace now groups the hero's title, thesis, and action instead
 of staging a full viewport around monumental type. The committed Figma
 `Earned scale` study records the comparison without introducing a portable size
 token or changing the Plate grid.
@@ -104,32 +108,30 @@ No consumer-repository change is implied by the core JBM evidence.
 
 ## Authored forms in context
 
-The page uses the seven Figma forms for their documented functions:
+The page uses the established forms for their documented functions:
 
 | Form | Browser use |
 | --- | --- |
 | Ground | The warm page field and bounded instrument surface |
-| Kicker | Section, source, and evidence orientation |
+| Kicker | Section and evidence orientation |
 | Rule | Section hierarchy, measure, and figure connection |
 | Index Row | The inspectable eight-principle ledger |
 | Plate | Color, type, pressure, and figure artifacts |
-| Action Link | Explicit source and provenance destinations |
-| Figure Caption | Figure identity, explanation, source, and originality note |
+| Action Link | Explicit navigation to the public Constitution |
+| Figure Caption | Figure identity and explanation |
 
 ## Technical Figure
 
-The figure explains the sync contract as two checks. First, identify which of
-the four forms owns a change: meaning, portable values, visual representation,
-or browser behavior. Then represent the result in every form, verify existing
-coverage, mark it not applicable, or record a deliberate difference. The
-linear explanation remains complete without decorative connectors.
+The public figure asks a visitor to start with intent, then test the same idea
+through meaning, materials, composition, and behavior. Its linear explanation
+remains complete without decorative connectors. The internal authority diagram
+remains project evidence rather than public website content.
 
 ## Semantic agreement and intentional differences
 
-Figma and browser agree on vocabulary, semantic token roles, hard-edged paper
-grammar, the four-owner round-trip relationship, Contextual Marginalia's three
-representative states, the direct eight-principle index, and the earned-scale
-reduction test.
+The project forms agree on vocabulary, semantic token roles, hard-edged paper
+grammar, Contextual Marginalia's three representative states, the direct
+eight-principle index, and the earned-scale reduction test.
 The following differences belong to the browser medium:
 
 - the two-column Principle Index becomes a sticky left rail on large screens
@@ -142,9 +144,11 @@ The following differences belong to the browser medium:
 - the document, rail, and narrow mast use square, token-colored authored
   scrollbars instead of dropping an unconsidered system scrollbar into the
   composition; and
-- the Technical Figure keeps the four owner checks in a roomy two-column grid
-  and reflows to one column on narrower screens while preserving the same
-  two-step explanation.
+- the public figure uses a roomy two-column grid and reflows to one column on
+  narrower screens while translating the internal authority model into
+  visitor-facing language; and
+- the public Constitution exists only as a browser reading route while its
+  project meaning remains owned by `DESIGN.md`.
 
 These are intentional translations, not token or meaning disagreements. The
 current parity states and node evidence live in
@@ -156,7 +160,7 @@ current parity states and node evidence live in
 Astro type checking, unit tests, the static build, and the Chromium suite. The
 browser suite verifies:
 
-- all eight source principles and all seven authored forms;
+- all eight principles and the authored forms still used by the public pages;
 - content-derived static index links with no redundant lens encoding or fake
   progress;
 - Terra as the default deployment colorway, complete whole-site Sage and Sky
@@ -170,7 +174,7 @@ browser suite verifies:
 - exact annotated type roles, authored scrollbar styling, and no horizontal
   overflow at desktop, tablet, 200% zoom-equivalent, and mobile widths;
 - automated accessibility analysis with axe; and
-- desktop, mobile, and Technical Figure screenshot regression.
+- desktop, mobile, Constitution, and Technical Figure screenshot regression.
 
 Independent agent-browser inspection also confirmed a complete accessibility
 tree, clean desktop and mobile composition, and no console or page errors.
@@ -188,6 +192,10 @@ tree, clean desktop and mobile composition, and no console or page errors.
 ### Technical Figure in context
 
 ![Technical Figure browser composition](reference-site/v1/technical-figure.png)
+
+### Public Constitution
+
+![Public Constitution reading page](reference-site/v1/constitution.png)
 
 ### Terra deployment colorway
 

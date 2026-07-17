@@ -3,59 +3,11 @@ import "@fontsource/source-serif-4/400.css";
 import "@fontsource/source-serif-4/600.css";
 import "@fontsource/ibm-plex-mono/400.css";
 import "@fontsource/ibm-plex-mono/500.css";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteMast from "../components/SiteMast.astro";
+import { principles } from "../content/constitution";
 import "../styles/tokens.css";
 import "../styles/site.css";
-
-const principles = [
-  {
-    number: "01",
-    title: "Make structure honest",
-    summary:
-      "A line, edge, or gap belongs when it clarifies hierarchy, exposes an action, or makes behavior easier to understand.",
-  },
-  {
-    number: "02",
-    title: "Make the work inspectable",
-    summary:
-      "Show where important information came from, what state it is in, and how an action changed it. The work should be traceable, not merely confident.",
-  },
-  {
-    number: "03",
-    title: "Let joy do useful work",
-    summary:
-      "Joy belongs when it makes something clearer, easier to remember, or more comfortable to use.",
-  },
-  {
-    number: "04",
-    title: "Pair warmth with precision",
-    summary:
-      "Let the reading voice be warm and the factual voice be exact. They should support each other without pretending to be the same.",
-  },
-  {
-    number: "05",
-    title: "Keep delight unexpected",
-    summary:
-      "A delight is a useful surprise. Give it room to land; when everything is unexpected, surprise becomes the house style and stops feeling surprising.",
-  },
-  {
-    number: "06",
-    title: "Animate to aid understanding",
-    summary:
-      "Animation should make an explanation easier to grasp or an interaction easier to follow. The words and structure still carry the meaning without it.",
-  },
-  {
-    number: "07",
-    title: "Design for each medium",
-    summary:
-      "Carry the same intent into each medium, then adapt the form to what that medium does well. Agreement matters more than imitation.",
-  },
-  {
-    number: "08",
-    title: "Make it available to everyone",
-    summary:
-      "Design for different bodies, devices, connections, and ways of interacting from the start. Access is part of the work, not a fallback.",
-  },
-] as const;
 
 const colors = [
   { name: "Page", token: "surface.page", className: "page" },
@@ -77,30 +29,29 @@ const authorities = [
   {
     className: "meaning",
     owner: "Meaning",
-    artifact: "DESIGN.md",
-    detail: "principles · vocabulary · reasons",
+    artifact: "The principles",
+    detail: "intent · judgment · reasons",
   },
   {
-    className: "values",
-    owner: "Portable values",
-    artifact: "jbm.tokens.json",
-    detail: "reusable values · provenance",
+    className: "materials",
+    owner: "Materials",
+    artifact: "The foundations",
+    detail: "color · type · rules",
+  },
+  {
+    className: "composition",
+    owner: "Composition",
+    artifact: "The page",
+    detail: "hierarchy · measure · rhythm",
   },
   {
     className: "behavior",
-    owner: "Browser behavior",
-    artifact: "Reference site",
-    detail: "responsive · interaction · motion",
-  },
-  {
-    className: "representation",
-    owner: "Visual decisions",
-    artifact: "Figma",
-    detail: "composition · states · studies",
+    owner: "Behavior",
+    artifact: "The interaction",
+    detail: "responsive · keyboard · motion",
   },
 ] as const;
 
-const githubRoot = "https://github.com/chekos/joyful-brutalist-minimalism";
 const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
 ---
 
@@ -123,19 +74,7 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
   <body data-jbm-form="ground">
     <a class="skip-link" href="#main-content">Skip to the language</a>
 
-    <header class="site-mast">
-      <a class="wordmark" href="#top" aria-label="Joyful Brutalist Minimalism, top">
-        <span>JBM</span>
-        <span>v1 / browser proof</span>
-      </a>
-      <nav aria-label="Page sections">
-        <a href="#principles">Principles</a>
-        <a href="#foundations">Foundations</a>
-        <a href="#marginalia">Marginalia</a>
-        <a href="#figure">Figure</a>
-        <a href="#sources">Sources</a>
-      </nav>
-    </header>
+    <SiteMast />
 
     <div class="page-shell" id="top">
       <aside class="reading-instrument" aria-labelledby="instrument-heading">
@@ -181,14 +120,10 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
             </p>
           </div>
           <div class="hero-actions">
-            <a class="action-link" data-jbm-form="action-link" href={`${githubRoot}/blob/main/DESIGN.md`}>
-              Read the constitution <span aria-hidden="true">↗</span>
-            </a>
-            <a class="action-link quiet" data-jbm-form="action-link" href="https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ">
-              Open the Figma source <span aria-hidden="true">↗</span>
+            <a class="action-link" data-jbm-form="action-link" href="/constitution/">
+              Read the constitution <span aria-hidden="true">→</span>
             </a>
           </div>
-          <p class="hero-note">PUBLIC SOURCE · INTENTIONALLY UNLICENSED · INTERPRETATION IS NOT AUTOMATIC INHERITANCE</p>
         </section>
 
         <hr class="rule strong" data-jbm-form="rule" />
@@ -452,13 +387,13 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
         <section class="section figure-section" id="figure" aria-labelledby="figure-title">
           <header class="section-intro split-intro">
             <div>
-              <p class="kicker signal" data-jbm-form="kicker">04 / Technical figure</p>
-              <h2 id="figure-title">One change. Four clear checks.</h2>
+              <p class="kicker signal" data-jbm-form="kicker">04 / Practice in motion</p>
+              <h2 id="figure-title">One idea. Four ways it shows up.</h2>
             </div>
             <p>
-              Meaning, shared values, visual decisions, and browser behavior
-              each have a home. Change the source that owns the decision, then
-              check the other three.
+              A design choice should agree in its meaning, materials,
+              composition, and behavior. Each view tests whether the idea
+              survives beyond a single screen.
             </p>
           </header>
 
@@ -467,11 +402,11 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
               class="authority-map"
               role="img"
               aria-describedby="figure-equivalent figure-caption"
-              aria-label="An accepted change is resolved in its owning source, then checked across all four forms."
+              aria-label="A design idea is named by its intent, then tested through meaning, materials, composition, and behavior."
             >
               <div class="authority-step authority-step-change">
-                <span>01 / Resolve the change</span>
-                <strong>Change the source that owns the decision.</strong>
+                <span>01 / Start with intent</span>
+                <strong>Name what the choice should help someone understand or do.</strong>
               </div>
               <ol class="authority-grid">
                 {
@@ -485,118 +420,27 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
                 }
               </ol>
               <div class="authority-step authority-step-check">
-                <span>02 / Check every form</span>
-                <strong>Represent it · verify it · mark it not applicable · document the difference</strong>
+                <span>02 / Test the whole</span>
+                <strong>Read it · see it · use it · revisit it in another context</strong>
               </div>
             </div>
             <p class="sr-only" id="figure-equivalent">
-              Meaning belongs to DESIGN.md, portable values belong to the token
-              file, visual representation belongs to Figma, and responsive and
-              interactive behavior belongs to the reference site. Together they
-              expose one system. An accepted change resolves in its owner, then
-              every other form is represented, verified, marked not applicable,
-              or intentionally divergent.
+              Begin by naming what a choice should help someone understand or
+              do. Then test whether that intent remains clear in the principles,
+              the visual materials, the composition of the page, and the
+              behavior of the interaction.
             </p>
             <figcaption class="figure-caption" id="figure-caption" data-jbm-form="figure-caption">
               <span>FIG. 01</span>
-              <strong>Every accepted change has one owner and four explicit checks.</strong>
-              <small>SOURCE · DESIGN.md § Authority, parity, and conflict resolution · Original JBM figure</small>
+              <strong>A strong idea survives translation into content, form, and behavior.</strong>
+              <small>PRACTICE NOTE · Test the same intent from more than one point of view</small>
             </figcaption>
           </figure>
-        </section>
-
-        <hr class="rule" data-jbm-form="rule" />
-
-        <section class="section translation-section" aria-labelledby="translation-title">
-          <header class="section-intro split-intro">
-            <div>
-              <p class="kicker" data-jbm-form="kicker">05 / Medium ledger</p>
-              <h2 id="translation-title">Round-trip parity beats pixel identity.</h2>
-            </div>
-            <p>
-              Figma and the repository are peer entry points. This browser proof
-              keeps the same system while accepting behavior that only a page can own.
-            </p>
-          </header>
-          <div class="translation-ledger">
-            <article>
-              <span>Agrees</span>
-              <h3>Names and responsibilities</h3>
-              <p>
-                Ground, Kicker, Rule, Index Row, Plate, Action Link, and Figure
-                Caption keep the same content functions, token roles, and hard-edged grammar.
-              </p>
-            </article>
-            <article>
-              <span>Translates</span>
-              <h3>Responsive composition</h3>
-              <p>
-                The wide Figma study becomes a sticky principle index on large screens
-                and a horizontal source index on narrow screens without pretending to measure progress.
-              </p>
-            </article>
-            <article>
-              <span>Belongs here</span>
-              <h3>Interaction and access</h3>
-              <p>
-                Focus order, pointer feedback, direct fragment navigation,
-                no-JavaScript anchors, and reduced motion are browser-owned decisions.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <hr class="rule strong" data-jbm-form="rule" />
-
-        <section class="section source-section" id="sources" aria-labelledby="sources-title">
-          <header class="section-intro split-intro">
-            <div>
-              <p class="kicker signal" data-jbm-form="kicker">06 / Inspect the source</p>
-              <h2 id="sources-title">The language stays legible from idea to implementation.</h2>
-            </div>
-            <p>
-              Start in the repository or Figma, resolve the owning concern, then
-              reconcile every core form and record important divergence.
-            </p>
-          </header>
-
-          <nav class="source-links" aria-label="Design language sources">
-            <a class="action-link" data-jbm-form="action-link" href={`${githubRoot}/blob/main/DESIGN.md`}>
-              <span>01</span> Constitution <span aria-hidden="true">↗</span>
-            </a>
-            <a class="action-link" data-jbm-form="action-link" href={`${githubRoot}/blob/main/tokens/jbm.tokens.json`}>
-              <span>02</span> Canonical tokens <span aria-hidden="true">↗</span>
-            </a>
-            <a class="action-link" data-jbm-form="action-link" href="https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ">
-              <span>03</span> Figma library <span aria-hidden="true">↗</span>
-            </a>
-            <a class="action-link" data-jbm-form="action-link" href={`${githubRoot}/issues/1`}>
-              <span>04</span> Epic and receipts <span aria-hidden="true">↗</span>
-            </a>
-            <a class="action-link" data-jbm-form="action-link" href={`${githubRoot}/blob/main/SYNC.md`}>
-              <span>05</span> Round-trip sync <span aria-hidden="true">↗</span>
-            </a>
-            <a class="action-link" data-jbm-form="action-link" href={githubRoot}>
-              <span>06</span> Repository source <span aria-hidden="true">↗</span>
-            </a>
-          </nav>
-
-          <aside class="license-note">
-            <p class="kicker">Licensing status</p>
-            <p>
-              This public repository is intentionally unlicensed. Visibility is not
-              permission to reuse its documentation, code, or visual assets.
-            </p>
-          </aside>
         </section>
       </main>
     </div>
 
-    <footer class="site-footer">
-      <span>Joyful Brutalist Minimalism / v1</span>
-      <span>Authored by Sergio Sánchez Zavala</span>
-      <a href="#top">Return to the measure ↑</a>
-    </footer>
+    <SiteFooter />
 
     <script is:inline>
       const preview = document.querySelector("[data-colorway-preview]");

@@ -1,0 +1,164 @@
+---
+import "@fontsource/source-serif-4/400.css";
+import "@fontsource/source-serif-4/600.css";
+import "@fontsource/ibm-plex-mono/400.css";
+import "@fontsource/ibm-plex-mono/500.css";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteMast from "../components/SiteMast.astro";
+import {
+  foundations,
+  practiceSteps,
+  principles,
+} from "../content/constitution";
+import "../styles/tokens.css";
+import "../styles/site.css";
+
+const canonicalURL = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site)
+  : Astro.url;
+---
+
+<!doctype html>
+<html lang="en" data-jbm-colorway="terra">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="The public constitution of Joyful Brutalist Minimalism: eight principles and practical foundations for clear, warm, useful web design."
+    />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="theme-color" content="#fffef9" />
+    <title>The Constitution · Joyful Brutalist Minimalism</title>
+    <script is:inline>
+      document.documentElement.classList.add("has-js");
+    </script>
+  </head>
+  <body data-jbm-form="ground">
+    <a class="skip-link" href="#main-content">Skip to the constitution</a>
+    <SiteMast />
+
+    <main class="constitution-main" id="main-content" tabindex="-1">
+      <header class="constitution-hero" id="top">
+        <div>
+          <p class="kicker signal" data-jbm-form="kicker">
+            The constitution
+          </p>
+          <h1>A working language for making the web feel clear, warm, and alive.</h1>
+        </div>
+        <div class="constitution-intro">
+          <p>
+            Joyful Brutalist Minimalism treats a page as a working surface:
+            structure is visible enough to understand, editorial warmth invites
+            reading, and technical precision keeps behavior clear.
+          </p>
+          <blockquote>
+            Show how the thing works, give the content room to speak, and attach
+            one restrained moment of joy to something useful.
+          </blockquote>
+          <a class="action-link" data-jbm-form="action-link" href="/">
+            Back to the browser proof <span aria-hidden="true">←</span>
+          </a>
+        </div>
+      </header>
+
+      <section
+        class="constitution-section"
+        id="constitution-principles"
+        aria-labelledby="constitution-principles-title"
+      >
+        <header>
+          <p class="kicker" data-jbm-form="kicker">01 / Principles</p>
+          <h2 id="constitution-principles-title">Eight tests for what belongs.</h2>
+          <p>
+            These principles are judgments, not a style checklist. Use them to
+            ask whether a choice makes the work clearer, more useful, easier to
+            use, or more memorable.
+          </p>
+        </header>
+        <ol class="constitution-ledger">
+          {
+            principles.map((principle) => (
+              <li>
+                <span>{principle.number}</span>
+                <div>
+                  <h3>{principle.title}</h3>
+                  <p>{principle.summary}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <section
+        class="constitution-section"
+        id="constitution-foundations"
+        aria-labelledby="constitution-foundations-title"
+      >
+        <header>
+          <p class="kicker" data-jbm-form="kicker">02 / Foundations</p>
+          <h2 id="constitution-foundations-title">
+            Ordinary materials, used with intention.
+          </h2>
+          <p>
+            The language does not depend on a special effect. Its character
+            comes from giving familiar materials clear jobs.
+          </p>
+        </header>
+        <ol class="constitution-ledger compact">
+          {
+            foundations.map((foundation) => (
+              <li>
+                <span>{foundation.number}</span>
+                <div>
+                  <h3>{foundation.title}</h3>
+                  <p>{foundation.copy}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <section
+        class="constitution-section constitution-practice"
+        id="constitution-practice"
+        aria-labelledby="constitution-practice-title"
+      >
+        <header>
+          <p class="kicker signal" data-jbm-form="kicker">
+            03 / Put it to work
+          </p>
+          <h2 id="constitution-practice-title">Begin with a reason.</h2>
+          <p>
+            A hard edge, a generous pause, or a playful interaction is only as
+            good as the job it does for the person using the page.
+          </p>
+        </header>
+        <ol class="practice-grid">
+          {
+            practiceSteps.map((step) => (
+              <li>
+                <span>{step.number}</span>
+                <h3>{step.title}</h3>
+                <p>{step.copy}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <aside class="constitution-not" aria-labelledby="constitution-not-title">
+        <p class="kicker" data-jbm-form="kicker">A useful boundary</p>
+        <h2 id="constitution-not-title">This is not a kit to install.</h2>
+        <p>
+          It is a way to make decisions. Carry the intent into the work in front
+          of you, then let that medium, audience, and content determine the form.
+        </p>
+      </aside>
+    </main>
+
+    <SiteFooter returnLabel="Return to the constitution" />
+  </body>
+</html>

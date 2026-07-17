@@ -1,0 +1,17 @@
+---
+interface Props {
+  returnHref?: string;
+  returnLabel?: string;
+}
+
+const {
+  returnHref = "#top",
+  returnLabel = "Return to the measure",
+} = Astro.props;
+---
+
+<footer class="site-footer">
+  <span>Joyful Brutalist Minimalism / v1</span>
+  <span>Authored by Sergio Sánchez Zavala</span>
+  <a href={returnHref}>{returnLabel} ↑</a>
+</footer>
