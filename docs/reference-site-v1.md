@@ -217,3 +217,12 @@ scoped to representative surfaces so failures remain reviewable.
 The artifact is published at [jbm.bns.studio](https://jbm.bns.studio) through
 the repository's GitHub Pages workflow. Public visibility and the Figma link do
 not imply a license or automatic inheritance by consumer repositories.
+
+The deployment-scoped colorway implementation shipped from
+[pull request #33](https://github.com/chekos/joyful-brutalist-minimalism/pull/33)
+as commit `3164ac1b39806f39ea9d8c020829490e88137005`.
+[Pages run 29561194273](https://github.com/chekos/joyful-brutalist-minimalism/actions/runs/29561194273)
+completed successfully. The public HTTPS response declares Terra at the root
+and serves the generated Terra, Sage, and Sky selectors. A live Chromium smoke
+verified whole-site Sage and Sky switching, exactly one pressed preview state,
+and no console or page errors.
