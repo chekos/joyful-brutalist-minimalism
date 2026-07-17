@@ -54,6 +54,7 @@ test("renders one coherent, source-grounded specimen", async ({ page }) => {
 });
 
 test("the constitution is a real public page on the same site", async ({ page }) => {
+  await page.setViewportSize({ width: 1247, height: 784 });
   await page.getByRole("link", { name: /Read the constitution/ }).click();
 
   await expect(page).toHaveURL(/\/constitution\/$/);
@@ -84,6 +85,33 @@ test("the constitution is a real public page on the same site", async ({ page })
   expect(publicCopy).not.toMatch(
     /\b(figma|github|repository|licensing|unlicensed|round-trip)\b/i,
   );
+
+  const hierarchy = await page.evaluate(() => {
+    const quote = document.querySelector("blockquote");
+    const boundary = document.querySelector(".constitution-not");
+    const label = boundary?.querySelector(".kicker")?.getBoundingClientRect();
+    const title = boundary?.querySelector("h2")?.getBoundingClientRect();
+    const copy = boundary
+      ?.querySelector(":scope > p:last-child")
+      ?.getBoundingClientRect();
+    return {
+      quoteColor: quote ? getComputedStyle(quote).color : "",
+      bodyColor: getComputedStyle(document.body).color,
+      boundaryBackground: boundary
+        ? getComputedStyle(boundary).backgroundColor
+        : "",
+      bodyBackground: getComputedStyle(document.body).backgroundColor,
+      labelLeft: Math.round(label?.left ?? -1),
+      titleLeft: Math.round(title?.left ?? -2),
+      titleTop: Math.round(title?.top ?? -3),
+      copyTop: Math.round(copy?.top ?? -4),
+    };
+  });
+
+  expect(hierarchy.quoteColor).toBe(hierarchy.bodyColor);
+  expect(hierarchy.boundaryBackground).toBe(hierarchy.bodyBackground);
+  expect(hierarchy.labelLeft).toBe(hierarchy.titleLeft);
+  expect(hierarchy.titleTop).toBe(hierarchy.copyTop);
 
   await page.getByRole("link", { name: /Back to the browser proof/ }).click();
   await expect(page).toHaveURL(/\/$/);
