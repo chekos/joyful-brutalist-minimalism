@@ -97,10 +97,34 @@
           "screenshot": "docs/figma/v1/technical-figure.png"
         },
         "browser": {
+          "status": "intentional-divergence",
+          "reason": "The public figure translates the internal authority model into a visitor-facing test across meaning, materials, composition, and behavior. It does not expose project tooling or synchronization process."
+        }
+      }
+    },
+    {
+      "id": "public-constitution",
+      "status": "accepted",
+      "forms": {
+        "meaning": {
           "status": "represented",
-          "source": "src/pages/index.astro",
-          "sourceMarker": "class=\"technical-figure\"",
-          "selector": ".technical-figure"
+          "path": "DESIGN.md",
+          "anchorHeading": "## The constitution"
+        },
+        "tokens": {
+          "status": "verified-existing",
+          "reason": "Existing surface, text, accent, rule, space, type, focus, and motion roles cover the public reading page."
+        },
+        "figma": {
+          "status": "intentional-divergence",
+          "reason": "The dedicated Constitution route is a browser-owned public reading surface. The unready visual working file is intentionally neither named nor linked from the public site."
+        },
+        "browser": {
+          "status": "represented",
+          "source": "src/pages/constitution.astro",
+          "sourceMarker": "class=\"constitution-main\"",
+          "selector": ".constitution-main",
+          "url": "https://jbm.bns.studio/constitution/"
         }
       }
     },

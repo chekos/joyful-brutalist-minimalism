@@ -1,0 +1,26 @@
+---
+const isHome = Astro.url.pathname === "/";
+const homePrefix = isHome ? "" : "/";
+---
+
+<header class="site-mast">
+  <a
+    class="wordmark"
+    href={isHome ? "#top" : "/"}
+    aria-label={isHome
+      ? "Joyful Brutalist Minimalism, top"
+      : "Joyful Brutalist Minimalism, home"}
+  >
+    <span>JBM</span>
+    <span>v1 / browser proof</span>
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href={`${homePrefix}#principles`}>Principles</a>
+    <a href={`${homePrefix}#foundations`}>Foundations</a>
+    <a href={`${homePrefix}#marginalia`}>Marginalia</a>
+    <a href={`${homePrefix}#figure`}>Figure</a>
+    <a href="/constitution/" aria-current={isHome ? undefined : "page"}>
+      Constitution
+    </a>
+  </nav>
+</header>

@@ -55,7 +55,7 @@
     {
       "path": "docs/sync/manifest.json",
       "role": "machine-readable sync receipt",
-      "sha256": "cb98dfbc3d121a51dc4efaf060b360d7813ab60fb6aa7e0823a8d7392f878a9c"
+      "sha256": "bead5b8b365a813d5fd979da3e5493f4fbd50a35b91c6fccd98d6e530640b985"
     }
   ],
   "verification": {

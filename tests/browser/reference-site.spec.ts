@@ -24,18 +24,69 @@ test("renders one coherent, source-grounded specimen", async ({ page }) => {
   await expect(page.locator("[data-principle]")).toHaveCount(8);
   await expect(page.locator(".authority-node")).toHaveCount(4);
   await expect(
-    page.getByRole("heading", { name: "One change. Four clear checks." }),
+    page.getByRole("heading", { name: "One idea. Four ways it shows up." }),
   ).toBeVisible();
-  await expect(page.getByRole("link", { name: /Round-trip sync/ })).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: /Read the constitution/ }),
+  ).toHaveAttribute("href", "/constitution/");
   await expect(page.locator("[data-instrument-mark]")).toHaveCount(8);
   await expect(page.locator(".mark-code")).toHaveCount(0);
   await expect(page.locator(".lens-ledger")).toHaveCount(0);
   await expect(page.locator(".index-lens")).toHaveCount(0);
   await expect(page.locator(".space-plate")).toHaveCount(0);
+  await expect(page.locator("#sources")).toHaveCount(0);
+  await expect(page.locator(".translation-section")).toHaveCount(0);
+  const implementationLinks = await page.locator("body").evaluate(() =>
+    [...document.querySelectorAll("a")]
+      .map((link) => link.href)
+      .filter((href) => /figma\.com|github\.com/i.test(href)),
+  );
+  expect(implementationLinks).toEqual([]);
+
+  const publicCopy = await page.locator("body").innerText();
+  expect(publicCopy).not.toMatch(
+    /\b(figma|github|repository|licensing|unlicensed|round-trip)\b/i,
+  );
 
   for (const form of authoredForms) {
     await expect(page.locator(`[data-jbm-form="${form}"]`).first()).toBeAttached();
   }
+});
+
+test("the constitution is a real public page on the same site", async ({ page }) => {
+  await page.getByRole("link", { name: /Read the constitution/ }).click();
+
+  await expect(page).toHaveURL(/\/constitution\/$/);
+  await expect(page).toHaveTitle(
+    "The Constitution · Joyful Brutalist Minimalism",
+  );
+  await expect(
+    page.getByRole("heading", {
+      level: 1,
+      name: "A working language for making the web feel clear, warm, and alive.",
+    }),
+  ).toBeVisible();
+  await expect(
+    page.locator("#constitution-principles .constitution-ledger li"),
+  ).toHaveCount(8);
+  await expect(
+    page.locator("#constitution-foundations .constitution-ledger li"),
+  ).toHaveCount(5);
+  await expect(page.locator(".practice-grid li")).toHaveCount(4);
+  const implementationLinks = await page.locator("body").evaluate(() =>
+    [...document.querySelectorAll("a")]
+      .map((link) => link.href)
+      .filter((href) => /figma\.com|github\.com/i.test(href)),
+  );
+  expect(implementationLinks).toEqual([]);
+
+  const publicCopy = await page.locator("body").innerText();
+  expect(publicCopy).not.toMatch(
+    /\b(figma|github|repository|licensing|unlicensed|round-trip)\b/i,
+  );
+
+  await page.getByRole("link", { name: /Back to the browser proof/ }).click();
+  await expect(page).toHaveURL(/\/$/);
 });
 
 test("defaults to Terra and previews one whole-site colorway at a time", async ({
@@ -201,26 +252,25 @@ test("tablet, mobile, and 200 percent zoom equivalents do not overflow", async (
 
     expect(width.scroll).toBe(width.client);
     await expect(page.getByRole("link", { name: /Read the constitution/ })).toBeVisible();
-    await expect(page.getByRole("link", { name: /Open the Figma source/ })).toBeVisible();
   }
 });
 
-test("long translation copy stays inside its ruled ledger", async ({ page }) => {
+test("long public figure copy stays inside its ruled cell", async ({ page }) => {
   await page.setViewportSize({ width: 1247, height: 784 });
-  await page.goto("/#translation");
+  await page.goto("/#figure");
 
-  const secondEntry = page.locator(".translation-ledger article").nth(1);
-  await secondEntry.locator("h3").evaluate((heading) => {
+  const secondEntry = page.locator(".authority-node").nth(1);
+  await secondEntry.locator("strong").evaluate((heading) => {
     heading.textContent =
       "Responsive composition with a deliberatelyunbrokenevidencelabelthatmuststillwrap";
   });
-  await secondEntry.locator("p").evaluate((paragraph) => {
+  await secondEntry.locator("small").evaluate((paragraph) => {
     paragraph.textContent =
       "A longer explanation remains bounded by the same authored rule and never widens the document.";
   });
 
   const layout = await page.evaluate(() => {
-    const ledger = document.querySelector<HTMLElement>(".translation-ledger");
+    const ledger = document.querySelector<HTMLElement>(".authority-grid");
     const entry = ledger?.children[1] as HTMLElement | undefined;
     const ledgerBounds = ledger?.getBoundingClientRect();
     const entryBounds = entry?.getBoundingClientRect();
@@ -342,7 +392,9 @@ test("the complete page remains useful without JavaScript", async ({ browser }) 
   await expect(page.locator("[data-principle]")).toHaveCount(8);
   await expect(page.locator("[data-instrument-mark]")).toHaveCount(8);
   await expect(page.locator(".technical-figure")).toBeVisible();
-  await expect(page.getByRole("link", { name: /Canonical tokens/ })).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: /Read the constitution/ }),
+  ).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute(
     "data-jbm-colorway",
     "terra",
@@ -440,5 +492,13 @@ test("matches representative desktop and mobile surfaces", async ({ page }) => {
     // Source Serif rasterizes differently on macOS and Linux at this density.
     // Layout, interaction, and content assertions remain exact above.
     maxDiffPixelRatio: 0.15,
+  });
+
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto("/constitution/");
+  await page.evaluate(() => document.fonts.ready);
+  await expect(page).toHaveScreenshot("reference-site-constitution.png", {
+    animations: "disabled",
+    maxDiffPixelRatio: 0.05,
   });
 });
