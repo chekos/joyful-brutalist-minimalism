@@ -21,6 +21,8 @@ The human-outcome clarity pass fulfills
 [issue #35](https://github.com/chekos/joyful-brutalist-minimalism/issues/35)
 through
 [pull request #36](https://github.com/chekos/joyful-brutalist-minimalism/pull/36).
+The responsive Principle Index correction fulfills
+[issue #44](https://github.com/chekos/joyful-brutalist-minimalism/issues/44).
 Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 [`tokens/jbm.tokens.json`](../tokens/jbm.tokens.json), and the generated
 [`tokens/jbm.figma.json`](../tokens/jbm.figma.json). The machine-readable
@@ -55,9 +57,11 @@ inventory needed to audit an imported copy or a manual rebuild.
 - The Technical Figure presents the parity rule as two clear checks: identify
   the owner, then reconcile all four forms. Decorative connector lines and the
   duplicate caption were removed.
-- The Principle Index remains a study. It shows eight numbered titles in a
-  two-column grid without lens glyphs, category counts, legends, or repeated
-  summaries.
+- The Principle Index remains a study at node `106:8`. Its wide state preserves
+  all eight numbered titles as a labeled rail beside the primary introduction.
+  Its 390px narrow state establishes that editorial introduction before the
+  same eight visible destinations. Both states avoid lens glyphs, category
+  counts, legends, and repeated summaries.
 - The Earned Scale study records the accepted reduction test. The 48px treatment
   is rejected because 32px preserves hierarchy and comprehension; the Plate
   component grid and all portable values remain unchanged.
@@ -100,6 +104,9 @@ namespace:
 - `checkpoint_clarity`: human-outcome principles, the direct index, realistic
   marginalia, the two-step authority figure, and verified existing color cards;
   and
+- `checkpoint_responsive_principle_index`: wide and narrow states, eight
+  visible destination titles, introduction-first narrow order, exact existing
+  token bindings, no missing fonts, and no overflow; and
 - `final_validation`: the complete pages, tokens, styles, components, and
   studies audit.
 
@@ -163,6 +170,6 @@ deferred.
 ![Studies page](figma/v1/05-studies.png)
 
 Detailed crops: [Technical Figure](figma/v1/technical-figure.png),
-[Principle Index](figma/v1/reading-instrument.png),
+[Responsive Principle Index](figma/v1/reading-instrument.png),
 [Earned Scale](figma/v1/earned-scale.png), and
 [Contextual Marginalia](figma/v1/contextual-marginalia.png).

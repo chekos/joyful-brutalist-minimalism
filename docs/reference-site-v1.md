@@ -20,6 +20,9 @@ and
 [pull request #36](https://github.com/chekos/joyful-brutalist-minimalism/pull/36).
 The public-content boundary and dedicated Constitution route are tracked in
 [issue #39](https://github.com/chekos/joyful-brutalist-minimalism/issues/39).
+The responsive Principle Index and paper-depth semantics corrections are
+tracked in [issue #44](https://github.com/chekos/joyful-brutalist-minimalism/issues/44)
+and [issue #45](https://github.com/chekos/joyful-brutalist-minimalism/issues/45).
 
 Its authoritative inputs are [`DESIGN.md`](../DESIGN.md),
 [`tokens/jbm.tokens.json`](../tokens/jbm.tokens.json), the generated
@@ -70,8 +73,10 @@ the two without changing the source data.
 The index says only what a reader needs to choose a destination: number and
 title. It does not repeat the title as a glyph, classify the same item again by
 lens, restate category counts, or pretend to measure reading progress. All
-eight links remain readable and operable without JavaScript and jump directly
-to their principle in the real ledger.
+eight links remain visibly labeled, readable, and operable without JavaScript
+at desktop, tablet, 200%-zoom-equivalent, and mobile widths. On narrow screens
+the primary editorial introduction comes first in source and visual order,
+followed by the full index and then the principle ledger.
 
 ## Earned scale
 
@@ -135,7 +140,7 @@ eight-principle index, and the earned-scale reduction test.
 The following differences belong to the browser medium:
 
 - the two-column Principle Index becomes a sticky left rail on large screens
-  and a horizontal source index on narrow screens;
+  and a one- or two-column labeled source index on narrow screens;
 - the rail remains static because all eight destinations are adjacent; direct
   fragment links expose useful navigation without fake progress;
 - visible focus, logical keyboard order, touch behavior, responsive reflow,
@@ -173,6 +178,9 @@ browser suite verifies:
 - reduced-motion duration, state, and reading content;
 - exact annotated type roles, authored scrollbar styling, and no horizontal
   overflow at desktop, tablet, 200% zoom-equivalent, and mobile widths;
+- meaningful destination labels, at least 44px-tall targets, and
+  introduction-first index order across those responsive widths;
+- a semantic paper-depth figure and caption without prohibited ARIA naming;
 - automated accessibility analysis with axe; and
 - desktop, mobile, Constitution, and Technical Figure screenshot regression.
 

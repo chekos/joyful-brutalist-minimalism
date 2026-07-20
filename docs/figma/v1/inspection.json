@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 4,
-  "runId": "jbm-clarity-20260717",
+  "schemaVersion": 5,
+  "runId": "jbm-responsive-index-20260720",
   "status": "passed",
   "file": {
     "key": "T4jEmsyQBURKMr6s3zYfFJ",
@@ -141,11 +141,23 @@
       "syncModel": "one-system-four-owners-round-trip-parity"
     },
     "principleIndex": {
-      "nodeId": "41:7",
+      "nodeId": "106:8",
       "status": "study",
       "principles": 8,
       "interaction": "static-adjacent-anchors",
-      "representation": "number-and-title-only",
+      "representation": "wide-labeled-rail-and-narrow-introduction-first-index",
+      "states": {
+        "wide": "106:11",
+        "narrow": "108:9"
+      },
+      "narrowSourceOrder": [
+        "primary-editorial-introduction",
+        "fully-labeled-principle-index"
+      ],
+      "visibleDestinationTitles": 8,
+      "missingFonts": 0,
+      "horizontalOverflow": 0,
+      "portableValuesChanged": false,
       "lensEncoding": false,
       "source": "DESIGN.md#principles"
     },
@@ -182,6 +194,7 @@
     "earnedScale": "jbm_dsb/checkpoint_earned_scale",
     "colorways": "jbm_dsb/checkpoint_colorways",
     "clarity": "jbm_dsb/checkpoint_clarity",
+    "responsivePrincipleIndex": "jbm_dsb/checkpoint_responsive_principle_index",
     "finalValidation": "jbm_dsb/final_validation",
     "namedVersionHistory": "unsupported-by-remote-runtime"
   },
@@ -190,7 +203,7 @@
     "manifest": "docs/sync/manifest.json",
     "tokenParity": {
       "status": "passed",
-      "verifiedOn": "2026-07-16",
+      "verifiedOn": "2026-07-20",
       "variables": 40,
       "textStyles": 4,
       "effectStyles": 2,
