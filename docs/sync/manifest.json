@@ -3,7 +3,7 @@
   "system": "Joyful Brutalist Minimalism",
   "contract": "SYNC.md",
   "decision": "docs/decisions/0003-round-trip-parity-is-a-system-invariant.md",
-  "updatedOn": "2026-07-17",
+  "updatedOn": "2026-07-20",
   "figmaFile": {
     "key": "T4jEmsyQBURKMr6s3zYfFJ",
     "url": "https://www.figma.com/design/T4jEmsyQBURKMr6s3zYfFJ"
@@ -22,7 +22,7 @@
   ],
   "tokenParity": {
     "status": "passed",
-    "verifiedOn": "2026-07-16",
+    "verifiedOn": "2026-07-20",
     "canonical": "tokens/jbm.tokens.json",
     "generatedMapping": "tokens/jbm.figma.json",
     "figmaInspection": "docs/figma/v1/inspection.json",
@@ -164,7 +164,7 @@
       }
     },
     {
-      "id": "static-principle-index",
+      "id": "responsive-principle-index",
       "status": "study",
       "forms": {
         "meaning": {
@@ -178,11 +178,15 @@
         },
         "figma": {
           "status": "represented",
-          "nodeId": "41:7",
+          "nodeId": "106:8",
+          "states": {
+            "wide": "106:11",
+            "narrow": "108:9"
+          },
           "interaction": "static-adjacent-anchors",
-          "representation": "number-and-title-only",
+          "representation": "wide-labeled-rail-and-narrow-introduction-first-index",
           "lensEncoding": false,
-          "checkpoint": "jbm_dsb/checkpoint_clarity",
+          "checkpoint": "jbm_dsb/checkpoint_responsive_principle_index",
           "screenshot": "docs/figma/v1/reading-instrument.png"
         },
         "browser": {
@@ -190,7 +194,7 @@
           "source": "src/pages/index.astro",
           "sourceMarker": "class=\"reading-instrument\"",
           "selector": ".reading-instrument",
-          "behavior": "Direct fragment navigation with no lens encoding or viewport-derived progress."
+          "behavior": "Direct fragment navigation with visible destination titles at every supported width; the primary editorial introduction precedes the index in narrow source and visual order."
         }
       }
     },

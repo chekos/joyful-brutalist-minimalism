@@ -176,11 +176,23 @@
         "syncModel": "one-system-four-owners-round-trip-parity"
       },
       "principleIndex": {
-        "nodeId": "41:7",
+        "nodeId": "106:8",
         "status": "study",
         "principles": 8,
         "interaction": "static-adjacent-anchors",
-        "representation": "number-and-title-only",
+        "representation": "wide-labeled-rail-and-narrow-introduction-first-index",
+        "states": {
+          "wide": "106:11",
+          "narrow": "108:9"
+        },
+        "narrowSourceOrder": [
+          "primary-editorial-introduction",
+          "fully-labeled-principle-index"
+        ],
+        "visibleDestinationTitles": 8,
+        "missingFonts": 0,
+        "horizontalOverflow": 0,
+        "portableValuesChanged": false,
         "lensEncoding": false,
         "source": "DESIGN.md#principles"
       },
@@ -214,7 +226,7 @@
   "sync": {
     "contract": "SYNC.md",
     "manifest": "docs/sync/manifest.json",
-    "liveCheckpoint": "jbm_dsb/checkpoint_clarity"
+    "liveCheckpoint": "jbm_dsb/checkpoint_responsive_principle_index"
   },
   "snapshot": {
     "format": ".fig",

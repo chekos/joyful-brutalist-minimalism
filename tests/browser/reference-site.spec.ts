@@ -283,6 +283,58 @@ test("tablet, mobile, and 200 percent zoom equivalents do not overflow", async (
   }
 });
 
+test("responsive principle index keeps its labels and follows the introduction", async ({
+  page,
+}) => {
+  for (const viewport of [
+    { width: 900, height: 900, columns: 1 },
+    { width: 720, height: 900, columns: 2 },
+    { width: 390, height: 844, columns: 1 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await page.goto("/");
+    await page.evaluate(() => document.fonts.ready);
+
+    const hero = page.locator(".hero");
+    const index = page.locator(".reading-instrument");
+    const marks = page.locator("[data-instrument-mark]");
+
+    await expect(marks).toHaveCount(8);
+    for (const mark of await marks.all()) {
+      await expect(mark.locator(".mark-title")).toBeVisible();
+      const target = await mark.getAttribute("href");
+      expect(target).toMatch(/^#principle-\d{2}$/);
+      const bounds = await mark.boundingBox();
+      expect(bounds?.height ?? 0).toBeGreaterThanOrEqual(44);
+    }
+
+    const geometry = await page.evaluate(() => {
+      const heroBounds = document.querySelector(".hero")?.getBoundingClientRect();
+      const indexBounds = document
+        .querySelector(".reading-instrument")
+        ?.getBoundingClientRect();
+      const list = document.querySelector(".instrument-marks");
+      return {
+        heroTop: Math.round(heroBounds?.top ?? -1),
+        heroBottom: Math.round(heroBounds?.bottom ?? -1),
+        indexTop: Math.round(indexBounds?.top ?? -2),
+        indexColumns: list
+          ? getComputedStyle(list).gridTemplateColumns.split(" ").length
+          : 0,
+      };
+    });
+
+    expect(geometry.indexColumns).toBe(viewport.columns);
+    if (viewport.width <= 800) {
+      expect(geometry.indexTop).toBeGreaterThanOrEqual(geometry.heroBottom);
+      await expect(hero).toBeVisible();
+      await expect(index).toBeVisible();
+    } else {
+      expect(geometry.indexTop).toBe(geometry.heroTop);
+    }
+  }
+});
+
 test("long public figure copy stays inside its ruled cell", async ({ page }) => {
   await page.setViewportSize({ width: 1247, height: 784 });
   await page.goto("/#figure");
@@ -469,6 +521,9 @@ test("reduced motion preserves state while removing movement", async ({ page }) 
 test("has no automatically detectable accessibility violations", async ({ page }) => {
   const results = await new AxeBuilder({ page }).analyze();
   expect(results.violations).toEqual([]);
+  expect(
+    results.incomplete.filter((item) => item.id === "aria-prohibited-attr"),
+  ).toEqual([]);
 });
 
 test("matches representative desktop and mobile surfaces", async ({ page }) => {

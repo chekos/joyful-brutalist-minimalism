@@ -146,10 +146,28 @@ a {
 }
 
 .page-shell {
-  display: grid;
   max-width: 1680px;
   margin: 0 auto;
+}
+
+.page-shell > main {
+  display: grid;
+  min-width: 0;
+  outline: none;
+  grid-template-areas:
+    "instrument hero"
+    "instrument flow";
   grid-template-columns: minmax(15rem, 18rem) minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+}
+
+.hero {
+  grid-area: hero;
+}
+
+.main-flow {
+  min-width: 0;
+  grid-area: flow;
 }
 
 .reading-instrument {
@@ -165,6 +183,7 @@ a {
   border-right: var(--jbm-rule-width-default) solid var(--jbm-color-semantic-rule-default);
   background: var(--jbm-color-semantic-surface-paper);
   box-shadow: var(--jbm-shadow-paper-inset);
+  grid-area: instrument;
   scrollbar-color: var(--jbm-color-semantic-text-primary) var(--jbm-color-semantic-surface-quiet);
   scrollbar-gutter: stable;
   scrollbar-width: thin;
@@ -281,14 +300,7 @@ html::-webkit-scrollbar-thumb:hover,
 }
 
 .mark-title {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-main {
   min-width: 0;
-  outline: none;
 }
 
 .hero,
@@ -713,6 +725,7 @@ main {
 .pressure-samples {
   display: grid;
   padding-top: var(--jbm-space-12);
+  margin: 0;
   gap: var(--jbm-space-6);
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -1372,6 +1385,10 @@ main {
   }
 
   .page-shell {
+    display: block;
+  }
+
+  .page-shell > main {
     grid-template-columns: 16rem minmax(0, 1fr);
   }
 
@@ -1383,13 +1400,8 @@ main {
     font-size: 1.6rem;
   }
 
-  .instrument-summary,
-  .mark-title {
-    display: none;
-  }
-
   .instrument-mark {
-    grid-template-columns: 1fr;
+    min-height: 3.25rem;
   }
 
   .hero {
@@ -1459,7 +1471,7 @@ main {
     flex: 0 0 auto;
   }
 
-  .page-shell {
+  .page-shell > main {
     display: block;
   }
 
@@ -1493,19 +1505,13 @@ main {
   }
 
   .instrument-marks {
-    grid-template-columns: repeat(8, minmax(2.6rem, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .instrument-mark {
-    display: flex;
-    min-height: 3.5rem;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2px;
-  }
-
-  .mark-title {
-    display: none;
+    min-height: 3.75rem;
+    padding: var(--jbm-space-2);
+    grid-template-columns: 2rem minmax(0, 1fr);
   }
 
   .hero,
@@ -1632,15 +1638,15 @@ main {
   }
 
   .instrument-marks {
-    gap: 2px;
+    grid-template-columns: 1fr;
   }
 
   .instrument-mark {
-    min-height: 3rem;
+    min-height: 3.5rem;
   }
 
   .mark-number {
-    font-size: 0.5rem;
+    font-size: 0.625rem;
   }
 
   .hero,
@@ -1825,6 +1831,10 @@ main {
   }
 
   .page-shell {
+    display: block;
+  }
+
+  .page-shell > main {
     display: block;
   }
 
